@@ -1,6 +1,6 @@
 # crypto/CMakeLists.txt
 set(ROOT src)
-set(LIBNAME calculator)
+set(LIBNAME rental_management_lib)
 
 message(STATUS "[${ROOT}/${LIBNAME}] Module Processing...")
 
@@ -21,14 +21,11 @@ source_group("src" FILES ${LIB_SOURCES})
 add_library(${LIBNAME} STATIC ${LIB_HEADERS} ${LIB_SOURCES}) # for dynamic library use SHARED
 
 target_include_directories(${LIBNAME} PUBLIC
-						   ${CMAKE_CURRENT_SOURCE_DIR}/../utility/header
 						   ${CMAKE_CURRENT_SOURCE_DIR}/header)
 
-# Add any dependencies or compile options specific to crypto
-target_link_libraries(${LIBNAME} PRIVATE utility)
 
 # creates preprocessor definition used for library exports
-add_compile_definitions("CORUH_CALCULATOR_LIB_EXPORTS")
+add_compile_definitions("HIKMET_RENTAL_MANAGEMENT_LIB_EXPORTS")
 
 install(TARGETS ${LIBNAME}
         LIBRARY DESTINATION lib

@@ -56,11 +56,11 @@ python3 -m coverxygen --xml-dir ./docs/doxygentestlinux/xml --src-dir ./ --forma
 
 
 echo "Run Documentation Coverage Report Generator for Library"
-reportgenerator "-title:Calculator Library Documentation Coverage Report (Linux)" "-reports:**/lcov_doxygen_lib_linux.info" "-targetdir:docs/coverxygenliblinux" "-reporttypes:Html" "-filefilters:-*.md;-*.xml;-*[generated];-*build*" "-historydir:report_doc_lib_hist_linux"
+reportgenerator "-title:Rental Management Library Documentation Coverage Report (Linux)" "-reports:**/lcov_doxygen_lib_linux.info" "-targetdir:docs/coverxygenliblinux" "-reporttypes:Html" "-filefilters:-*.md;-*.xml;-*[generated];-*build*" "-historydir:report_doc_lib_hist_linux"
 reportgenerator "-reports:**/lcov_doxygen_lib_linux.info" "-targetdir:assets/doccoverageliblinux" "-reporttypes:Badges" "-filefilters:-*.md;-*.xml;-*[generated];-*build*"
 
 echo "Run Documentation Coverage Report Generator for Unit Tests"
-reportgenerator "-title:Calculator Library Test Documentation Coverage Report (Linux)" "-reports:**/lcov_doxygen_test_linux.info" "-targetdir:docs/coverxygentestlinux" "-reporttypes:Html" "-filefilters:-*.md;-*.xml;-*[generated];-*build*" "-historydir:report_doc_test_hist_linux"
+reportgenerator "-title:Rental Management Library Test Documentation Coverage Report (Linux)" "-reports:**/lcov_doxygen_test_linux.info" "-targetdir:docs/coverxygentestlinux" "-reporttypes:Html" "-filefilters:-*.md;-*.xml;-*[generated];-*build*" "-historydir:report_doc_test_hist_linux"
 reportgenerator "-reports:**/lcov_doxygen_test_linux.info" "-targetdir:assets/doccoveragetestlinux" "-reporttypes:Badges" "-filefilters:-*.md;-*.xml;-*[generated];-*build*"
 
 
@@ -81,9 +81,8 @@ cd ..
 
 echo Running Test Executable
 
-./publish_linux/bin/utility_tests
-./publish_linux/bin/calculator_tests
-./publish_linux/bin/calculatorapp
+./publish_linux/bin/rental_management_tests
+./publish_linux/bin/rental_management_app
 
 echo "Generate Test Coverage Data"
 lcov --rc lcov_branch_coverage=1 --capture --initial --directory . --output-file coverage_linux.info
@@ -93,10 +92,10 @@ lcov --rc lcov_branch_coverage=1 --remove coverage_linux.info 'tests/*' --output
 lcov --rc lcov_branch_coverage=1 --list coverage_linux.info
 
 echo "Generate Test Report"
-reportgenerator "-title:Calculator Library Unit Test Coverage Report (Linux)" "-reports:**/coverage_linux.info" "-targetdir:docs/coveragereportliblinux" "-reporttypes:Html" 
+reportgenerator "-title:Rental Management Library Unit Test Coverage Report (Linux)" "-reports:**/coverage_linux.info" "-targetdir:docs/coveragereportliblinux" "-reporttypes:Html" 
 
-"-sourcedirs:src/utility/src;src/utility/header;src/calculator/src;src/calculator/header;src/calculatorapp/src;src/calculatorapp/header;src/tests/utility;src/tests/calculator" "-filefilters:-*minkernel\*;-*gtest*;-*a\_work\*;-*gtest-*;-*gtest.cc;-*gtest.h;-*build*" "-historydir:report_test_hist_linux"
-reportgenerator "-reports:**/coverage_linux.info" "-targetdir:assets/codecoverageliblinux" "-reporttypes:Badges" "-sourcedirs:src/utility/src;src/utility/header;src/calculator/src;src/calculator/header;src/calculatorapp/src;src/calculatorapp/header;src/tests/utility;src/tests/calculator" "-filefilters:-*minkernel\*;-*gtest*;-*a\_work\*;-*gtest-*;-*gtest.cc;-*gtest.h;-*build*"
+"-sourcedirs:src/rental_management_lib/src;src/rental_management_lib/header;src/rental_management_app/src;src/rental_management_app/header;src/tests/rental_management_lib" "-filefilters:-*minkernel\*;-*gtest*;-*a\_work\*;-*gtest-*;-*gtest.cc;-*gtest.h;-*build*" "-historydir:report_test_hist_linux"
+reportgenerator "-reports:**/coverage_linux.info" "-targetdir:assets/codecoverageliblinux" "-reporttypes:Badges" "-sourcedirs:src/rental_management_lib/src;src/rental_management_lib/header;src/rental_management_app/src;src/rental_management_app/header;src/tests/rental_management_test" "-filefilters:-*minkernel\*;-*gtest*;-*a\_work\*;-*gtest-*;-*gtest.cc;-*gtest.h;-*build*"
 
 echo "Copy the 'assets' folder and its contents to 'docs' recursively"
 cp -R assets "docs/assets"
@@ -114,14 +113,12 @@ tar -czvf release_linux/linux-publish-binaries.tar.gz -C publish_linux .
 
 echo "Package Publish Linux Binaries"
 mkdir -p build_linux/build/Release
-cp -R src/utility/header build_linux/build/Release
-cp -R src/calculator/header build_linux/build/Release
+cp -R src/rental_management_lib/header build_linux/build/Release
 tar -czvf release_linux/linux-release-binaries.tar.gz -C build_linux/build/Release .
 
 echo "Package Publish Debug Linux Binaries"
 mkdir -p build_linux/build/Debug
-cp -R src/utility/header build_linux/build/Debug
-cp -R src/calculator/header build_linux/build/Debug
+cp -R src/rental_management_lib/header build_linux/build/Debug
 tar -czvf release_linux/linux-debug-binaries.tar.gz -C build_linux/build/Debug .
 
 echo "Package Publish Test Coverage Report"
