@@ -1,3 +1,14 @@
+/**
+ * @file rental_management_lib.cpp
+ * @brief Main library file to contain all functions.
+ *
+ */
+
+ /**
+ * 
+ * @brief variable to disable warnings.
+ *
+ */
 #define _CRT_SECURE_NO_WARNINGS
 
 #include "../header/rental_management_lib.h"
@@ -22,9 +33,7 @@ int file_write(const char *file_name, const char *text) {
     // Opens file with "wb" mode. 
     // The file is created if it does not exist.
     myFile = fopen(file_name, "wb");
-    if (myFile == NULL) {
-        return -1; // Return error code if file opening fails
-    }
+
 
     // Write the modified text to the file
     fwrite(prefixText, sizeof(char), strlen(prefixText), myFile);
@@ -127,12 +136,7 @@ int file_append(const char *file_name, const char *text) {
     }
     lineNumber++; // Increment line number for the new line
 
-    // Now, open the file in append mode to add the new line
     myFile = fopen(file_name, "ab");
-    if (myFile == NULL) {
-        printf("File operation failed\n");
-        return -1;
-    }
 
     // Append new content with line number
     fprintf(myFile, "%d-)%s\n", lineNumber, text);
@@ -195,10 +199,6 @@ int file_edit(const char *file_name, int line_number_to_edit, const char *new_li
 
     // Open file for writing
     myFile = fopen(file_name, "wb");
-    if (myFile == NULL) {
-        printf("File operation failed\n");
-        return -1;
-    }
 
     // Write updated lines back to file
     for (int j = 0; j < line_count; j++) {
@@ -266,16 +266,11 @@ int file_line_delete(const char *file_name, int line_number_to_delete) {
         return -1;
     }
 
-    // Open file for writing (this will overwrite the original file)
+    // Open file for writing 
     myFile = fopen(file_name, "wb");
-    if (myFile == NULL) {
-        printf("File operation failed\n");
-        return -1;
-    }
 
     // Write updated lines back to file, adjusting line numbers if necessary
     for (int j = 0; j < line_count; j++) {
-        // Check if we need to adjust the line number
         char *lineNumEnd = strstr(lines[j], "-)");
         if (lineNumEnd != NULL) {
             int currentLineNumber = atoi(lines[j]);
@@ -285,8 +280,6 @@ int file_line_delete(const char *file_name, int line_number_to_delete) {
             } else {
                 fputs(lines[j], myFile); // Write the line as it is
             }
-        } else {
-            fputs(lines[j], myFile); // Write the line as it is
         }
     }
 

@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<coverage version="1.0" date="2024-03-08_18-31-27" tag="">
-  <assembly name="Default">
-    <class name="C:\Users\hikme\Desktop\GitHub\ce100-midterm-hikmethan-kolay-yagizemre-ozbilge-cpp\src\tests\rental_management_test\rental_management_test.cpp" coveredlines="14" coverablelines="18" totallines="132" coveredbranches="0" totalbranches="0" coveredcodeelements="0" totalcodeelements="0" />
-  </assembly>
-</coverage>

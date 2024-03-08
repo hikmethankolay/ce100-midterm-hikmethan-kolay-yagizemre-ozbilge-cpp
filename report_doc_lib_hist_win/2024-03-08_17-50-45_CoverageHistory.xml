@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<coverage version="1.0" date="2024-03-08_17-50-45" tag="">
-  <assembly name="Default">
-    <class name="C:\Users\hikme\Desktop\GitHub\ce100-midterm-hikmethan-kolay-yagizemre-ozbilge-cpp\src\rental_management_app\header\rental_management_app.h" coveredlines="1" coverablelines="1" totallines="11" coveredbranches="0" totalbranches="0" coveredcodeelements="0" totalcodeelements="0" />
-    <class name="C:\Users\hikme\Desktop\GitHub\ce100-midterm-hikmethan-kolay-yagizemre-ozbilge-cpp\src\rental_management_app\src\rental_management_app.cpp" coveredlines="1" coverablelines="3" totallines="17" coveredbranches="0" totalbranches="0" coveredcodeelements="0" totalcodeelements="0" />
-    <class name="C:\Users\hikme\Desktop\GitHub\ce100-midterm-hikmethan-kolay-yagizemre-ozbilge-cpp\src\rental_management_lib\header\rental_management_lib.h" coveredlines="6" coverablelines="6" totallines="61" coveredbranches="0" totalbranches="0" coveredcodeelements="0" totalcodeelements="0" />
-    <class name="C:\Users\hikme\Desktop\GitHub\ce100-midterm-hikmethan-kolay-yagizemre-ozbilge-cpp\src\rental_management_lib\src\rental_management_lib.cpp" coveredlines="5" coverablelines="6" totallines="291" coveredbranches="0" totalbranches="0" coveredcodeelements="0" totalcodeelements="0" />
-  </assembly>
-</coverage>
