@@ -116,6 +116,58 @@ TEST_F(RentalTest, TestFileDeleteFail_2) {
 }
 
 /**
+ * @brief Tests the user_login function in a fail case
+ */
+TEST_F(RentalTest, TestUserLoginFail) {
+  EXPECT_EQ(fail, user_login("username", "passwordaa", "usertest.bin"));
+}
+
+/**
+ * @brief Tests the user_change_password function in a fail case
+ */
+TEST_F(RentalTest, TestUserChangePasswordFail) {
+  EXPECT_EQ(fail, user_change_password("recoverykey","newpassword", "usertest.bin"));
+}
+
+/**
+ * @brief Tests the user_register function.
+ */
+TEST_F(RentalTest, TestUserRegister) {
+  char testString[] = "username/password/recoverykey";
+  user_register("username","password","recoverykey","usertest.bin");
+  EXPECT_EQ(*testString, *file_read("usertest.bin"));
+}
+
+/**
+ * @brief Tests the user_login function.
+ */
+TEST_F(RentalTest, TestUserLogin) {
+  EXPECT_EQ(success, user_login("username", "password", "usertest.bin"));
+}
+
+/**
+ * @brief Tests the user_login function in a fail case
+ */
+TEST_F(RentalTest, TestUserLoginFail_2) {
+  EXPECT_EQ(fail, user_login("usernameaa", "passwordaa", "usertest.bin"));
+}
+
+
+/**
+ * @brief Tests the user_change_password function.
+ */
+TEST_F(RentalTest, TestUserChangePassword) {
+  EXPECT_EQ(success, user_change_password("recoverykey", "newpassword", "usertest.bin"));
+}
+
+/**
+ * @brief Tests the user_change_password function in a fail case
+ */
+TEST_F(RentalTest, TestUserChangePasswordFail_2) {
+  EXPECT_EQ(fail, user_change_password("recoverykeyaa","newpassword", "usertest.bin"));
+}
+
+/**
  * @brief The main function of the test program.
  *
  * @param argc The number of command-line arguments.

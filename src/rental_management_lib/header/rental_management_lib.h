@@ -55,7 +55,33 @@ int file_edit(const char *file_name, int line_number_to_edit, const char *new_li
  */
 int file_line_delete(const char *file_name, int line_number_to_delete);
 
+/**
+ * @brief This function is for user login
+ *
+ * Function read user.bin file and checks if username and password matchs with inputted username and password
+ *
+ * @return 0 on success.
+ * @return -1 on fail.
+ */
+int user_login(const char *username, const char *password, const char *user_file);
 
 
+/**
+ * @brief This function is for user register
+ *
+ * Function creates a user file in binary format and writes inputted username and password in it. Additionaly deletes all previous records.
+ *
+ * @return 0 on success.
+ * @return -1 on fail.
+ */
+int user_register(const char *new_username, const char *new_password, const char *new_recovery_key, const char *user_file);
+
+/**
+ * @brief This function changes the password of a user.
+ *
+ * @return 0 on success.
+ * @return -1 on fail.
+ */
+int user_change_password(const char *recovery_key, const char *new_password, const char *user_file);
 
 #endif // RENTAL_MANAGEMENT_LIB_H

@@ -287,3 +287,142 @@ int file_line_delete(const char *file_name, int line_number_to_delete) {
     printf("\nData successfully deleted\n\n");
     return 0;
 }
+
+/**
+ * @brief This function is for user login
+ *
+ * Function read user.bin file and checks if username and password matchs with inputted username and password
+ *
+ * @return 0 on success.
+ * @return -1 on fail.
+ */
+int user_login(const char *username, const char *password, const char *user_file) {
+    char username_read[256] = ""; 
+    char password_read[256] = "";
+    char recovery_key_read[256] = "";
+    FILE *myFile;
+    int count = 0;
+    char i;
+
+    myFile = fopen(user_file, "rb"); // Opens file with input tag in binary mode
+
+    if (!myFile) {
+        printf("There is no user info, Please register first.\n");
+        return -1;
+    }
+
+    while (fread(&i, sizeof(char), 1, myFile)) {
+        if (i == '/') {
+            count++;
+            continue;
+        }
+
+        if (count == 0) {
+            size_t len = strlen(username_read);
+            username_read[len] = i;
+            username_read[len + 1] = '\0';
+        } else if (count == 1) {
+            size_t len = strlen(password_read);
+            password_read[len] = i;
+            password_read[len + 1] = '\0';
+        } else if (count == 2) {
+            break;
+        }
+    }
+
+    fclose(myFile);
+
+    if (strcmp(username, username_read) == 0 && strcmp(password, password_read) == 0) {
+        printf("Login Successful\n");
+        return 0;
+    } else {
+        printf("Wrong username or password\n");
+        return -1;
+    }
+}
+
+/**
+ * @brief This function changes the password of a user.
+ *
+ * @return 0 on success.
+ * @return -1 on fail.
+ */
+int user_change_password(const char *recovery_key, const char *new_password, const char *user_file) {
+    char username_read[256] = "";
+    char password_read[256] = "";
+    char recovery_key_read[256] = "";
+    FILE *myFile;
+    int count = 0;
+    char i;
+
+    myFile = fopen(user_file, "rb"); // Opens file with input tag in binary mode
+
+    if (myFile) {
+        while (fread(&i, sizeof(char), 1, myFile)) {
+            if (i == '/') {
+                count++;
+                continue;
+            }
+
+            if (count == 0) {
+                size_t len = strlen(username_read);
+                username_read[len] = i;
+                username_read[len + 1] = '\0';
+            } else if (count == 1) {
+                continue; // Skip reading password
+            } else if (count == 2) {
+                size_t len = strlen(recovery_key_read);
+                recovery_key_read[len] = i;
+                recovery_key_read[len + 1] = '\0';
+            }
+        }
+
+        fclose(myFile);
+    } else {
+        printf("There is no user info, Please register first.\n");
+        return -1;
+    }
+
+    if (strcmp(recovery_key, recovery_key_read) == 0) {
+        printf("Recovery Key Approved\n");
+
+        myFile = fopen(user_file, "wb"); // Open file with output tag in binary mode, truncating existing content
+
+        fprintf(myFile, "%s/%s/%s", username_read, new_password, recovery_key_read); // Write new login info
+        fclose(myFile);
+        printf("Password changed successfully\n");
+        return 0;
+
+    } else {
+        printf("Wrong Recovery Key\n");
+        return -1;
+    }
+}
+
+/**
+ * @brief This function is for user register
+ *
+ * Function creates a user file in binary format and writes inputted username and password in it. Additionaly deletes all previous records.
+ *
+ * @return 0 on success.
+ * @return -1 on fail.
+ */
+int user_register(const char *new_username, const char *new_password, const char *new_recovery_key, const char *user_file) {
+    FILE *myFile;
+
+    // Attempt to open the file for writing in binary mode, truncating it if it exists
+    myFile = fopen(user_file, "wb");
+
+
+    // Write the combined login information to the file
+    fprintf(myFile, "%s/%s/%s", new_username, new_password, new_recovery_key);
+    fclose(myFile);
+
+
+    remove("_records.bin");
+    remove("_records.bin");
+    remove("_records.bin");
+    remove("_records.bin");
+
+    return 0;
+}
