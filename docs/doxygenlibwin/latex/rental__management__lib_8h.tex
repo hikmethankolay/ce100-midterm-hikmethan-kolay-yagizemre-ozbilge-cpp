@@ -1,0 +1,195 @@
+\doxysection{src/rental\+\_\+management\+\_\+lib/header/rental\+\_\+management\+\_\+lib.h File Reference}
+\hypertarget{rental__management__lib_8h}{}\label{rental__management__lib_8h}\index{src/rental\_management\_lib/header/rental\_management\_lib.h@{src/rental\_management\_lib/header/rental\_management\_lib.h}}
+
+
+Provides functions for rental\+\_\+management\+\_\+app.  
+
+
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{rental__management__lib_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{rental__management__lib_8h_a1717462d7b3af047b844c81f67277057}{file\+\_\+write}} (const char \texorpdfstring{$\ast$}{*}file\+\_\+name, const char \texorpdfstring{$\ast$}{*}text)
+\begin{DoxyCompactList}\small\item\em Opens a binary file, deletes all of its content, and writes given text to it. \end{DoxyCompactList}\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{rental__management__lib_8h_a8825f65171435cb417c7f14fb9ad1b4f}{file\+\_\+read}} (const char \texorpdfstring{$\ast$}{*}file\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Opens a binary file, reads all of its content, separates lines with \"{}\textbackslash{}n\"{}, and writes them to console. Also returns the contents of the file as a string for unit tests. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{rental__management__lib_8h_a1f8a16f9b21069257fb67e2699b8e600}{file\+\_\+append}} (const char \texorpdfstring{$\ast$}{*}file\+\_\+name, const char \texorpdfstring{$\ast$}{*}text)
+\begin{DoxyCompactList}\small\item\em Appends given text to a binary file with an automatic calculated line number. Calculates new lines line number by finding the last line\textquotesingle{}s line number. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{rental__management__lib_8h_a6d0977386bba126252ea385ad0edad5b}{file\+\_\+edit}} (const char \texorpdfstring{$\ast$}{*}file\+\_\+name, int line\+\_\+number\+\_\+to\+\_\+edit, const char \texorpdfstring{$\ast$}{*}new\+\_\+line)
+\begin{DoxyCompactList}\small\item\em This function opens a binary file, finds the line that the user wants to edit, and replaces it with new text. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{rental__management__lib_8h_ac4d60bc5920d299f6d1aded994288ec0}{file\+\_\+line\+\_\+delete}} (const char \texorpdfstring{$\ast$}{*}file\+\_\+name, int line\+\_\+number\+\_\+to\+\_\+delete)
+\begin{DoxyCompactList}\small\item\em Opens a binary file, deletes the line the user wanted, and makes adjustments on the line number accordingly. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides functions for rental\+\_\+management\+\_\+app. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{rental__management__lib_8h_a1f8a16f9b21069257fb67e2699b8e600}\label{rental__management__lib_8h_a1f8a16f9b21069257fb67e2699b8e600} 
+\index{rental\_management\_lib.h@{rental\_management\_lib.h}!file\_append@{file\_append}}
+\index{file\_append@{file\_append}!rental\_management\_lib.h@{rental\_management\_lib.h}}
+\doxysubsubsection{\texorpdfstring{file\_append()}{file\_append()}}
+{\footnotesize\ttfamily int file\+\_\+append (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{file\+\_\+name,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{text }\end{DoxyParamCaption})}
+
+
+
+Appends given text to a binary file with an automatic calculated line number. Calculates new lines line number by finding the last line\textquotesingle{}s line number. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+\_\+name} & The name of the file to append to. \\
+\hline
+{\em text} & The text to append to the file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, -\/1 on failure.
+\end{DoxyReturn}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+\_\+name} & The name of the file to append to. \\
+\hline
+{\em text} & The text to append to the file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+\Hypertarget{rental__management__lib_8h_a6d0977386bba126252ea385ad0edad5b}\label{rental__management__lib_8h_a6d0977386bba126252ea385ad0edad5b} 
+\index{rental\_management\_lib.h@{rental\_management\_lib.h}!file\_edit@{file\_edit}}
+\index{file\_edit@{file\_edit}!rental\_management\_lib.h@{rental\_management\_lib.h}}
+\doxysubsubsection{\texorpdfstring{file\_edit()}{file\_edit()}}
+{\footnotesize\ttfamily int file\+\_\+edit (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{file\+\_\+name,  }\item[{int}]{line\+\_\+number\+\_\+to\+\_\+edit,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{new\+\_\+line }\end{DoxyParamCaption})}
+
+
+
+This function opens a binary file, finds the line that the user wants to edit, and replaces it with new text. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+\_\+name} & The name of the file to edit. \\
+\hline
+{\em line\+\_\+number\+\_\+to\+\_\+edit} & The line number to edit. \\
+\hline
+{\em new\+\_\+line} & The new text to replace the existing line. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success.
+\end{DoxyReturn}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+\_\+name} & The name of the file to edit. \\
+\hline
+{\em line\+\_\+number\+\_\+to\+\_\+edit} & The line number to edit. \\
+\hline
+{\em new\+\_\+line} & The new text to replace the existing line. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success. 
+\end{DoxyReturn}
+\Hypertarget{rental__management__lib_8h_ac4d60bc5920d299f6d1aded994288ec0}\label{rental__management__lib_8h_ac4d60bc5920d299f6d1aded994288ec0} 
+\index{rental\_management\_lib.h@{rental\_management\_lib.h}!file\_line\_delete@{file\_line\_delete}}
+\index{file\_line\_delete@{file\_line\_delete}!rental\_management\_lib.h@{rental\_management\_lib.h}}
+\doxysubsubsection{\texorpdfstring{file\_line\_delete()}{file\_line\_delete()}}
+{\footnotesize\ttfamily int file\+\_\+line\+\_\+delete (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{file\+\_\+name,  }\item[{int}]{line\+\_\+number\+\_\+to\+\_\+delete }\end{DoxyParamCaption})}
+
+
+
+Opens a binary file, deletes the line the user wanted, and makes adjustments on the line number accordingly. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+\_\+name} & The name of the file to delete the line from. \\
+\hline
+{\em line\+\_\+number\+\_\+to\+\_\+delete} & The line number to delete. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success.
+\end{DoxyReturn}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+\_\+name} & The name of the file to delete the line from. \\
+\hline
+{\em line\+\_\+number\+\_\+to\+\_\+delete} & The line number to delete. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success. 
+\end{DoxyReturn}
+\Hypertarget{rental__management__lib_8h_a8825f65171435cb417c7f14fb9ad1b4f}\label{rental__management__lib_8h_a8825f65171435cb417c7f14fb9ad1b4f} 
+\index{rental\_management\_lib.h@{rental\_management\_lib.h}!file\_read@{file\_read}}
+\index{file\_read@{file\_read}!rental\_management\_lib.h@{rental\_management\_lib.h}}
+\doxysubsubsection{\texorpdfstring{file\_read()}{file\_read()}}
+{\footnotesize\ttfamily char \texorpdfstring{$\ast$}{*} file\+\_\+read (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{file\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+Opens a binary file, reads all of its content, separates lines with \"{}\textbackslash{}n\"{}, and writes them to console. Also returns the contents of the file as a string for unit tests. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+\_\+name} & The name of the file to read from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The contents of the file as a dynamically allocated string.
+\end{DoxyReturn}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+\_\+name} & The name of the file to read from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The contents of the file as a dynamically allocated string. 
+\end{DoxyReturn}
+\Hypertarget{rental__management__lib_8h_a1717462d7b3af047b844c81f67277057}\label{rental__management__lib_8h_a1717462d7b3af047b844c81f67277057} 
+\index{rental\_management\_lib.h@{rental\_management\_lib.h}!file\_write@{file\_write}}
+\index{file\_write@{file\_write}!rental\_management\_lib.h@{rental\_management\_lib.h}}
+\doxysubsubsection{\texorpdfstring{file\_write()}{file\_write()}}
+{\footnotesize\ttfamily int file\+\_\+write (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{file\+\_\+name,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{text }\end{DoxyParamCaption})}
+
+
+
+Opens a binary file, deletes all of its content, and writes given text to it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+\_\+name} & The name of the file to write. \\
+\hline
+{\em text} & The text to write. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success.
+\end{DoxyReturn}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+\_\+name} & The name of the file to write. \\
+\hline
+{\em text} & The text to write. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success. 
+\end{DoxyReturn}

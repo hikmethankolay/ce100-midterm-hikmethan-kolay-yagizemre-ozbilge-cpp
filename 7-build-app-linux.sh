@@ -33,6 +33,8 @@ mkdir "docs/doxygenliblinux"
 mkdir "docs/doxygentestlinux"
 mkdir "docs/testresultslinux"
 
+cp -r "$currentDir/original_test_files/"* "$currentDir/"
+
 echo "Delete the 'site' folder and its contents"
 #rm -rf "site"
 mkdir "site"
@@ -72,6 +74,9 @@ cmake --build build_linux --config Debug -j4
 cmake --build build_linux --config Release -j4
 cmake --install build_linux --strip
 echo "Test CMAKE"
+
+cp -r "$currentDir/original_test_files/"* "$currentDir/build_linux/src/tests/rental_management_test/"
+
 cd build_linux
 # ctest -C Debug -j4 --output-on-failure --output-log test_results_linux.log
 ctest -C Debug -j4 --output-junit testResults_linux.xml --output-log test_results_linux.log
@@ -119,6 +124,7 @@ tar -czvf release_linux/linux-release-binaries.tar.gz -C build_linux/build/Relea
 echo "Package Publish Debug Linux Binaries"
 mkdir -p build_linux/build/Debug
 cp -R src/rental_management_lib/header build_linux/build/Debug
+cp -r "$currentDir/original_test_files/"* "$currentDir/publish_linux/bin/"
 tar -czvf release_linux/linux-debug-binaries.tar.gz -C build_linux/build/Debug .
 
 echo "Package Publish Test Coverage Report"

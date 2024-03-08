@@ -1,0 +1,170 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.7" xml:lang="en-US">
+  <compounddef id="_r_e_a_d_m_e_8md" kind="file" language="Markdown">
+    <compoundname>README.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>Calculator<sp/>Project<sp/>Library<sp/>Generation<sp/>and<sp/>Testing<sp/>Template</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Overview</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>project<sp/>provides<sp/>a<sp/>suite<sp/>of<sp/>modules<sp/>aimed<sp/>to<sp/>show<sp/>how<sp/>Cmake<sp/>used<sp/>with<sp/>Ctest.<sp/>Also<sp/>combines<sp/>doxygen<sp/>documentation<sp/>and<sp/>test<sp/>coverage<sp/>reports</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Requirements</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>CMake<sp/>&gt;=<sp/>3.12</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>C++<sp/>Standard<sp/>&gt;=<sp/>11</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>GoogleTest<sp/>(for<sp/>testing<sp/>modules)</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Visual<sp/>Studio<sp/>Communit<sp/>Edition<sp/>for<sp/>Windows<sp/>Generator</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Ninja<sp/>for<sp/>WSL/Linux</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Setup<sp/>Development<sp/>Environment</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Step-1<sp/>(Run<sp/>on<sp/>Windows,<sp/>Can<sp/>Effect<sp/>on<sp/>WSL)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Run<sp/>1-configure-pre-commit.bat<sp/>file<sp/>to<sp/>copy<sp/>1-pre-commit<sp/>script<sp/>to<sp/>.git/hooks<sp/>that<sp/>checkes.<sp/>README.md,<sp/>gitignore<sp/>and<sp/>doxygenfiles.<sp/>Also<sp/>format<sp/>code<sp/>with<sp/>astyle<sp/>tool</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Step-2<sp/>(Run<sp/>on<sp/>Windows,<sp/>Can<sp/>Effect<sp/>on<sp/>WSL)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">If<sp/>gitignore<sp/>missing<sp/>then<sp/>you<sp/>can<sp/>create<sp/>gitignore<sp/>with<sp/>2-create-git-ignore.bat<sp/>file<sp/>run<sp/>this<sp/>file.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Step-3<sp/>(Only<sp/>Windows)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Install<sp/>package<sp/>managers<sp/>that<sp/>we<sp/>will<sp/>use<sp/>to<sp/>install<sp/>applications.<sp/>Run<sp/>3-install-package-manager.bat<sp/>to<sp/>install<sp/>choco<sp/>and<sp/>scoop<sp/>package<sp/>managers</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Step-4<sp/>(Only<sp/>Windows)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Run<sp/>4-install-windows-enviroment.bat<sp/>to<sp/>install<sp/>required<sp/>applications.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Step-5<sp/>(Only<sp/>WSL)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Open<sp/>powershell<sp/>as<sp/>admin<sp/>and<sp/>enter<sp/>WSL<sp/>then<sp/>goto<sp/>project<sp/>folder<sp/>and<sp/>run<sp/>4-install-wsl-environment.sh<sp/>to<sp/>setup<sp/>WSL<sp/>environment</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Generate<sp/>Development<sp/>Environment</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">You<sp/>can<sp/>run<sp/>9-clean-configure-app-windows.bat<sp/>to<sp/>generate<sp/>Visual<sp/>Studio<sp/>Communit<sp/>Edition<sp/>Project<sp/>of<sp/>this<sp/>file.<sp/>Or<sp/>You<sp/>can<sp/>use<sp/>Cmake<sp/>project<sp/>development<sp/>with<sp/>Visual<sp/>Studio<sp/>Community<sp/>Edition</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Build,<sp/>Test<sp/>and<sp/>Package<sp/>Application<sp/>on<sp/>Windows</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Run<sp/>7-build-app-windows.bat<sp/>to<sp/>build,<sp/>test<sp/>and<sp/>generate<sp/>packed<sp/>binaries<sp/>for<sp/>your<sp/>application<sp/>on<sp/>windows.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Also<sp/>you<sp/>can<sp/>run<sp/>7-build-doc-windows.bat<sp/>to<sp/>only<sp/>generate<sp/>documentation<sp/>and<sp/>8-build-test-windows.bat<sp/>to<sp/>only<sp/>test<sp/>application.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Build,<sp/>Test<sp/>and<sp/>Package<sp/>Application<sp/>on<sp/>WSL</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Run<sp/>7-build-app-linux.sh<sp/>to<sp/>build,<sp/>test<sp/>and<sp/>generate<sp/>packed<sp/>binaries<sp/>for<sp/>your<sp/>application<sp/>on<sp/>WSL<sp/>environment.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Clean<sp/>Project</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">You<sp/>can<sp/>run<sp/>9-clean-project.bat<sp/>to<sp/>clean<sp/>project<sp/>outputs.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Supported<sp/>Platforms</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">![Ubuntu<sp/>badge](assets/badge-ubuntu.svg)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">![macOS<sp/>badge](assets/badge-macos.svg)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">![Windows<sp/>badge](assets/badge-windows.svg)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Test<sp/>Coverage<sp/>Ratios</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&gt;<sp/>**Note**<sp/>:<sp/>There<sp/>is<sp/>a<sp/>known<sp/>bug<sp/>on<sp/>doxygen<sp/>following<sp/>badges<sp/>are<sp/>in<sp/>different<sp/>folder<sp/>but<sp/>has<sp/>same<sp/>name<sp/>for<sp/>this<sp/>reason<sp/>in<sp/>doxygen<sp/>html<sp/>report<sp/>use<sp/>same<sp/>image<sp/>for<sp/>all<sp/>content<sp/>[Images<sp/>with<sp/>same<sp/>name<sp/>overwrite<sp/>each<sp/>other<sp/>in<sp/>output<sp/>directory<sp/>·<sp/>Issue<sp/>#8362<sp/>·<sp/>doxygen/doxygen<sp/>·<sp/>GitHub](https://github.com/doxygen/doxygen/issues/8362).<sp/>README.md<sp/>and<sp/>WebPage<sp/>show<sp/>correct<sp/>badges.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/>Coverage<sp/>Type<sp/>|<sp/>Windows<sp/>OS<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>Linux<sp/>OS<sp/>(WSL-Ubuntu<sp/>20.04)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>-------------<sp/>|<sp/>----------------------------------------------------------------------<sp/>|<sp/>------------------------------------------------------------------------<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>Line<sp/>Based<sp/><sp/><sp/><sp/>|<sp/>![Line<sp/>Coverage](assets/codecoveragelibwin/badge_linecoverage.svg)<sp/><sp/><sp/><sp/><sp/>|<sp/>![Line<sp/>Coverage](assets/codecoverageliblinux/badge_linecoverage.svg)<sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>Branch<sp/>Based<sp/><sp/>|<sp/>![Branch<sp/>Coverage](assets/codecoveragelibwin/badge_branchcoverage.svg)<sp/>|<sp/>![Branch<sp/>Coverage](assets/codecoverageliblinux/badge_branchcoverage.svg)<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>Method<sp/>Based<sp/><sp/>|<sp/>![Method<sp/>Coverage](assets/codecoveragelibwin/badge_methodcoverage.svg)<sp/>|<sp/>![Method<sp/>Coverage](assets/codecoverageliblinux/badge_methodcoverage.svg)<sp/>|</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Documentation<sp/>Coverage<sp/>Ratios</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>Windows<sp/>OS<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>Linux<sp/>OS<sp/>(WSL-Ubuntu<sp/>20.04)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>------------------<sp/>|<sp/>-----------------------------------------------------------------<sp/>|<sp/>-------------------------------------------------------------------<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>**Coverage<sp/>Ratio**<sp/>|<sp/>![Line<sp/>Coverage](assets/doccoveragelibwin/badge_linecoverage.svg)<sp/>|<sp/>![Line<sp/>Coverage](assets/doccoverageliblinux/badge_linecoverage.svg)<sp/>|</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Install<sp/>Test<sp/>Results<sp/>to<sp/>HTML<sp/>Converter</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">We<sp/>are<sp/>using<sp/>[GitHub<sp/>-<sp/>inorton/junit2html:<sp/>Turn<sp/>Junit<sp/>XML<sp/>reports<sp/>into<sp/>self<sp/>contained<sp/>HTML<sp/>reports](https://github.com/inorton/junit2html)<sp/>to<sp/>convert<sp/>junit<sp/>xml<sp/>formatted<sp/>test<sp/>results<sp/>to<sp/>HTML<sp/>page<sp/>for<sp/>reporting<sp/>also<sp/>we<sp/>store<sp/>logs<sp/>during<sp/>test.<sp/>Use<sp/>following<sp/>commands<sp/>to<sp/>install<sp/>this<sp/>module<sp/>with<sp/>pip</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```bash</highlight></codeline>
+<codeline><highlight class="normal">pip<sp/>install<sp/>junit2html</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Github<sp/>Actions</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>project<sp/>also<sp/>compiled<sp/>and<sp/>tested<sp/>with<sp/>Github<sp/>Actions.<sp/>If<sp/>there<sp/>is<sp/>a<sp/>missing<sp/>setup<sp/>or<sp/>problem<sp/>follow<sp/>github<sp/>action<sp/>script<sp/>for<sp/>both<sp/>Windows<sp/>and<sp/>WSL<sp/>under</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`.github/workflows/cpp.yml`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Github<sp/>actions<sp/>take<sp/>too<sp/>much<sp/>time<sp/>more<sp/>than<sp/>1<sp/>hour<sp/>take<sp/>to<sp/>complete<sp/>build<sp/>for<sp/>Windows,<sp/>MacOS<sp/>and<sp/>Linux.<sp/>Also<sp/>its<sp/>paid<sp/>operation<sp/>for<sp/>this<sp/>reason<sp/>we<sp/>use<sp/>offline<sp/>batch<sp/>scripts<sp/>easy<sp/>to<sp/>use.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Build<sp/>App<sp/>on<sp/>Windows</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">We<sp/>have<sp/>already<sp/>configured<sp/>script<sp/>for<sp/>build<sp/>operations.<sp/>`7-build-app-windows.bat`<sp/>have<sp/>complete<sp/>all<sp/>required<sp/>tasks<sp/>and<sp/>copy<sp/>outputs<sp/>to<sp/>release<sp/>folder.<sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**Operation<sp/>Completed<sp/>in<sp/>11-15<sp/>minutes.**</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Clean<sp/>project<sp/>outputs</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Create<sp/>required<sp/>folders</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Run<sp/>doxygen<sp/>for<sp/>documentation</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Run<sp/>coverxygen<sp/>for<sp/>document<sp/>coverage<sp/>report</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Run<sp/>Report<sp/>Generator<sp/>for<sp/>Documentation<sp/>Coverage<sp/>Report</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Configure<sp/>project<sp/>for<sp/>Visual<sp/>Studio<sp/>Community<sp/>Edition</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Build<sp/>Project<sp/>Debug<sp/>and<sp/>Release</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Install/Copy<sp/>Required<sp/>Library<sp/>and<sp/>Headers</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Run<sp/>Tests<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Run<sp/>OpeCppCoverage<sp/>for<sp/>Coverage<sp/>Data<sp/>Collection</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Run<sp/>Reportgenerator<sp/>for<sp/>Test<sp/>Coverage<sp/>Report</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Copy<sp/>output<sp/>report<sp/>to<sp/>webpage<sp/>folder</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Run<sp/>mkdocs<sp/>to<sp/>build<sp/>webpage</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Compress<sp/>outputs<sp/>to<sp/>release<sp/>folder,<sp/>everything<sp/>is<sp/>ready<sp/>for<sp/>deployment.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Build<sp/>App<sp/>on<sp/>WSL/Linux</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">We<sp/>are<sp/>running<sp/>WSL<sp/>on<sp/>Windows<sp/>10<sp/>and<sp/>solve<sp/>our<sp/>virtual<sp/>machine<sp/>problem.<sp/>We<sp/>make<sp/>cross-platform<sp/>development.<sp/>After<sp/>development<sp/>before<sp/>commit<sp/>we<sp/>run<sp/>and<sp/>test<sp/>app<sp/>on<sp/>Windows<sp/>and<sp/>WSL<sp/>with<sp/>this<sp/>scripts.<sp/>To<sp/>run<sp/>on<sp/>WSL<sp/>you<sp/>need<sp/>to<sp/>install<sp/>WSL<sp/>first.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">you<sp/>can<sp/>use<sp/>our<sp/>public<sp/>notes</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>https://github.com/coruhtech/vs-docker-wsl-cpp-development</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>[GitHub<sp/>-<sp/>ucoruh/ns3-wsl-win10-setup:<sp/>ns3<sp/>windows<sp/>10<sp/>WSL2<sp/>setup<sp/>and<sp/>usage](https://github.com/ucoruh/ns3-wsl-win10-setup)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">After<sp/>WSL<sp/>installation,<sp/>right<sp/>click<sp/>and<sp/>open<sp/>WSL<sp/>bash<sp/>and<sp/>run<sp/>`7-build-app-linux.sh`<sp/>this<sp/>will<sp/>provide<sp/>similart<sp/>task<sp/>with<sp/>windows<sp/>and<sp/>will<sp/>generate<sp/>report<sp/>and<sp/>libraries<sp/>on<sp/>release<sp/>folder.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">----</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">$End-Of-File$</highlight></codeline>
+    </programlisting>
+    <location file="README.md"/>
+  </compounddef>
+</doxygen>

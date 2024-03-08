@@ -1,0 +1,263 @@
+\doxysection{src/tests/rental\+\_\+management\+\_\+test/rental\+\_\+management\+\_\+test.cpp File Reference}
+\hypertarget{rental__management__test_8cpp}{}\label{rental__management__test_8cpp}\index{src/tests/rental\_management\_test/rental\_management\_test.cpp@{src/tests/rental\_management\_test/rental\_management\_test.cpp}}
+{\ttfamily \#include \"{}gtest/gtest.\+h\"{}}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \"{}../../rental\+\_\+management\+\_\+lib/header/rental\+\_\+management\+\_\+lib.\+h\"{}}\newline
+Include dependency graph for rental\+\_\+management\+\_\+test.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{rental__management__test_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_rental_test}{Rental\+Test}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{rental__management__test_8cpp_a022ec853f0c2fcd0f061d501d8ce5690}{TEST\+\_\+F}} (\mbox{\hyperlink{class_rental_test}{Rental\+Test}}, Test\+File\+Read)
+\begin{DoxyCompactList}\small\item\em Tests the file\+\_\+read function. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{rental__management__test_8cpp_ad7b97476188d61c7c0a462121e48057e}{TEST\+\_\+F}} (\mbox{\hyperlink{class_rental_test}{Rental\+Test}}, Test\+File\+Append)
+\begin{DoxyCompactList}\small\item\em Tests the file\+\_\+append function. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{rental__management__test_8cpp_acf9e9bb97efe0ff8361cc338908c62c5}{TEST\+\_\+F}} (\mbox{\hyperlink{class_rental_test}{Rental\+Test}}, Test\+File\+Edit)
+\begin{DoxyCompactList}\small\item\em Tests the file\+\_\+edit function. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{rental__management__test_8cpp_ae38e216ce63b1f688953e91343c9cba1}{TEST\+\_\+F}} (\mbox{\hyperlink{class_rental_test}{Rental\+Test}}, Test\+File\+Delete)
+\begin{DoxyCompactList}\small\item\em Tests the file\+\_\+line\+\_\+delete function. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{rental__management__test_8cpp_a29af3a6c3716f425774f8f0cb07d19b7}{TEST\+\_\+F}} (\mbox{\hyperlink{class_rental_test}{Rental\+Test}}, Test\+File\+Write)
+\begin{DoxyCompactList}\small\item\em Tests the file\+\_\+write function. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{rental__management__test_8cpp_ac80937fe6e22f0c62cde6b928eb33a04}{TEST\+\_\+F}} (\mbox{\hyperlink{class_rental_test}{Rental\+Test}}, Test\+File\+Read\+Fail)
+\begin{DoxyCompactList}\small\item\em Tests the file\+\_\+read function in a fail case. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{rental__management__test_8cpp_a909db8396fce992ce392f616c5a1ed9a}{TEST\+\_\+F}} (\mbox{\hyperlink{class_rental_test}{Rental\+Test}}, Test\+File\+Append\+Fail)
+\begin{DoxyCompactList}\small\item\em Tests the file\+\_\+append function in a fail case. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{rental__management__test_8cpp_a7bd1e3bace8b4a73ac53d1c02ce2f22b}{TEST\+\_\+F}} (\mbox{\hyperlink{class_rental_test}{Rental\+Test}}, Test\+File\+Edit\+Fail)
+\begin{DoxyCompactList}\small\item\em Tests the file\+\_\+edit function in a fail case. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{rental__management__test_8cpp_a9dfe4c145fae19942ddf134540ade85d}{TEST\+\_\+F}} (\mbox{\hyperlink{class_rental_test}{Rental\+Test}}, Test\+File\+Edit\+Fail\+\_\+2)
+\begin{DoxyCompactList}\small\item\em Tests the file\+\_\+edit function in a fail case (line number out of range). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{rental__management__test_8cpp_a378455d06779cdb6828730e1043ca1fd}{TEST\+\_\+F}} (\mbox{\hyperlink{class_rental_test}{Rental\+Test}}, Test\+File\+Delete\+Fail)
+\begin{DoxyCompactList}\small\item\em Tests the file\+\_\+line\+\_\+delete function in a fail case. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{rental__management__test_8cpp_abd58d2b13f2894c394c20c85e416a5a7}{TEST\+\_\+F}} (\mbox{\hyperlink{class_rental_test}{Rental\+Test}}, Test\+File\+Delete\+Fail\+\_\+2)
+\begin{DoxyCompactList}\small\item\em Tests the file\+\_\+line\+\_\+delete function in a fail case (line number out of range). \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{rental__management__test_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}argv)
+\begin{DoxyCompactList}\small\item\em The main function of the test program. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{rental__management__test_8cpp_a68eaf9a59ffba031bf1dc152e3b023e0}{fail}} = -\/1
+\begin{DoxyCompactList}\small\item\em Variables for tests. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{rental__management__test_8cpp_a6538a52840afd2ad6aba6a1ea5d89e50}{success}} = 0
+\begin{DoxyCompactList}\small\item\em Variables for tests. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{rental__management__test_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{rental__management__test_8cpp_a3c04138a5bfe5d72780bb7e82a18e627} 
+\index{rental\_management\_test.cpp@{rental\_management\_test.cpp}!main@{main}}
+\index{main@{main}!rental\_management\_test.cpp@{rental\_management\_test.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{argv }\end{DoxyParamCaption})}
+
+
+
+The main function of the test program. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & The number of command-\/line arguments. \\
+\hline
+{\em argv} & An array of command-\/line argument strings. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int The exit status of the program. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{rental__management__test_8cpp_source_l00125}{125}} of file \mbox{\hyperlink{rental__management__test_8cpp_source}{rental\+\_\+management\+\_\+test.\+cpp}}.
+
+\Hypertarget{rental__management__test_8cpp_ad7b97476188d61c7c0a462121e48057e}\label{rental__management__test_8cpp_ad7b97476188d61c7c0a462121e48057e} 
+\index{rental\_management\_test.cpp@{rental\_management\_test.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!rental\_management\_test.cpp@{rental\_management\_test.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [1/11]}}
+{\footnotesize\ttfamily TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_rental_test}{Rental\+Test}}}]{,  }\item[{Test\+File\+Append}]{ }\end{DoxyParamCaption})}
+
+
+
+Tests the file\+\_\+append function. 
+
+
+
+Definition at line \mbox{\hyperlink{rental__management__test_8cpp_source_l00037}{37}} of file \mbox{\hyperlink{rental__management__test_8cpp_source}{rental\+\_\+management\+\_\+test.\+cpp}}.
+
+\Hypertarget{rental__management__test_8cpp_a909db8396fce992ce392f616c5a1ed9a}\label{rental__management__test_8cpp_a909db8396fce992ce392f616c5a1ed9a} 
+\index{rental\_management\_test.cpp@{rental\_management\_test.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!rental\_management\_test.cpp@{rental\_management\_test.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [2/11]}}
+{\footnotesize\ttfamily TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_rental_test}{Rental\+Test}}}]{,  }\item[{Test\+File\+Append\+Fail}]{ }\end{DoxyParamCaption})}
+
+
+
+Tests the file\+\_\+append function in a fail case. 
+
+
+
+Definition at line \mbox{\hyperlink{rental__management__test_8cpp_source_l00083}{83}} of file \mbox{\hyperlink{rental__management__test_8cpp_source}{rental\+\_\+management\+\_\+test.\+cpp}}.
+
+\Hypertarget{rental__management__test_8cpp_ae38e216ce63b1f688953e91343c9cba1}\label{rental__management__test_8cpp_ae38e216ce63b1f688953e91343c9cba1} 
+\index{rental\_management\_test.cpp@{rental\_management\_test.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!rental\_management\_test.cpp@{rental\_management\_test.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [3/11]}}
+{\footnotesize\ttfamily TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_rental_test}{Rental\+Test}}}]{,  }\item[{Test\+File\+Delete}]{ }\end{DoxyParamCaption})}
+
+
+
+Tests the file\+\_\+line\+\_\+delete function. 
+
+
+
+Definition at line \mbox{\hyperlink{rental__management__test_8cpp_source_l00057}{57}} of file \mbox{\hyperlink{rental__management__test_8cpp_source}{rental\+\_\+management\+\_\+test.\+cpp}}.
+
+\Hypertarget{rental__management__test_8cpp_a378455d06779cdb6828730e1043ca1fd}\label{rental__management__test_8cpp_a378455d06779cdb6828730e1043ca1fd} 
+\index{rental\_management\_test.cpp@{rental\_management\_test.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!rental\_management\_test.cpp@{rental\_management\_test.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [4/11]}}
+{\footnotesize\ttfamily TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_rental_test}{Rental\+Test}}}]{,  }\item[{Test\+File\+Delete\+Fail}]{ }\end{DoxyParamCaption})}
+
+
+
+Tests the file\+\_\+line\+\_\+delete function in a fail case. 
+
+
+
+Definition at line \mbox{\hyperlink{rental__management__test_8cpp_source_l00107}{107}} of file \mbox{\hyperlink{rental__management__test_8cpp_source}{rental\+\_\+management\+\_\+test.\+cpp}}.
+
+\Hypertarget{rental__management__test_8cpp_abd58d2b13f2894c394c20c85e416a5a7}\label{rental__management__test_8cpp_abd58d2b13f2894c394c20c85e416a5a7} 
+\index{rental\_management\_test.cpp@{rental\_management\_test.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!rental\_management\_test.cpp@{rental\_management\_test.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [5/11]}}
+{\footnotesize\ttfamily TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_rental_test}{Rental\+Test}}}]{,  }\item[{Test\+File\+Delete\+Fail\+\_\+2}]{ }\end{DoxyParamCaption})}
+
+
+
+Tests the file\+\_\+line\+\_\+delete function in a fail case (line number out of range). 
+
+
+
+Definition at line \mbox{\hyperlink{rental__management__test_8cpp_source_l00114}{114}} of file \mbox{\hyperlink{rental__management__test_8cpp_source}{rental\+\_\+management\+\_\+test.\+cpp}}.
+
+\Hypertarget{rental__management__test_8cpp_acf9e9bb97efe0ff8361cc338908c62c5}\label{rental__management__test_8cpp_acf9e9bb97efe0ff8361cc338908c62c5} 
+\index{rental\_management\_test.cpp@{rental\_management\_test.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!rental\_management\_test.cpp@{rental\_management\_test.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [6/11]}}
+{\footnotesize\ttfamily TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_rental_test}{Rental\+Test}}}]{,  }\item[{Test\+File\+Edit}]{ }\end{DoxyParamCaption})}
+
+
+
+Tests the file\+\_\+edit function. 
+
+
+
+Definition at line \mbox{\hyperlink{rental__management__test_8cpp_source_l00047}{47}} of file \mbox{\hyperlink{rental__management__test_8cpp_source}{rental\+\_\+management\+\_\+test.\+cpp}}.
+
+\Hypertarget{rental__management__test_8cpp_a7bd1e3bace8b4a73ac53d1c02ce2f22b}\label{rental__management__test_8cpp_a7bd1e3bace8b4a73ac53d1c02ce2f22b} 
+\index{rental\_management\_test.cpp@{rental\_management\_test.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!rental\_management\_test.cpp@{rental\_management\_test.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [7/11]}}
+{\footnotesize\ttfamily TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_rental_test}{Rental\+Test}}}]{,  }\item[{Test\+File\+Edit\+Fail}]{ }\end{DoxyParamCaption})}
+
+
+
+Tests the file\+\_\+edit function in a fail case. 
+
+
+
+Definition at line \mbox{\hyperlink{rental__management__test_8cpp_source_l00091}{91}} of file \mbox{\hyperlink{rental__management__test_8cpp_source}{rental\+\_\+management\+\_\+test.\+cpp}}.
+
+\Hypertarget{rental__management__test_8cpp_a9dfe4c145fae19942ddf134540ade85d}\label{rental__management__test_8cpp_a9dfe4c145fae19942ddf134540ade85d} 
+\index{rental\_management\_test.cpp@{rental\_management\_test.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!rental\_management\_test.cpp@{rental\_management\_test.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [8/11]}}
+{\footnotesize\ttfamily TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_rental_test}{Rental\+Test}}}]{,  }\item[{Test\+File\+Edit\+Fail\+\_\+2}]{ }\end{DoxyParamCaption})}
+
+
+
+Tests the file\+\_\+edit function in a fail case (line number out of range). 
+
+
+
+Definition at line \mbox{\hyperlink{rental__management__test_8cpp_source_l00099}{99}} of file \mbox{\hyperlink{rental__management__test_8cpp_source}{rental\+\_\+management\+\_\+test.\+cpp}}.
+
+\Hypertarget{rental__management__test_8cpp_a022ec853f0c2fcd0f061d501d8ce5690}\label{rental__management__test_8cpp_a022ec853f0c2fcd0f061d501d8ce5690} 
+\index{rental\_management\_test.cpp@{rental\_management\_test.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!rental\_management\_test.cpp@{rental\_management\_test.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [9/11]}}
+{\footnotesize\ttfamily TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_rental_test}{Rental\+Test}}}]{,  }\item[{Test\+File\+Read}]{ }\end{DoxyParamCaption})}
+
+
+
+Tests the file\+\_\+read function. 
+
+
+
+Definition at line \mbox{\hyperlink{rental__management__test_8cpp_source_l00029}{29}} of file \mbox{\hyperlink{rental__management__test_8cpp_source}{rental\+\_\+management\+\_\+test.\+cpp}}.
+
+\Hypertarget{rental__management__test_8cpp_ac80937fe6e22f0c62cde6b928eb33a04}\label{rental__management__test_8cpp_ac80937fe6e22f0c62cde6b928eb33a04} 
+\index{rental\_management\_test.cpp@{rental\_management\_test.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!rental\_management\_test.cpp@{rental\_management\_test.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [10/11]}}
+{\footnotesize\ttfamily TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_rental_test}{Rental\+Test}}}]{,  }\item[{Test\+File\+Read\+Fail}]{ }\end{DoxyParamCaption})}
+
+
+
+Tests the file\+\_\+read function in a fail case. 
+
+
+
+Definition at line \mbox{\hyperlink{rental__management__test_8cpp_source_l00076}{76}} of file \mbox{\hyperlink{rental__management__test_8cpp_source}{rental\+\_\+management\+\_\+test.\+cpp}}.
+
+\Hypertarget{rental__management__test_8cpp_a29af3a6c3716f425774f8f0cb07d19b7}\label{rental__management__test_8cpp_a29af3a6c3716f425774f8f0cb07d19b7} 
+\index{rental\_management\_test.cpp@{rental\_management\_test.cpp}!TEST\_F@{TEST\_F}}
+\index{TEST\_F@{TEST\_F}!rental\_management\_test.cpp@{rental\_management\_test.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_F()}{TEST\_F()}\hspace{0.1cm}{\footnotesize\ttfamily [11/11]}}
+{\footnotesize\ttfamily TEST\+\_\+F (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_rental_test}{Rental\+Test}}}]{,  }\item[{Test\+File\+Write}]{ }\end{DoxyParamCaption})}
+
+
+
+Tests the file\+\_\+write function. 
+
+
+
+Definition at line \mbox{\hyperlink{rental__management__test_8cpp_source_l00066}{66}} of file \mbox{\hyperlink{rental__management__test_8cpp_source}{rental\+\_\+management\+\_\+test.\+cpp}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{rental__management__test_8cpp_a68eaf9a59ffba031bf1dc152e3b023e0}\label{rental__management__test_8cpp_a68eaf9a59ffba031bf1dc152e3b023e0} 
+\index{rental\_management\_test.cpp@{rental\_management\_test.cpp}!fail@{fail}}
+\index{fail@{fail}!rental\_management\_test.cpp@{rental\_management\_test.cpp}}
+\doxysubsubsection{\texorpdfstring{fail}{fail}}
+{\footnotesize\ttfamily int fail = -\/1}
+
+
+
+Variables for tests. 
+
+
+
+Definition at line \mbox{\hyperlink{rental__management__test_8cpp_source_l00020}{20}} of file \mbox{\hyperlink{rental__management__test_8cpp_source}{rental\+\_\+management\+\_\+test.\+cpp}}.
+
+\Hypertarget{rental__management__test_8cpp_a6538a52840afd2ad6aba6a1ea5d89e50}\label{rental__management__test_8cpp_a6538a52840afd2ad6aba6a1ea5d89e50} 
+\index{rental\_management\_test.cpp@{rental\_management\_test.cpp}!success@{success}}
+\index{success@{success}!rental\_management\_test.cpp@{rental\_management\_test.cpp}}
+\doxysubsubsection{\texorpdfstring{success}{success}}
+{\footnotesize\ttfamily int success = 0}
+
+
+
+Variables for tests. 
+
+
+
+Definition at line \mbox{\hyperlink{rental__management__test_8cpp_source_l00024}{24}} of file \mbox{\hyperlink{rental__management__test_8cpp_source}{rental\+\_\+management\+\_\+test.\+cpp}}.
+

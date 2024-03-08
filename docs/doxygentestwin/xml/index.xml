@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.7" xml:lang="en-US">
+  <compound refid="class_rental_test" kind="class"><name>RentalTest</name>
+    <member refid="class_rental_test_1ab69ffdce88765d4d10700ebfdb854ca2" kind="function"><name>SetUp</name></member>
+    <member refid="class_rental_test_1aa6f9d76d242f07f998ab17351ea8acb1" kind="function"><name>TearDown</name></member>
+  </compound>
+  <compound refid="namespacetesting" kind="namespace"><name>testing</name>
+  </compound>
+  <compound refid="_r_e_a_d_m_e_8md" kind="file"><name>README.md</name>
+  </compound>
+  <compound refid="rental__management__test_8cpp" kind="file"><name>rental_management_test.cpp</name>
+    <member refid="rental__management__test_8cpp_1a68eaf9a59ffba031bf1dc152e3b023e0" kind="variable"><name>fail</name></member>
+    <member refid="rental__management__test_8cpp_1a6538a52840afd2ad6aba6a1ea5d89e50" kind="variable"><name>success</name></member>
+    <member refid="rental__management__test_8cpp_1a022ec853f0c2fcd0f061d501d8ce5690" kind="function"><name>TEST_F</name></member>
+    <member refid="rental__management__test_8cpp_1ad7b97476188d61c7c0a462121e48057e" kind="function"><name>TEST_F</name></member>
+    <member refid="rental__management__test_8cpp_1acf9e9bb97efe0ff8361cc338908c62c5" kind="function"><name>TEST_F</name></member>
+    <member refid="rental__management__test_8cpp_1ae38e216ce63b1f688953e91343c9cba1" kind="function"><name>TEST_F</name></member>
+    <member refid="rental__management__test_8cpp_1a29af3a6c3716f425774f8f0cb07d19b7" kind="function"><name>TEST_F</name></member>
+    <member refid="rental__management__test_8cpp_1ac80937fe6e22f0c62cde6b928eb33a04" kind="function"><name>TEST_F</name></member>
+    <member refid="rental__management__test_8cpp_1a909db8396fce992ce392f616c5a1ed9a" kind="function"><name>TEST_F</name></member>
+    <member refid="rental__management__test_8cpp_1a7bd1e3bace8b4a73ac53d1c02ce2f22b" kind="function"><name>TEST_F</name></member>
+    <member refid="rental__management__test_8cpp_1a9dfe4c145fae19942ddf134540ade85d" kind="function"><name>TEST_F</name></member>
+    <member refid="rental__management__test_8cpp_1a378455d06779cdb6828730e1043ca1fd" kind="function"><name>TEST_F</name></member>
+    <member refid="rental__management__test_8cpp_1abd58d2b13f2894c394c20c85e416a5a7" kind="function"><name>TEST_F</name></member>
+    <member refid="rental__management__test_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="dir_9282580cf3696aa0d984f134b555addf" kind="dir"><name>src/tests/rental_management_test</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
+  </compound>
+  <compound refid="dir_d93a1d4020dea85bb71b237545b5e722" kind="dir"><name>src/tests</name>
+  </compound>
+  <compound refid="indexpage" kind="page"><name>index</name>
+  </compound>
+</doxygenindex>

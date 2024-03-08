@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.7" xml:lang="en-US">
+  <compounddef id="dir_9282580cf3696aa0d984f134b555addf" kind="dir">
+    <compoundname>src/tests/rental_management_test</compoundname>
+    <innerfile refid="rental__management__test_8cpp">rental_management_test.cpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/tests/rental_management_test/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.7" xml:lang="en-US">
+  <compounddef id="dir_e60ae943e5cd71bb34b5a46979ffc576" kind="dir">
+    <compoundname>src/rental_management_lib</compoundname>
+    <innerdir refid="dir_6d95587158060cc86c716b1732013eac">src/rental_management_lib/header</innerdir>
+    <innerdir refid="dir_0daa9e5ca1852fccd9ba333bbdba9633">src/rental_management_lib/src</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/rental_management_lib/"/>
+  </compounddef>
+</doxygen>

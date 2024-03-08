@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.7" xml:lang="en-US">
+  <compounddef id="class_rental_test" kind="class" language="C++" prot="public">
+    <compoundname>RentalTest</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">testing::Test</basecompoundref>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_rental_test_1ab69ffdce88765d4d10700ebfdb854ca2" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RentalTest::SetUp</definition>
+        <argsstring>() override</argsstring>
+        <name>SetUp</name>
+        <qualifiedname>RentalTest::SetUp</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/tests/rental_management_test/rental_management_test.cpp" line="8" column="6" bodyfile="src/tests/rental_management_test/rental_management_test.cpp" bodystart="8" bodyend="10"/>
+      </memberdef>
+      <memberdef kind="function" id="class_rental_test_1aa6f9d76d242f07f998ab17351ea8acb1" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RentalTest::TearDown</definition>
+        <argsstring>() override</argsstring>
+        <name>TearDown</name>
+        <qualifiedname>RentalTest::TearDown</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/tests/rental_management_test/rental_management_test.cpp" line="12" column="6" bodyfile="src/tests/rental_management_test/rental_management_test.cpp" bodystart="12" bodyend="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>RentalTest</label>
+        <link refid="class_rental_test"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>testing::Test</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>RentalTest</label>
+        <link refid="class_rental_test"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>testing::Test</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/tests/rental_management_test/rental_management_test.cpp" line="6" column="1" bodyfile="src/tests/rental_management_test/rental_management_test.cpp" bodystart="6" bodyend="15"/>
+    <listofallmembers>
+      <member refid="class_rental_test_1ab69ffdce88765d4d10700ebfdb854ca2" prot="protected" virt="non-virtual"><scope>RentalTest</scope><name>SetUp</name></member>
+      <member refid="class_rental_test_1aa6f9d76d242f07f998ab17351ea8acb1" prot="protected" virt="non-virtual"><scope>RentalTest</scope><name>TearDown</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -17,6 +17,8 @@ mkdir build_win
 
 echo Folders are Recreated successfully.
 
+xcopy /E /I /Y "%currentDir%\original_test_files" "%currentDir%"
+
 echo Testing Application with Coverage
 echo Configure CMAKE
 call cmake -B build_win -DCMAKE_BUILD_TYPE=Debug -G "Visual Studio 17 2022" -DCMAKE_INSTALL_PREFIX:PATH=publish_win
@@ -25,6 +27,9 @@ call cmake --build build_win --config Debug -j4
 call cmake --build build_win --config Release -j4
 call cmake --install build_win --strip
 echo Test CMAKE
+
+xcopy /E /I /Y "%currentDir%\original_test_files" "%currentDir%\build_win\src\tests\rental_management_test"
+
 cd build_win
 call ctest -C Debug --output-on-failure
 cd ..
@@ -48,6 +53,19 @@ echo Package Publish Debug Windows Binaries
 call robocopy src\rental_management_lib\header\header "build_win\build\Debug" /E
 call robocopy src\rental_management_app\header "build_win\build\Debug" /E
 tar -czvf release_win\windows-debug-binaries.tar.gz -C build_win\build\Debug .
+xcopy /E /I /Y "%currentDir%\original_test_files" "%currentDir%\publish_win\bin"
+
+del test1.bin
+del test2.bin
+del test3.bin
+del test4.bin
+del test5.bin
+del usertest.bin
+del *_records.bin
+del *_test.bin
+del *_test_2.bin
+del *_test_3.bin
+del *_test_4.bin
 
 echo ....................
 echo Operation Completed!

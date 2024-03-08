@@ -10,15 +10,15 @@ del /Q /F "doxygen_test_win.log"
 del /Q /F "doxygen_test_linux.log"
 
 del /Q /F "utility_tests_unit_win.cov"
-del /Q /F "calculator_tests_unit_win.cov"
+del /Q /F "rental_management_tests_unit_win.cov"
 
 
 del /Q /F "utility_tests_unit_linux.cov"
-del /Q /F "calculator_tests_unit_linux.cov"
+del /Q /F "rental_management_tests_unit_linux.cov"
 
 
 del /Q /F "LastCoverageResults.log"
-del /Q /F "simulation_tests_unit_win_cobertura.xml"
+del /Q /F "rental_management_app_unit_win_cobertura.xml"
 
 del /Q /F "CMakePresets.json"
 
@@ -54,6 +54,19 @@ rd /S /Q "docs\doxygenliblinux"
 rd /S /Q "docs\doxygentestlinux"
 rd /S /Q "docs\testresultswin"
 rd /S /Q "docs\testresultslinux"
+
+del test1.bin
+del test2.bin
+del test3.bin
+del test4.bin
+del test5.bin
+del usertest.bin
+del user.bin
+del *_records.bin
+del *_test.bin
+del *_test_2.bin
+del *_test_3.bin
+del *_test_4.bin
 
 echo Delete the "site" folder and its contents
 rd /S /Q "site"

@@ -1,0 +1,420 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.7" xml:lang="en-US">
+  <compounddef id="rental__management__test_8cpp" kind="file" language="C++">
+    <compoundname>rental_management_test.cpp</compoundname>
+    <includes local="yes">gtest/gtest.h</includes>
+    <includes local="no">string.h</includes>
+    <includes local="yes">../../rental_management_lib/header/rental_management_lib.h</includes>
+    <incdepgraph>
+      <node id="4">
+        <label>../../rental_management_lib/header/rental_management_lib.h</label>
+      </node>
+      <node id="1">
+        <label>src/tests/rental_management_test/rental_management_test.cpp</label>
+        <link refid="rental__management__test_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>gtest/gtest.h</label>
+      </node>
+      <node id="3">
+        <label>string.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="class_rental_test" prot="public">RentalTest</innerclass>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="rental__management__test_8cpp_1a68eaf9a59ffba031bf1dc152e3b023e0" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int fail</definition>
+        <argsstring></argsstring>
+        <name>fail</name>
+        <initializer>= -1</initializer>
+        <briefdescription>
+<para>Variables for tests. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/tests/rental_management_test/rental_management_test.cpp" line="20" column="5" bodyfile="src/tests/rental_management_test/rental_management_test.cpp" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="rental__management__test_8cpp_1a6538a52840afd2ad6aba6a1ea5d89e50" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int success</definition>
+        <argsstring></argsstring>
+        <name>success</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Variables for tests. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/tests/rental_management_test/rental_management_test.cpp" line="24" column="5" bodyfile="src/tests/rental_management_test/rental_management_test.cpp" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="rental__management__test_8cpp_1a022ec853f0c2fcd0f061d501d8ce5690" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TEST_F</definition>
+        <argsstring>(RentalTest, TestFileRead)</argsstring>
+        <name>TEST_F</name>
+        <param>
+          <type><ref refid="class_rental_test" kindref="compound">RentalTest</ref></type>
+        </param>
+        <param>
+          <type>TestFileRead</type>
+        </param>
+        <briefdescription>
+<para>Tests the file_read function. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/tests/rental_management_test/rental_management_test.cpp" line="29" column="1" bodyfile="src/tests/rental_management_test/rental_management_test.cpp" bodystart="29" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="rental__management__test_8cpp_1ad7b97476188d61c7c0a462121e48057e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TEST_F</definition>
+        <argsstring>(RentalTest, TestFileAppend)</argsstring>
+        <name>TEST_F</name>
+        <param>
+          <type><ref refid="class_rental_test" kindref="compound">RentalTest</ref></type>
+        </param>
+        <param>
+          <type>TestFileAppend</type>
+        </param>
+        <briefdescription>
+<para>Tests the file_append function. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/tests/rental_management_test/rental_management_test.cpp" line="37" column="1" bodyfile="src/tests/rental_management_test/rental_management_test.cpp" bodystart="37" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="rental__management__test_8cpp_1acf9e9bb97efe0ff8361cc338908c62c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TEST_F</definition>
+        <argsstring>(RentalTest, TestFileEdit)</argsstring>
+        <name>TEST_F</name>
+        <param>
+          <type><ref refid="class_rental_test" kindref="compound">RentalTest</ref></type>
+        </param>
+        <param>
+          <type>TestFileEdit</type>
+        </param>
+        <briefdescription>
+<para>Tests the file_edit function. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/tests/rental_management_test/rental_management_test.cpp" line="47" column="1" bodyfile="src/tests/rental_management_test/rental_management_test.cpp" bodystart="47" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="rental__management__test_8cpp_1ae38e216ce63b1f688953e91343c9cba1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TEST_F</definition>
+        <argsstring>(RentalTest, TestFileDelete)</argsstring>
+        <name>TEST_F</name>
+        <param>
+          <type><ref refid="class_rental_test" kindref="compound">RentalTest</ref></type>
+        </param>
+        <param>
+          <type>TestFileDelete</type>
+        </param>
+        <briefdescription>
+<para>Tests the file_line_delete function. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/tests/rental_management_test/rental_management_test.cpp" line="57" column="1" bodyfile="src/tests/rental_management_test/rental_management_test.cpp" bodystart="57" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="rental__management__test_8cpp_1a29af3a6c3716f425774f8f0cb07d19b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TEST_F</definition>
+        <argsstring>(RentalTest, TestFileWrite)</argsstring>
+        <name>TEST_F</name>
+        <param>
+          <type><ref refid="class_rental_test" kindref="compound">RentalTest</ref></type>
+        </param>
+        <param>
+          <type>TestFileWrite</type>
+        </param>
+        <briefdescription>
+<para>Tests the file_write function. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/tests/rental_management_test/rental_management_test.cpp" line="66" column="1" bodyfile="src/tests/rental_management_test/rental_management_test.cpp" bodystart="66" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="rental__management__test_8cpp_1ac80937fe6e22f0c62cde6b928eb33a04" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TEST_F</definition>
+        <argsstring>(RentalTest, TestFileReadFail)</argsstring>
+        <name>TEST_F</name>
+        <param>
+          <type><ref refid="class_rental_test" kindref="compound">RentalTest</ref></type>
+        </param>
+        <param>
+          <type>TestFileReadFail</type>
+        </param>
+        <briefdescription>
+<para>Tests the file_read function in a fail case. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/tests/rental_management_test/rental_management_test.cpp" line="76" column="1" bodyfile="src/tests/rental_management_test/rental_management_test.cpp" bodystart="76" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="rental__management__test_8cpp_1a909db8396fce992ce392f616c5a1ed9a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TEST_F</definition>
+        <argsstring>(RentalTest, TestFileAppendFail)</argsstring>
+        <name>TEST_F</name>
+        <param>
+          <type><ref refid="class_rental_test" kindref="compound">RentalTest</ref></type>
+        </param>
+        <param>
+          <type>TestFileAppendFail</type>
+        </param>
+        <briefdescription>
+<para>Tests the file_append function in a fail case. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/tests/rental_management_test/rental_management_test.cpp" line="83" column="1" bodyfile="src/tests/rental_management_test/rental_management_test.cpp" bodystart="83" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="rental__management__test_8cpp_1a7bd1e3bace8b4a73ac53d1c02ce2f22b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TEST_F</definition>
+        <argsstring>(RentalTest, TestFileEditFail)</argsstring>
+        <name>TEST_F</name>
+        <param>
+          <type><ref refid="class_rental_test" kindref="compound">RentalTest</ref></type>
+        </param>
+        <param>
+          <type>TestFileEditFail</type>
+        </param>
+        <briefdescription>
+<para>Tests the file_edit function in a fail case. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/tests/rental_management_test/rental_management_test.cpp" line="91" column="1" bodyfile="src/tests/rental_management_test/rental_management_test.cpp" bodystart="91" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="rental__management__test_8cpp_1a9dfe4c145fae19942ddf134540ade85d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TEST_F</definition>
+        <argsstring>(RentalTest, TestFileEditFail_2)</argsstring>
+        <name>TEST_F</name>
+        <param>
+          <type><ref refid="class_rental_test" kindref="compound">RentalTest</ref></type>
+        </param>
+        <param>
+          <type>TestFileEditFail_2</type>
+        </param>
+        <briefdescription>
+<para>Tests the file_edit function in a fail case (line number out of range). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/tests/rental_management_test/rental_management_test.cpp" line="99" column="1" bodyfile="src/tests/rental_management_test/rental_management_test.cpp" bodystart="99" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="rental__management__test_8cpp_1a378455d06779cdb6828730e1043ca1fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TEST_F</definition>
+        <argsstring>(RentalTest, TestFileDeleteFail)</argsstring>
+        <name>TEST_F</name>
+        <param>
+          <type><ref refid="class_rental_test" kindref="compound">RentalTest</ref></type>
+        </param>
+        <param>
+          <type>TestFileDeleteFail</type>
+        </param>
+        <briefdescription>
+<para>Tests the file_line_delete function in a fail case. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/tests/rental_management_test/rental_management_test.cpp" line="107" column="1" bodyfile="src/tests/rental_management_test/rental_management_test.cpp" bodystart="107" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="function" id="rental__management__test_8cpp_1abd58d2b13f2894c394c20c85e416a5a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TEST_F</definition>
+        <argsstring>(RentalTest, TestFileDeleteFail_2)</argsstring>
+        <name>TEST_F</name>
+        <param>
+          <type><ref refid="class_rental_test" kindref="compound">RentalTest</ref></type>
+        </param>
+        <param>
+          <type>TestFileDeleteFail_2</type>
+        </param>
+        <briefdescription>
+<para>Tests the file_line_delete function in a fail case (line number out of range). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/tests/rental_management_test/rental_management_test.cpp" line="114" column="1" bodyfile="src/tests/rental_management_test/rental_management_test.cpp" bodystart="114" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="rental__management__test_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int main</definition>
+        <argsstring>(int argc, char **argv)</argsstring>
+        <name>main</name>
+        <param>
+          <type>int</type>
+          <declname>argc</declname>
+        </param>
+        <param>
+          <type>char **</type>
+          <declname>argv</declname>
+        </param>
+        <briefdescription>
+<para>The main function of the test program. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>argc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of command-line arguments. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>argv</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An array of command-line argument strings. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>int The exit status of the program. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/tests/rental_management_test/rental_management_test.cpp" line="125" column="5" bodyfile="src/tests/rental_management_test/rental_management_test.cpp" bodystart="125" bodyend="132"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;gtest/gtest.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../../rental_management_lib/header/rental_management_lib.h&quot;</highlight><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Adjust<sp/>this<sp/>include<sp/>path<sp/>based<sp/>on<sp/>your<sp/>project<sp/>structure</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6" refid="class_rental_test" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_rental_test" kindref="compound">RentalTest</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>::testing::Test<sp/>{</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="8" refid="class_rental_test_1ab69ffdce88765d4d10700ebfdb854ca2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_rental_test_1ab69ffdce88765d4d10700ebfdb854ca2" kindref="member">SetUp</ref>()</highlight><highlight class="keyword"><sp/>override<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Setup<sp/>test<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="class_rental_test_1aa6f9d76d242f07f998ab17351ea8acb1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_rental_test_1aa6f9d76d242f07f998ab17351ea8acb1" kindref="member">TearDown</ref>()</highlight><highlight class="keyword"><sp/>override<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Clean<sp/>up<sp/>test<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="15"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20" refid="rental__management__test_8cpp_1a68eaf9a59ffba031bf1dc152e3b023e0" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="rental__management__test_8cpp_1a68eaf9a59ffba031bf1dc152e3b023e0" kindref="member">fail</ref><sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="24" refid="rental__management__test_8cpp_1a6538a52840afd2ad6aba6a1ea5d89e50" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="rental__management__test_8cpp_1a6538a52840afd2ad6aba6a1ea5d89e50" kindref="member">success</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="rental__management__test_8cpp_1a022ec853f0c2fcd0f061d501d8ce5690" refkind="member"><highlight class="normal"><ref refid="rental__management__test_8cpp_1a022ec853f0c2fcd0f061d501d8ce5690" kindref="member">TEST_F</ref>(<ref refid="class_rental_test" kindref="compound">RentalTest</ref>,<sp/>TestFileRead)<sp/>{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>testString[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;0-)TEXT<sp/>STRING0\n1-)TEXT<sp/>STRING1\n2-)TEXT<sp/>STRING2\n3-)TEXT<sp/>STRING3\n4-)TEXT<sp/>STRING4\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/>EXPECT_EQ(*testString,<sp/>*file_read(</highlight><highlight class="stringliteral">&quot;test1.bin&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="32"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="rental__management__test_8cpp_1ad7b97476188d61c7c0a462121e48057e" refkind="member"><highlight class="normal"><ref refid="rental__management__test_8cpp_1a022ec853f0c2fcd0f061d501d8ce5690" kindref="member">TEST_F</ref>(<ref refid="class_rental_test" kindref="compound">RentalTest</ref>,<sp/>TestFileAppend)<sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>testString[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;0-)TEXT<sp/>STRING0\n1-)TEXT<sp/>STRING1\n2-)TEXT<sp/>STRING2\n3-)TEXT<sp/>STRING3\n4-)TEXT<sp/>STRING4\n5-)TEXT<sp/>STRING5\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>appendString[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;TEXT<sp/>STRING5&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>file_append(</highlight><highlight class="stringliteral">&quot;test2.bin&quot;</highlight><highlight class="normal">,<sp/>appendString);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/>EXPECT_EQ(*testString,<sp/>*file_read(</highlight><highlight class="stringliteral">&quot;test2.bin&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="42"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47" refid="rental__management__test_8cpp_1acf9e9bb97efe0ff8361cc338908c62c5" refkind="member"><highlight class="normal"><ref refid="rental__management__test_8cpp_1a022ec853f0c2fcd0f061d501d8ce5690" kindref="member">TEST_F</ref>(<ref refid="class_rental_test" kindref="compound">RentalTest</ref>,<sp/>TestFileEdit)<sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>testString[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;0-)TEXT<sp/>STRING0\n1-)TEXT<sp/>STRING1\n2-)TEXT<sp/>STRING2\n3-)TEXT<sp/>STRING<sp/>EDIT\n4-)TEXT<sp/>STRING4\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>editString[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;TEXT<sp/>STRING<sp/>EDIT&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/>file_edit(</highlight><highlight class="stringliteral">&quot;test3.bin&quot;</highlight><highlight class="normal">,<sp/>3,<sp/>editString);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/>EXPECT_EQ(*testString,<sp/>*file_read(</highlight><highlight class="stringliteral">&quot;test3.bin&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="52"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57" refid="rental__management__test_8cpp_1ae38e216ce63b1f688953e91343c9cba1" refkind="member"><highlight class="normal"><ref refid="rental__management__test_8cpp_1a022ec853f0c2fcd0f061d501d8ce5690" kindref="member">TEST_F</ref>(<ref refid="class_rental_test" kindref="compound">RentalTest</ref>,<sp/>TestFileDelete)<sp/>{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>testString[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;0-)TEXT<sp/>STRING0\n1-)TEXT<sp/>STRING2\n2-)TEXT<sp/>STRING3\n3-)TEXT<sp/>STRING4\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/>file_line_delete(</highlight><highlight class="stringliteral">&quot;test4.bin&quot;</highlight><highlight class="normal">,<sp/>1);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/>EXPECT_EQ(*testString,<sp/>*file_read(</highlight><highlight class="stringliteral">&quot;test4.bin&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="61"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66" refid="rental__management__test_8cpp_1a29af3a6c3716f425774f8f0cb07d19b7" refkind="member"><highlight class="normal"><ref refid="rental__management__test_8cpp_1a022ec853f0c2fcd0f061d501d8ce5690" kindref="member">TEST_F</ref>(<ref refid="class_rental_test" kindref="compound">RentalTest</ref>,<sp/>TestFileWrite)<sp/>{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>testString[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;0-)TEXT<sp/>STRING<sp/>WRITE\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>writeString[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;TEXT<sp/>STRING<sp/>WRITE&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/>file_write(</highlight><highlight class="stringliteral">&quot;test5.bin&quot;</highlight><highlight class="normal">,<sp/>writeString);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/>EXPECT_EQ(*testString,<sp/>*file_read(</highlight><highlight class="stringliteral">&quot;test5.bin&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="71"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76" refid="rental__management__test_8cpp_1ac80937fe6e22f0c62cde6b928eb33a04" refkind="member"><highlight class="normal"><ref refid="rental__management__test_8cpp_1a022ec853f0c2fcd0f061d501d8ce5690" kindref="member">TEST_F</ref>(<ref refid="class_rental_test" kindref="compound">RentalTest</ref>,<sp/>TestFileReadFail)<sp/>{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/>ASSERT_EQ(NULL,<sp/>file_read(</highlight><highlight class="stringliteral">&quot;test1f.bin&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="78"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83" refid="rental__management__test_8cpp_1a909db8396fce992ce392f616c5a1ed9a" refkind="member"><highlight class="normal"><ref refid="rental__management__test_8cpp_1a022ec853f0c2fcd0f061d501d8ce5690" kindref="member">TEST_F</ref>(<ref refid="class_rental_test" kindref="compound">RentalTest</ref>,<sp/>TestFileAppendFail)<sp/>{</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>appendString[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;TEXT<sp/>STRING5&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/>ASSERT_EQ(<ref refid="rental__management__test_8cpp_1a68eaf9a59ffba031bf1dc152e3b023e0" kindref="member">fail</ref>,<sp/>file_append(</highlight><highlight class="stringliteral">&quot;test2f.bin&quot;</highlight><highlight class="normal">,<sp/>appendString));</highlight></codeline>
+<codeline lineno="86"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91" refid="rental__management__test_8cpp_1a7bd1e3bace8b4a73ac53d1c02ce2f22b" refkind="member"><highlight class="normal"><ref refid="rental__management__test_8cpp_1a022ec853f0c2fcd0f061d501d8ce5690" kindref="member">TEST_F</ref>(<ref refid="class_rental_test" kindref="compound">RentalTest</ref>,<sp/>TestFileEditFail)<sp/>{</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>editString[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;TEXT<sp/>STRING<sp/>EDIT&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/>ASSERT_EQ(<ref refid="rental__management__test_8cpp_1a68eaf9a59ffba031bf1dc152e3b023e0" kindref="member">fail</ref>,<sp/>file_edit(</highlight><highlight class="stringliteral">&quot;test3f.bin&quot;</highlight><highlight class="normal">,<sp/>3,<sp/>editString));</highlight></codeline>
+<codeline lineno="94"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99" refid="rental__management__test_8cpp_1a9dfe4c145fae19942ddf134540ade85d" refkind="member"><highlight class="normal"><ref refid="rental__management__test_8cpp_1a022ec853f0c2fcd0f061d501d8ce5690" kindref="member">TEST_F</ref>(<ref refid="class_rental_test" kindref="compound">RentalTest</ref>,<sp/>TestFileEditFail_2)<sp/>{</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>editString[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;TEXT<sp/>STRING<sp/>EDIT&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/>ASSERT_EQ(<ref refid="rental__management__test_8cpp_1a68eaf9a59ffba031bf1dc152e3b023e0" kindref="member">fail</ref>,<sp/>file_edit(</highlight><highlight class="stringliteral">&quot;test3.bin&quot;</highlight><highlight class="normal">,<sp/>100,<sp/>editString));</highlight></codeline>
+<codeline lineno="102"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107" refid="rental__management__test_8cpp_1a378455d06779cdb6828730e1043ca1fd" refkind="member"><highlight class="normal"><ref refid="rental__management__test_8cpp_1a022ec853f0c2fcd0f061d501d8ce5690" kindref="member">TEST_F</ref>(<ref refid="class_rental_test" kindref="compound">RentalTest</ref>,<sp/>TestFileDeleteFail)<sp/>{</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/>ASSERT_EQ(<ref refid="rental__management__test_8cpp_1a68eaf9a59ffba031bf1dc152e3b023e0" kindref="member">fail</ref>,<sp/>file_line_delete(</highlight><highlight class="stringliteral">&quot;test4f.bin&quot;</highlight><highlight class="normal">,<sp/>2));</highlight></codeline>
+<codeline lineno="109"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114" refid="rental__management__test_8cpp_1abd58d2b13f2894c394c20c85e416a5a7" refkind="member"><highlight class="normal"><ref refid="rental__management__test_8cpp_1a022ec853f0c2fcd0f061d501d8ce5690" kindref="member">TEST_F</ref>(<ref refid="class_rental_test" kindref="compound">RentalTest</ref>,<sp/>TestFileDeleteFail_2)<sp/>{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/>ASSERT_EQ(<ref refid="rental__management__test_8cpp_1a68eaf9a59ffba031bf1dc152e3b023e0" kindref="member">fail</ref>,<sp/>file_line_delete(</highlight><highlight class="stringliteral">&quot;test4.bin&quot;</highlight><highlight class="normal">,<sp/>100));</highlight></codeline>
+<codeline lineno="116"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125" refid="rental__management__test_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="rental__management__test_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kindref="member">main</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">**<sp/>argv)<sp/>{</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>ENABLE_RENTAL_TEST</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>::testing::InitGoogleTest(&amp;argc,<sp/>argv);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>RUN_ALL_TESTS();</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/tests/rental_management_test/rental_management_test.cpp"/>
+  </compounddef>
+</doxygen>

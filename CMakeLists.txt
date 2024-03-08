@@ -41,10 +41,10 @@ set(CRYPTOPP_USE_MASTER_BRANCH FALSE)
 
 option(ENABLE_RENTAL_LIB "Enable Library" ON)
 option(ENABLE_RENTAL_APP "Enable Application" ON)
-option(ENABLE_RENTAL_TESTS "Enable All Tests" ON)
+option(ENABLE_RENTAL_TEST "Enable All Tests" ON)
 
 # Configure tests
-add_compile_definitions(ENABLE_RENTAL_TESTS)
+add_compile_definitions(ENABLE_RENTAL_TEST)
 
 
 # Configure logs
@@ -105,7 +105,7 @@ if(ENABLE_RENTAL_APP)
 endif()
 
 # Tests
-if(ENABLE_RENTAL_TESTS)
+if(ENABLE_RENTAL_TEST)
 	add_subdirectory(${ROOT}/tests)
 endif()
 

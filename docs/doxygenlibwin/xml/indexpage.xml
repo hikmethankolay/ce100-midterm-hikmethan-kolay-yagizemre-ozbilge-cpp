@@ -1,0 +1,219 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.7" xml:lang="en-US">
+  <compounddef id="indexpage" kind="page">
+    <compoundname>index</compoundname>
+    <title>Calculator Project Library Generation and Testing Template</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><anchor id="index_1md__r_e_a_d_m_e"/> </para>
+<sect1 id="index_1autotoc_md1">
+<title>Overview</title>
+<para>This project provides a suite of modules aimed to show how Cmake used with Ctest. Also combines doxygen documentation and test coverage reports</para>
+</sect1>
+<sect1 id="index_1autotoc_md2">
+<title>Requirements</title>
+<para><itemizedlist>
+<listitem><para>CMake &gt;= 3.12</para>
+</listitem><listitem><para>C++ Standard &gt;= 11</para>
+</listitem><listitem><para>GoogleTest (for testing modules)</para>
+</listitem><listitem><para>Visual Studio Communit Edition for Windows Generator</para>
+</listitem><listitem><para>Ninja for WSL/Linux</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="index_1autotoc_md3">
+<title>Setup Development Environment</title>
+<sect2 id="index_1autotoc_md4">
+<title>Step-1 (Run on Windows, Can Effect on WSL)</title>
+<para>Run 1-configure-pre-commit.bat file to copy 1-pre-commit script to .git/hooks that checkes. <ref refid="_r_e_a_d_m_e_8md" kindref="compound">README.md</ref>, gitignore and doxygenfiles. Also format code with astyle tool</para>
+</sect2>
+<sect2 id="index_1autotoc_md5">
+<title>Step-2 (Run on Windows, Can Effect on WSL)</title>
+<para>If gitignore missing then you can create gitignore with 2-create-git-ignore.bat file run this file.</para>
+</sect2>
+<sect2 id="index_1autotoc_md6">
+<title>Step-3 (Only Windows)</title>
+<para>Install package managers that we will use to install applications. Run 3-install-package-manager.bat to install choco and scoop package managers</para>
+</sect2>
+<sect2 id="index_1autotoc_md7">
+<title>Step-4 (Only Windows)</title>
+<para>Run 4-install-windows-enviroment.bat to install required applications.</para>
+</sect2>
+<sect2 id="index_1autotoc_md8">
+<title>Step-5 (Only WSL)</title>
+<para>Open powershell as admin and enter WSL then goto project folder and run 4-install-wsl-environment.sh to setup WSL environment</para>
+</sect2>
+</sect1>
+<sect1 id="index_1autotoc_md9">
+<title>Generate Development Environment</title>
+<para>You can run 9-clean-configure-app-windows.bat to generate Visual Studio Communit Edition Project of this file. Or You can use Cmake project development with Visual Studio Community Edition</para>
+</sect1>
+<sect1 id="index_1autotoc_md10">
+<title>Build, Test and Package Application on Windows</title>
+<para>Run 7-build-app-windows.bat to build, test and generate packed binaries for your application on windows.</para>
+<para>Also you can run 7-build-doc-windows.bat to only generate documentation and 8-build-test-windows.bat to only test application.</para>
+</sect1>
+<sect1 id="index_1autotoc_md11">
+<title>Build, Test and Package Application on WSL</title>
+<para>Run 7-build-app-linux.sh to build, test and generate packed binaries for your application on WSL environment.</para>
+</sect1>
+<sect1 id="index_1autotoc_md12">
+<title>Clean Project</title>
+<para>You can run 9-clean-project.bat to clean project outputs.</para>
+</sect1>
+<sect1 id="index_1autotoc_md13">
+<title>Supported Platforms</title>
+<para><image type="html" name="badge-ubuntu.svg">Ubuntu badge</image>
+ <image type="latex" name="badge-ubuntu.svg">Ubuntu badge</image>
+ <image type="rtf" name="badge-ubuntu.svg">Ubuntu badge</image>
+ <image type="docbook" name="badge-ubuntu.svg">Ubuntu badge</image>
+ <image type="xml" name="badge-ubuntu.svg">Ubuntu badge</image>
+</para>
+<para><image type="html" name="badge-macos.svg">macOS badge</image>
+ <image type="latex" name="badge-macos.svg">macOS badge</image>
+ <image type="rtf" name="badge-macos.svg">macOS badge</image>
+ <image type="docbook" name="badge-macos.svg">macOS badge</image>
+ <image type="xml" name="badge-macos.svg">macOS badge</image>
+</para>
+<para><image type="html" name="badge-windows.svg">Windows badge</image>
+ <image type="latex" name="badge-windows.svg">Windows badge</image>
+ <image type="rtf" name="badge-windows.svg">Windows badge</image>
+ <image type="docbook" name="badge-windows.svg">Windows badge</image>
+ <image type="xml" name="badge-windows.svg">Windows badge</image>
+</para>
+<sect2 id="index_1autotoc_md14">
+<title>Test Coverage Ratios</title>
+<para><blockquote><para><zwj/><bold>Note</bold> : There is a known bug on doxygen following badges are in different folder but has same name for this reason in doxygen html report use same image for all content <ulink url="https://github.com/doxygen/doxygen/issues/8362">Images with same name overwrite each other in output directory · Issue #8362 · doxygen/doxygen · GitHub</ulink>. <ref refid="_r_e_a_d_m_e_8md" kindref="compound">README.md</ref> and WebPage show correct badges. </para>
+</blockquote><table rows="4" cols="3"><row>
+<entry thead="yes"><para>Coverage Type   </para>
+</entry><entry thead="yes"><para>Windows OS   </para>
+</entry><entry thead="yes"><para>Linux OS (WSL-Ubuntu 20.04)    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Line Based   </para>
+</entry><entry thead="no"><para><image type="html" name="badge_linecoverage.svg" inline="yes">Line Coverage</image>
+ <image type="latex" name="badge_linecoverage.svg" inline="yes">Line Coverage</image>
+ <image type="rtf" name="badge_linecoverage.svg" inline="yes">Line Coverage</image>
+ <image type="docbook" name="badge_linecoverage.svg" inline="yes">Line Coverage</image>
+ <image type="xml" name="badge_linecoverage.svg" inline="yes">Line Coverage</image>
+  </para>
+</entry><entry thead="no"><para><image type="html" name="badge_linecoverage.svg" inline="yes">Line Coverage</image>
+ <image type="latex" name="badge_linecoverage.svg" inline="yes">Line Coverage</image>
+ <image type="rtf" name="badge_linecoverage.svg" inline="yes">Line Coverage</image>
+ <image type="docbook" name="badge_linecoverage.svg" inline="yes">Line Coverage</image>
+ <image type="xml" name="badge_linecoverage.svg" inline="yes">Line Coverage</image>
+   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Branch Based   </para>
+</entry><entry thead="no"><para><image type="html" name="badge_branchcoverage.svg" inline="yes">Branch Coverage</image>
+ <image type="latex" name="badge_branchcoverage.svg" inline="yes">Branch Coverage</image>
+ <image type="rtf" name="badge_branchcoverage.svg" inline="yes">Branch Coverage</image>
+ <image type="docbook" name="badge_branchcoverage.svg" inline="yes">Branch Coverage</image>
+ <image type="xml" name="badge_branchcoverage.svg" inline="yes">Branch Coverage</image>
+  </para>
+</entry><entry thead="no"><para><image type="html" name="badge_branchcoverage.svg" inline="yes">Branch Coverage</image>
+ <image type="latex" name="badge_branchcoverage.svg" inline="yes">Branch Coverage</image>
+ <image type="rtf" name="badge_branchcoverage.svg" inline="yes">Branch Coverage</image>
+ <image type="docbook" name="badge_branchcoverage.svg" inline="yes">Branch Coverage</image>
+ <image type="xml" name="badge_branchcoverage.svg" inline="yes">Branch Coverage</image>
+   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Method Based   </para>
+</entry><entry thead="no"><para><image type="html" name="badge_methodcoverage.svg" inline="yes">Method Coverage</image>
+ <image type="latex" name="badge_methodcoverage.svg" inline="yes">Method Coverage</image>
+ <image type="rtf" name="badge_methodcoverage.svg" inline="yes">Method Coverage</image>
+ <image type="docbook" name="badge_methodcoverage.svg" inline="yes">Method Coverage</image>
+ <image type="xml" name="badge_methodcoverage.svg" inline="yes">Method Coverage</image>
+  </para>
+</entry><entry thead="no"><para><image type="html" name="badge_methodcoverage.svg" inline="yes">Method Coverage</image>
+ <image type="latex" name="badge_methodcoverage.svg" inline="yes">Method Coverage</image>
+ <image type="rtf" name="badge_methodcoverage.svg" inline="yes">Method Coverage</image>
+ <image type="docbook" name="badge_methodcoverage.svg" inline="yes">Method Coverage</image>
+ <image type="xml" name="badge_methodcoverage.svg" inline="yes">Method Coverage</image>
+  </para>
+</entry></row>
+</table>
+</para>
+</sect2>
+<sect2 id="index_1autotoc_md15">
+<title>Documentation Coverage Ratios</title>
+<para><table rows="2" cols="3"><row>
+<entry thead="yes"><para></para>
+</entry><entry thead="yes"><para>Windows OS   </para>
+</entry><entry thead="yes"><para>Linux OS (WSL-Ubuntu 20.04)    </para>
+</entry></row>
+<row>
+<entry thead="no"><para><bold>Coverage Ratio</bold>   </para>
+</entry><entry thead="no"><para><image type="html" name="badge_linecoverage.svg" inline="yes">Line Coverage</image>
+ <image type="latex" name="badge_linecoverage.svg" inline="yes">Line Coverage</image>
+ <image type="rtf" name="badge_linecoverage.svg" inline="yes">Line Coverage</image>
+ <image type="docbook" name="badge_linecoverage.svg" inline="yes">Line Coverage</image>
+ <image type="xml" name="badge_linecoverage.svg" inline="yes">Line Coverage</image>
+  </para>
+</entry><entry thead="no"><para><image type="html" name="badge_linecoverage.svg" inline="yes">Line Coverage</image>
+ <image type="latex" name="badge_linecoverage.svg" inline="yes">Line Coverage</image>
+ <image type="rtf" name="badge_linecoverage.svg" inline="yes">Line Coverage</image>
+ <image type="docbook" name="badge_linecoverage.svg" inline="yes">Line Coverage</image>
+ <image type="xml" name="badge_linecoverage.svg" inline="yes">Line Coverage</image>
+  </para>
+</entry></row>
+</table>
+</para>
+<sect3 id="index_1autotoc_md16">
+<title>Install Test Results to HTML Converter</title>
+<para>We are using <ulink url="https://github.com/inorton/junit2html">GitHub - inorton/junit2html: Turn Junit XML reports into self contained HTML reports</ulink> to convert junit xml formatted test results to HTML page for reporting also we store logs during test. Use following commands to install this module with pip</para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">pip<sp/>install<sp/>junit2html</highlight></codeline>
+</programlisting></para>
+</sect3>
+</sect2>
+<sect2 id="index_1autotoc_md17">
+<title>Github Actions</title>
+<para>This project also compiled and tested with Github Actions. If there is a missing setup or problem follow github action script for both Windows and WSL under</para>
+<para><computeroutput>.github/workflows/cpp.yml</computeroutput></para>
+<para>Github actions take too much time more than 1 hour take to complete build for Windows, MacOS and Linux. Also its paid operation for this reason we use offline batch scripts easy to use.</para>
+</sect2>
+<sect2 id="index_1autotoc_md18">
+<title>Build App on Windows</title>
+<para>We have already configured script for build operations. <computeroutput>7-build-app-windows.bat</computeroutput> have complete all required tasks and copy outputs to release folder. <linebreak/>
+</para>
+<para><bold>Operation Completed in 11-15 minutes.</bold></para>
+<para><itemizedlist>
+<listitem><para>Clean project outputs</para>
+</listitem><listitem><para>Create required folders</para>
+</listitem><listitem><para>Run doxygen for documentation</para>
+</listitem><listitem><para>Run coverxygen for document coverage report</para>
+</listitem><listitem><para>Run Report Generator for Documentation Coverage Report</para>
+</listitem><listitem><para>Configure project for Visual Studio Community Edition</para>
+</listitem><listitem><para>Build Project Debug and Release</para>
+</listitem><listitem><para>Install/Copy Required Library and Headers</para>
+</listitem><listitem><para>Run Tests</para>
+</listitem><listitem><para>Run OpeCppCoverage for Coverage Data Collection</para>
+</listitem><listitem><para>Run Reportgenerator for Test Coverage Report</para>
+</listitem><listitem><para>Copy output report to webpage folder</para>
+</listitem><listitem><para>Run mkdocs to build webpage</para>
+</listitem><listitem><para>Compress outputs to release folder, everything is ready for deployment.</para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="index_1autotoc_md19">
+<title>Build App on WSL/Linux</title>
+<para>We are running WSL on Windows 10 and solve our virtual machine problem. We make cross-platform development. After development before commit we run and test app on Windows and WSL with this scripts. To run on WSL you need to install WSL first.</para>
+<para>you can use our public notes</para>
+<para><itemizedlist>
+<listitem><para><ulink url="https://github.com/coruhtech/vs-docker-wsl-cpp-development">https://github.com/coruhtech/vs-docker-wsl-cpp-development</ulink></para>
+</listitem><listitem><para><ulink url="https://github.com/ucoruh/ns3-wsl-win10-setup">GitHub - ucoruh/ns3-wsl-win10-setup: ns3 windows 10 WSL2 setup and usage</ulink></para>
+</listitem></itemizedlist>
+</para>
+<para>After WSL installation, right click and open WSL bash and run <computeroutput>7-build-app-linux.sh</computeroutput> this will provide similart task with windows and will generate report and libraries on release folder.</para>
+<para><hruler/>
+</para>
+<para>$End-Of-File$ </para>
+</sect2>
+</sect1>
+    </detaileddescription>
+    <location file="README.md"/>
+  </compounddef>
+</doxygen>

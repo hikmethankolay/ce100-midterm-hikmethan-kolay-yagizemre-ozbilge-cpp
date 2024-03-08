@@ -1,0 +1,92 @@
+\doxysection{rental\+\_\+management\+\_\+test.\+cpp}
+\hypertarget{rental__management__test_8cpp_source}{}\label{rental__management__test_8cpp_source}\index{src/tests/rental\_management\_test/rental\_management\_test.cpp@{src/tests/rental\_management\_test/rental\_management\_test.cpp}}
+\mbox{\hyperlink{rental__management__test_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}gtest/gtest.h"{}}}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}../../rental\_management\_lib/header/rental\_management\_lib.h"{}}\ \ \textcolor{comment}{//\ Adjust\ this\ include\ path\ based\ on\ your\ project\ structure}}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00006}\mbox{\hyperlink{class_rental_test}{00006}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_rental_test}{RentalTest}}\ :\ \textcolor{keyword}{public}\ ::testing::Test\ \{}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00007}00007\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00008}\mbox{\hyperlink{class_rental_test_ab69ffdce88765d4d10700ebfdb854ca2}{00008}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_rental_test_ab69ffdce88765d4d10700ebfdb854ca2}{SetUp}}()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00009}00009\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Setup\ test\ data}}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00010}00010\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00012}\mbox{\hyperlink{class_rental_test_aa6f9d76d242f07f998ab17351ea8acb1}{00012}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_rental_test_aa6f9d76d242f07f998ab17351ea8acb1}{TearDown}}()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00013}00013\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Clean\ up\ test\ data}}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00014}00014\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00015}00015\ \};}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00020}\mbox{\hyperlink{rental__management__test_8cpp_a68eaf9a59ffba031bf1dc152e3b023e0}{00020}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{rental__management__test_8cpp_a68eaf9a59ffba031bf1dc152e3b023e0}{fail}}\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00024}\mbox{\hyperlink{rental__management__test_8cpp_a6538a52840afd2ad6aba6a1ea5d89e50}{00024}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{rental__management__test_8cpp_a6538a52840afd2ad6aba6a1ea5d89e50}{success}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00029}\mbox{\hyperlink{rental__management__test_8cpp_a022ec853f0c2fcd0f061d501d8ce5690}{00029}}\ \mbox{\hyperlink{rental__management__test_8cpp_a022ec853f0c2fcd0f061d501d8ce5690}{TEST\_F}}(\mbox{\hyperlink{class_rental_test}{RentalTest}},\ TestFileRead)\ \{}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00030}00030\ \ \ \textcolor{keywordtype}{char}\ testString[]\ =\ \textcolor{stringliteral}{"{}0-\/)TEXT\ STRING0\(\backslash\)n1-\/)TEXT\ STRING1\(\backslash\)n2-\/)TEXT\ STRING2\(\backslash\)n3-\/)TEXT\ STRING3\(\backslash\)n4-\/)TEXT\ STRING4\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00031}00031\ \ \ EXPECT\_EQ(*testString,\ *file\_read(\textcolor{stringliteral}{"{}test1.bin"{}}));}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00032}00032\ \}}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00037}\mbox{\hyperlink{rental__management__test_8cpp_ad7b97476188d61c7c0a462121e48057e}{00037}}\ \mbox{\hyperlink{rental__management__test_8cpp_a022ec853f0c2fcd0f061d501d8ce5690}{TEST\_F}}(\mbox{\hyperlink{class_rental_test}{RentalTest}},\ TestFileAppend)\ \{}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00038}00038\ \ \ \textcolor{keywordtype}{char}\ testString[]\ =\ \textcolor{stringliteral}{"{}0-\/)TEXT\ STRING0\(\backslash\)n1-\/)TEXT\ STRING1\(\backslash\)n2-\/)TEXT\ STRING2\(\backslash\)n3-\/)TEXT\ STRING3\(\backslash\)n4-\/)TEXT\ STRING4\(\backslash\)n5-\/)TEXT\ STRING5\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00039}00039\ \ \ \textcolor{keywordtype}{char}\ appendString[]\ =\ \textcolor{stringliteral}{"{}TEXT\ STRING5"{}};}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00040}00040\ \ \ file\_append(\textcolor{stringliteral}{"{}test2.bin"{}},\ appendString);}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00041}00041\ \ \ EXPECT\_EQ(*testString,\ *file\_read(\textcolor{stringliteral}{"{}test2.bin"{}}));}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00042}00042\ \}}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00047}\mbox{\hyperlink{rental__management__test_8cpp_acf9e9bb97efe0ff8361cc338908c62c5}{00047}}\ \mbox{\hyperlink{rental__management__test_8cpp_a022ec853f0c2fcd0f061d501d8ce5690}{TEST\_F}}(\mbox{\hyperlink{class_rental_test}{RentalTest}},\ TestFileEdit)\ \{}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00048}00048\ \ \ \textcolor{keywordtype}{char}\ testString[]\ =\ \textcolor{stringliteral}{"{}0-\/)TEXT\ STRING0\(\backslash\)n1-\/)TEXT\ STRING1\(\backslash\)n2-\/)TEXT\ STRING2\(\backslash\)n3-\/)TEXT\ STRING\ EDIT\(\backslash\)n4-\/)TEXT\ STRING4\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00049}00049\ \ \ \textcolor{keywordtype}{char}\ editString[]\ =\ \textcolor{stringliteral}{"{}TEXT\ STRING\ EDIT"{}};}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00050}00050\ \ \ file\_edit(\textcolor{stringliteral}{"{}test3.bin"{}},\ 3,\ editString);}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00051}00051\ \ \ EXPECT\_EQ(*testString,\ *file\_read(\textcolor{stringliteral}{"{}test3.bin"{}}));}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00052}00052\ \}}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00057}\mbox{\hyperlink{rental__management__test_8cpp_ae38e216ce63b1f688953e91343c9cba1}{00057}}\ \mbox{\hyperlink{rental__management__test_8cpp_a022ec853f0c2fcd0f061d501d8ce5690}{TEST\_F}}(\mbox{\hyperlink{class_rental_test}{RentalTest}},\ TestFileDelete)\ \{}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00058}00058\ \ \ \textcolor{keywordtype}{char}\ testString[]\ =\ \textcolor{stringliteral}{"{}0-\/)TEXT\ STRING0\(\backslash\)n1-\/)TEXT\ STRING2\(\backslash\)n2-\/)TEXT\ STRING3\(\backslash\)n3-\/)TEXT\ STRING4\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00059}00059\ \ \ file\_line\_delete(\textcolor{stringliteral}{"{}test4.bin"{}},\ 1);}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00060}00060\ \ \ EXPECT\_EQ(*testString,\ *file\_read(\textcolor{stringliteral}{"{}test4.bin"{}}));}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00061}00061\ \}}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00066}\mbox{\hyperlink{rental__management__test_8cpp_a29af3a6c3716f425774f8f0cb07d19b7}{00066}}\ \mbox{\hyperlink{rental__management__test_8cpp_a022ec853f0c2fcd0f061d501d8ce5690}{TEST\_F}}(\mbox{\hyperlink{class_rental_test}{RentalTest}},\ TestFileWrite)\ \{}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00067}00067\ \ \ \textcolor{keywordtype}{char}\ testString[]\ =\ \textcolor{stringliteral}{"{}0-\/)TEXT\ STRING\ WRITE\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00068}00068\ \ \ \textcolor{keywordtype}{char}\ writeString[]\ =\ \textcolor{stringliteral}{"{}TEXT\ STRING\ WRITE"{}};}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00069}00069\ \ \ file\_write(\textcolor{stringliteral}{"{}test5.bin"{}},\ writeString);}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00070}00070\ \ \ EXPECT\_EQ(*testString,\ *file\_read(\textcolor{stringliteral}{"{}test5.bin"{}}));}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00071}00071\ \}}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00076}\mbox{\hyperlink{rental__management__test_8cpp_ac80937fe6e22f0c62cde6b928eb33a04}{00076}}\ \mbox{\hyperlink{rental__management__test_8cpp_a022ec853f0c2fcd0f061d501d8ce5690}{TEST\_F}}(\mbox{\hyperlink{class_rental_test}{RentalTest}},\ TestFileReadFail)\ \{}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00077}00077\ \ \ ASSERT\_EQ(NULL,\ file\_read(\textcolor{stringliteral}{"{}test1f.bin"{}}));}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00078}00078\ \}}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00083}\mbox{\hyperlink{rental__management__test_8cpp_a909db8396fce992ce392f616c5a1ed9a}{00083}}\ \mbox{\hyperlink{rental__management__test_8cpp_a022ec853f0c2fcd0f061d501d8ce5690}{TEST\_F}}(\mbox{\hyperlink{class_rental_test}{RentalTest}},\ TestFileAppendFail)\ \{}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00084}00084\ \ \ \textcolor{keywordtype}{char}\ appendString[]\ =\ \textcolor{stringliteral}{"{}TEXT\ STRING5"{}};}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00085}00085\ \ \ ASSERT\_EQ(\mbox{\hyperlink{rental__management__test_8cpp_a68eaf9a59ffba031bf1dc152e3b023e0}{fail}},\ file\_append(\textcolor{stringliteral}{"{}test2f.bin"{}},\ appendString));}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00086}00086\ \}}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00091}\mbox{\hyperlink{rental__management__test_8cpp_a7bd1e3bace8b4a73ac53d1c02ce2f22b}{00091}}\ \mbox{\hyperlink{rental__management__test_8cpp_a022ec853f0c2fcd0f061d501d8ce5690}{TEST\_F}}(\mbox{\hyperlink{class_rental_test}{RentalTest}},\ TestFileEditFail)\ \{}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00092}00092\ \ \ \textcolor{keywordtype}{char}\ editString[]\ =\ \textcolor{stringliteral}{"{}TEXT\ STRING\ EDIT"{}};}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00093}00093\ \ \ ASSERT\_EQ(\mbox{\hyperlink{rental__management__test_8cpp_a68eaf9a59ffba031bf1dc152e3b023e0}{fail}},\ file\_edit(\textcolor{stringliteral}{"{}test3f.bin"{}},\ 3,\ editString));}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00094}00094\ \}}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00099}\mbox{\hyperlink{rental__management__test_8cpp_a9dfe4c145fae19942ddf134540ade85d}{00099}}\ \mbox{\hyperlink{rental__management__test_8cpp_a022ec853f0c2fcd0f061d501d8ce5690}{TEST\_F}}(\mbox{\hyperlink{class_rental_test}{RentalTest}},\ TestFileEditFail\_2)\ \{}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00100}00100\ \ \ \textcolor{keywordtype}{char}\ editString[]\ =\ \textcolor{stringliteral}{"{}TEXT\ STRING\ EDIT"{}};}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00101}00101\ \ \ ASSERT\_EQ(\mbox{\hyperlink{rental__management__test_8cpp_a68eaf9a59ffba031bf1dc152e3b023e0}{fail}},\ file\_edit(\textcolor{stringliteral}{"{}test3.bin"{}},\ 100,\ editString));}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00102}00102\ \}}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00107}\mbox{\hyperlink{rental__management__test_8cpp_a378455d06779cdb6828730e1043ca1fd}{00107}}\ \mbox{\hyperlink{rental__management__test_8cpp_a022ec853f0c2fcd0f061d501d8ce5690}{TEST\_F}}(\mbox{\hyperlink{class_rental_test}{RentalTest}},\ TestFileDeleteFail)\ \{}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00108}00108\ \ \ ASSERT\_EQ(\mbox{\hyperlink{rental__management__test_8cpp_a68eaf9a59ffba031bf1dc152e3b023e0}{fail}},\ file\_line\_delete(\textcolor{stringliteral}{"{}test4f.bin"{}},\ 2));}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00109}00109\ \}}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00114}\mbox{\hyperlink{rental__management__test_8cpp_abd58d2b13f2894c394c20c85e416a5a7}{00114}}\ \mbox{\hyperlink{rental__management__test_8cpp_a022ec853f0c2fcd0f061d501d8ce5690}{TEST\_F}}(\mbox{\hyperlink{class_rental_test}{RentalTest}},\ TestFileDeleteFail\_2)\ \{}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00115}00115\ \ \ ASSERT\_EQ(\mbox{\hyperlink{rental__management__test_8cpp_a68eaf9a59ffba031bf1dc152e3b023e0}{fail}},\ file\_line\_delete(\textcolor{stringliteral}{"{}test4.bin"{}},\ 100));}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00116}00116\ \}}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00117}00117\ }
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00125}\mbox{\hyperlink{rental__management__test_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{00125}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{rental__management__test_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}}(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}**\ argv)\ \{}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00126}00126\ \textcolor{preprocessor}{\#ifdef\ ENABLE\_RENTAL\_TEST}}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00127}00127\ \ \ \ \ ::testing::InitGoogleTest(\&argc,\ argv);}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00128}00128\ \ \ \ \ \textcolor{keywordflow}{return}\ RUN\_ALL\_TESTS();}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00129}00129\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00130}00130\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00131}00131\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{rental__management__test_8cpp_source_l00132}00132\ \}}
+
+\end{DoxyCode}

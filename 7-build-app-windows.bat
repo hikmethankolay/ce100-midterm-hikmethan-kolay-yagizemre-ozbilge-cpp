@@ -27,6 +27,8 @@ mkdir doxygentestwin
 mkdir testresultswin
 cd ..
 
+xcopy /E /I /Y "%currentDir%\original_test_files" "%currentDir%"
+
 echo Create the "site" folder and its contents
 mkdir site
 
@@ -71,6 +73,9 @@ call cmake --build build_win --config Release -j4
 rem call cmake --install build_win --strip
 start "Install Debug" cmake --install build_win --config Debug --strip
 start "Install Release" cmake --install build_win --config Release --strip
+
+xcopy /E /I /Y "%currentDir%\original_test_files" "%currentDir%\build_win\src\tests\rental_management_test"
+
 echo Test CMAKE
 cd build_win
 :: Test are already run with OpenCppCoverage...
@@ -122,6 +127,9 @@ tar -czvf release_win\windows-publish-binaries.tar.gz -C publish_win .
 echo Package Publish Windows Binaries
 call robocopy src\rental_management_lib\header "build_win\build\Release" /E
 call robocopy src\rental_management_app\header "build_win\build\Release" /E
+
+xcopy /E /I /Y "%currentDir%\original_test_files" "%currentDir%\publish_win\bin"
+
 tar -czvf release_win\windows-release-binaries.tar.gz -C build_win\build\Release .
 
 echo Package Publish Debug Windows Binaries
@@ -146,6 +154,19 @@ tar -czvf release_win\windows-doxygen-test-documentation.tar.gz -C docs\doxygent
 
 echo Package Publish Test Results Report
 tar -czvf release_win\windows-test-results-report.tar.gz -C docs\testresultswin .
+
+del test1.bin
+del test2.bin
+del test3.bin
+del test4.bin
+del test5.bin
+del usertest.bin
+del user.bin
+del *_records.bin
+del *_test.bin
+del *_test_2.bin
+del *_test_3.bin
+del *_test_4.bin
 
 echo ....................
 echo Operation Completed!

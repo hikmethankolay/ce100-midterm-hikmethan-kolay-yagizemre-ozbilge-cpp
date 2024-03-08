@@ -1,0 +1,159 @@
+\chapter{Calculator Project Library Generation and Testing Template}
+\hypertarget{index}{}\label{index}\index{Calculator Project Library Generation and Testing Template@{Calculator Project Library Generation and Testing Template}}
+\label{index_md__r_e_a_d_m_e}%
+\Hypertarget{index_md__r_e_a_d_m_e}%
+ \hypertarget{index_autotoc_md1}{}\doxysection{\texorpdfstring{Overview}{Overview}}\label{index_autotoc_md1}
+This project provides a suite of modules aimed to show how Cmake used with Ctest. Also combines doxygen documentation and test coverage reports\hypertarget{index_autotoc_md2}{}\doxysection{\texorpdfstring{Requirements}{Requirements}}\label{index_autotoc_md2}
+
+\begin{DoxyItemize}
+\item CMake \texorpdfstring{$>$}{>}= 3.\+12
+\item C++ Standard \texorpdfstring{$>$}{>}= 11
+\item Google\+Test (for testing modules)
+\item Visual Studio Communit Edition for Windows Generator
+\item Ninja for WSL/\+Linux
+\end{DoxyItemize}\hypertarget{index_autotoc_md3}{}\doxysection{\texorpdfstring{Setup Development Environment}{Setup Development Environment}}\label{index_autotoc_md3}
+\hypertarget{index_autotoc_md4}{}\doxysubsection{\texorpdfstring{Step-\/1 (\+Run on Windows, Can Effect on WSL)}{Step-1 (Run on Windows, Can Effect on WSL)}}\label{index_autotoc_md4}
+Run 1-\/configure-\/pre-\/commit.\+bat file to copy 1-\/pre-\/commit script to .git/hooks that checkes. \doxylink{_r_e_a_d_m_e_8md}{README.\+md}, gitignore and doxygenfiles. Also format code with astyle tool\hypertarget{index_autotoc_md5}{}\doxysubsection{\texorpdfstring{Step-\/2 (\+Run on Windows, Can Effect on WSL)}{Step-2 (Run on Windows, Can Effect on WSL)}}\label{index_autotoc_md5}
+If gitignore missing then you can create gitignore with 2-\/create-\/git-\/ignore.\+bat file run this file.\hypertarget{index_autotoc_md6}{}\doxysubsection{\texorpdfstring{Step-\/3 (\+Only Windows)}{Step-3 (Only Windows)}}\label{index_autotoc_md6}
+Install package managers that we will use to install applications. Run 3-\/install-\/package-\/manager.\+bat to install choco and scoop package managers\hypertarget{index_autotoc_md7}{}\doxysubsection{\texorpdfstring{Step-\/4 (\+Only Windows)}{Step-4 (Only Windows)}}\label{index_autotoc_md7}
+Run 4-\/install-\/windows-\/enviroment.\+bat to install required applications.\hypertarget{index_autotoc_md8}{}\doxysubsection{\texorpdfstring{Step-\/5 (\+Only WSL)}{Step-5 (Only WSL)}}\label{index_autotoc_md8}
+Open powershell as admin and enter WSL then goto project folder and run 4-\/install-\/wsl-\/environment.\+sh to setup WSL environment\hypertarget{index_autotoc_md9}{}\doxysection{\texorpdfstring{Generate Development Environment}{Generate Development Environment}}\label{index_autotoc_md9}
+You can run 9-\/clean-\/configure-\/app-\/windows.\+bat to generate Visual Studio Communit Edition Project of this file. Or You can use Cmake project development with Visual Studio Community Edition\hypertarget{index_autotoc_md10}{}\doxysection{\texorpdfstring{Build, Test and Package Application on Windows}{Build, Test and Package Application on Windows}}\label{index_autotoc_md10}
+Run 7-\/build-\/app-\/windows.\+bat to build, test and generate packed binaries for your application on windows.
+
+Also you can run 7-\/build-\/doc-\/windows.\+bat to only generate documentation and 8-\/build-\/test-\/windows.\+bat to only test application.\hypertarget{index_autotoc_md11}{}\doxysection{\texorpdfstring{Build, Test and Package Application on WSL}{Build, Test and Package Application on WSL}}\label{index_autotoc_md11}
+Run 7-\/build-\/app-\/linux.\+sh to build, test and generate packed binaries for your application on WSL environment.\hypertarget{index_autotoc_md12}{}\doxysection{\texorpdfstring{Clean Project}{Clean Project}}\label{index_autotoc_md12}
+You can run 9-\/clean-\/project.\+bat to clean project outputs.\hypertarget{index_autotoc_md13}{}\doxysection{\texorpdfstring{Supported Platforms}{Supported Platforms}}\label{index_autotoc_md13}
+ 
+\begin{DoxyImage}
+\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{badge-ubuntu.svg}
+\doxyfigcaption{Ubuntu badge}
+\end{DoxyImage}
+   
+
+ 
+\begin{DoxyImage}
+\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{badge-macos.svg}
+\doxyfigcaption{mac\+OS badge}
+\end{DoxyImage}
+   
+
+ 
+\begin{DoxyImage}
+\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{badge-windows.svg}
+\doxyfigcaption{Windows badge}
+\end{DoxyImage}
+   \hypertarget{index_autotoc_md14}{}\doxysubsection{\texorpdfstring{Test Coverage Ratios}{Test Coverage Ratios}}\label{index_autotoc_md14}
+\begin{quote}
+{\bfseries{Note}} \+: There is a known bug on doxygen following badges are in different folder but has same name for this reason in doxygen html report use same image for all content \href{https://github.com/doxygen/doxygen/issues/8362}{\texttt{ Images with same name overwrite each other in output directory · Issue \#8362 · doxygen/doxygen · Git\+Hub}}. \doxylink{_r_e_a_d_m_e_8md}{README.\+md} and Web\+Page show correct badges. \end{quote}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Coverage Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Windows OS   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Linux OS (WSL-\/\+Ubuntu 20.\+04)    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Coverage Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Windows OS   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Linux OS (WSL-\/\+Ubuntu 20.\+04)    }\\\cline{1-3}
+\endhead
+Line Based   & 
+\begin{DoxyInlineImage}
+\includegraphics[height=\baselineskip,keepaspectratio=true]{badge_linecoverage.svg}%Line Coverage
+\end{DoxyInlineImage}
+     & 
+\begin{DoxyInlineImage}
+\includegraphics[height=\baselineskip,keepaspectratio=true]{badge_linecoverage.svg}%Line Coverage
+\end{DoxyInlineImage}
+      \\\cline{1-3}
+Branch Based   & 
+\begin{DoxyInlineImage}
+\includegraphics[height=\baselineskip,keepaspectratio=true]{badge_branchcoverage.svg}%Branch Coverage
+\end{DoxyInlineImage}
+     & 
+\begin{DoxyInlineImage}
+\includegraphics[height=\baselineskip,keepaspectratio=true]{badge_branchcoverage.svg}%Branch Coverage
+\end{DoxyInlineImage}
+      \\\cline{1-3}
+Method Based   & 
+\begin{DoxyInlineImage}
+\includegraphics[height=\baselineskip,keepaspectratio=true]{badge_methodcoverage.svg}%Method Coverage
+\end{DoxyInlineImage}
+     & 
+\begin{DoxyInlineImage}
+\includegraphics[height=\baselineskip,keepaspectratio=true]{badge_methodcoverage.svg}%Method Coverage
+\end{DoxyInlineImage}
+     \\\cline{1-3}
+\end{longtabu}
+\hypertarget{index_autotoc_md15}{}\doxysubsection{\texorpdfstring{Documentation Coverage Ratios}{Documentation Coverage Ratios}}\label{index_autotoc_md15}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Windows OS   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Linux OS (WSL-\/\+Ubuntu 20.\+04)    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Windows OS   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Linux OS (WSL-\/\+Ubuntu 20.\+04)    }\\\cline{1-3}
+\endhead
+{\bfseries{Coverage Ratio}}   & 
+\begin{DoxyInlineImage}
+\includegraphics[height=\baselineskip,keepaspectratio=true]{badge_linecoverage.svg}%Line Coverage
+\end{DoxyInlineImage}
+     & 
+\begin{DoxyInlineImage}
+\includegraphics[height=\baselineskip,keepaspectratio=true]{badge_linecoverage.svg}%Line Coverage
+\end{DoxyInlineImage}
+     \\\cline{1-3}
+\end{longtabu}
+\hypertarget{index_autotoc_md16}{}\doxysubsubsection{\texorpdfstring{Install Test Results to HTML Converter}{Install Test Results to HTML Converter}}\label{index_autotoc_md16}
+We are using \href{https://github.com/inorton/junit2html}{\texttt{ Git\+Hub -\/ inorton/junit2html\+: Turn Junit XML reports into self contained HTML reports}} to convert junit xml formatted test results to HTML page for reporting also we store logs during test. Use following commands to install this module with pip
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{pip\ install\ junit2html}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md17}{}\doxysubsection{\texorpdfstring{Github Actions}{Github Actions}}\label{index_autotoc_md17}
+This project also compiled and tested with Github Actions. If there is a missing setup or problem follow github action script for both Windows and WSL under
+
+{\ttfamily .github/workflows/cpp.\+yml}
+
+Github actions take too much time more than 1 hour take to complete build for Windows, Mac\+OS and Linux. Also its paid operation for this reason we use offline batch scripts easy to use.\hypertarget{index_autotoc_md18}{}\doxysubsection{\texorpdfstring{Build App on Windows}{Build App on Windows}}\label{index_autotoc_md18}
+We have already configured script for build operations. {\ttfamily 7-\/build-\/app-\/windows.\+bat} have complete all required tasks and copy outputs to release folder. ~\newline
+
+
+{\bfseries{Operation Completed in 11-\/15 minutes.}}
+
+
+\begin{DoxyItemize}
+\item Clean project outputs
+\item Create required folders
+\item Run doxygen for documentation
+\item Run coverxygen for document coverage report
+\item Run Report Generator for Documentation Coverage Report
+\item Configure project for Visual Studio Community Edition
+\item Build Project Debug and Release
+\item Install/\+Copy Required Library and Headers
+\item Run Tests
+\item Run Ope\+Cpp\+Coverage for Coverage Data Collection
+\item Run Reportgenerator for Test Coverage Report
+\item Copy output report to webpage folder
+\item Run mkdocs to build webpage
+\item Compress outputs to release folder, everything is ready for deployment.
+\end{DoxyItemize}\hypertarget{index_autotoc_md19}{}\doxysubsection{\texorpdfstring{Build App on WSL/\+Linux}{Build App on WSL/Linux}}\label{index_autotoc_md19}
+We are running WSL on Windows 10 and solve our virtual machine problem. We make cross-\/platform development. After development before commit we run and test app on Windows and WSL with this scripts. To run on WSL you need to install WSL first.
+
+you can use our public notes
+
+
+\begin{DoxyItemize}
+\item \href{https://github.com/coruhtech/vs-docker-wsl-cpp-development}{\texttt{ https\+://github.\+com/coruhtech/vs-\/docker-\/wsl-\/cpp-\/development}}
+\item \href{https://github.com/ucoruh/ns3-wsl-win10-setup}{\texttt{ Git\+Hub -\/ ucoruh/ns3-\/wsl-\/win10-\/setup\+: ns3 windows 10 WSL2 setup and usage}}
+\end{DoxyItemize}
+
+After WSL installation, right click and open WSL bash and run {\ttfamily 7-\/build-\/app-\/linux.\+sh} this will provide similart task with windows and will generate report and libraries on release folder.
+
+\DoxyHorRuler{0}
+
+
+\$\+End-\/Of-\/\+File\$ 

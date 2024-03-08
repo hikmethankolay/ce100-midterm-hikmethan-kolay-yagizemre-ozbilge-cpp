@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.7" xml:lang="en-US">
+  <compounddef id="dir_c7f6f9ab461ba234afe640d92e6c9b58" kind="dir">
+    <compoundname>src/rental_management_app</compoundname>
+    <innerdir refid="dir_ffc427f405e26abf41c4a51e791b7c45">src/rental_management_app/header</innerdir>
+    <innerdir refid="dir_2413d2907a2af80800dd9355836313a3">src/rental_management_app/src</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/rental_management_app/"/>
+  </compounddef>
+</doxygen>
