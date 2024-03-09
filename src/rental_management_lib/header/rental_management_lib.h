@@ -57,7 +57,8 @@ struct sub_menu_variables
  *
 */
 typedef struct
-{
+{   
+    int RecordNumber;
     int TenantID;
     int PropertyID;
     int Rent;
@@ -74,6 +75,7 @@ typedef struct
 */
 typedef struct
 {
+    int RecordNumber;
     int PropertyID;
     int PropertyAge;
     int Bedrooms;
@@ -92,6 +94,7 @@ typedef struct
 
 typedef struct
 {
+    int RecordNumber;
     int TenantID;
     int CurrentRentDebt;
     char DueDate[50];
@@ -105,6 +108,7 @@ typedef struct
 */
 typedef struct
 {
+    int RecordNumber;
     int PropertyID;
     int Cost;
     int Priority;
@@ -127,9 +131,10 @@ int file_write(const char *file_name, const char *text);
  * @brief Opens a binary file, reads all of its content, separates lines with "\n", and writes them to console. Also returns the contents of the file as a string for unit tests.
  *
  * @param file_name The name of the file to read from.
+ * @param is_sorting a variable to check if it is used for sorting algorithm. If it is 'Y' iw wont print content and will just return it.
  * @return The contents of the file as a dynamically allocated string.
  */
-char* file_read(const char *file_name);
+char* file_read(const char *file_name, char is_sorting);
 
 
 /**

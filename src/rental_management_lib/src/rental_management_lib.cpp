@@ -57,7 +57,7 @@ int file_write(const char *file_name, const char *text) {
  * @param file_name The name of the file to read from.
  * @return The contents of the file as a dynamically allocated string.
  */
-char* file_read(const char *file_name) {
+char* file_read(const char *file_name, char is_sorting) {
     FILE *myFile;
     char *content = NULL;
     int length = 0, capacity = 0;
@@ -89,10 +89,15 @@ char* file_read(const char *file_name) {
         content[length++] = i; // Append character to content
     }
 
-    if (content) {
+    if (content && is_sorting != 'Y') {
         content[length] = '\0'; // Null-terminate the string
         printf("%s", content); // Print the content to the console
     }
+    else if (content)
+    {
+        content[length] = '\0'; // Null-terminate the string
+    }
+    
 
     fclose(myFile);
     return content; // Return the dynamically allocated content
@@ -299,7 +304,9 @@ int file_line_delete(const char *file_name, int line_number_to_delete) {
  * @brief This function is for user login
  *
  * Function read user.bin file and checks if username and password matchs with inputted username and password
- *
+ * @param username username.
+ * @param password password.
+ * @param user_file file that contains user info.
  * @return 0 on success.
  * @return -1 on fail.
  */
@@ -350,7 +357,9 @@ int user_login(const char *username, const char *password, const char *user_file
 
 /**
  * @brief This function changes the password of a user.
- *
+ * @param recovery_key recovery_key.
+ * @param new_password new password.
+ * @param user_file file that contains user info.
  * @return 0 on success.
  * @return -1 on fail.
  */
@@ -410,7 +419,10 @@ int user_change_password(const char *recovery_key, const char *new_password, con
  * @brief This function is for user register
  *
  * Function creates a user file in binary format and writes inputted username and password in it. Additionaly deletes all previous records.
- *
+ * @param new_username new username.
+ * @param new_password new password.
+ * @param new_recovery_key new recovery key
+ * @param user_file file that contains user info.
  * @return 0 on success.
  * @return -1 on fail.
  */
@@ -484,7 +496,38 @@ int sort_property_record(){
  * @return 0.
  */
 int add_tenant_record(){
-    return 0;
+    TenantInfo Tenant;
+    printf("\nPlease enter TenantID:");
+    scanf("%d",&Tenant.TenantID);
+    printf("\nPlease enter PropertyID:");
+    scanf("%d",&Tenant.PropertyID);
+    printf("\nPlease enter Rent:");
+    scanf("%d",&Tenant.Rent);
+    printf("\nPlease enter BirthDate:");
+    scanf("%s",&Tenant.BirthDate);
+    printf("\nPlease enter Name:");
+    scanf("%s",&Tenant.Name);
+    printf("\nPlease enter Surname:");
+    scanf("%s",&Tenant.Surname);
+
+    char formattedRecord[1024];
+
+    // Format the string first
+    snprintf(formattedRecord, sizeof(formattedRecord), "TenantID:%d / PropertyID:%d / Rent:%d / BirthDate:%s / Name:%s / Surname:%s",
+            Tenant.TenantID, Tenant.PropertyID, Tenant.Rent, Tenant.BirthDate, Tenant.Name, Tenant.Surname);
+
+    FILE *myFile;
+    myFile = fopen("tenant_records.bin", "rb");
+    if (myFile == NULL)
+    {
+        file_write("tenant_records.bin",formattedRecord);
+        return 0;
+    }
+    else{
+        fclose(myFile);
+        file_append("tenant_records.bin",formattedRecord);
+        return 0;
+    }
 };
 /**
  * @brief edit tenant record.
@@ -492,7 +535,37 @@ int add_tenant_record(){
  * @return 0.
  */
 int edit_tenant_record(){
-    return 0;
+    TenantInfo Tenant;
+    int RecordNumberToEdit;
+    printf("\nPlease enter record number to edit:");
+    scanf("%d",&RecordNumberToEdit);
+    printf("\nPlease enter TenantID:");
+    scanf("%d",&Tenant.TenantID);
+    printf("\nPlease enter PropertyID:");
+    scanf("%d",&Tenant.PropertyID);
+    printf("\nPlease enter Rent:");
+    scanf("%d",&Tenant.Rent);
+    printf("\nPlease enter BirthDate:");
+    scanf("%s",&Tenant.BirthDate);
+    printf("\nPlease enter Name:");
+    scanf("%s",&Tenant.Name);
+    printf("\nPlease enter Surname:");
+    scanf("%s",&Tenant.Surname);
+
+    char formattedRecord[1024];
+
+    // Format the string first
+    snprintf(formattedRecord, sizeof(formattedRecord), "TenantID:%d / PropertyID:%d / Rent:%d / BirthDate:%s / Name:%s / Surname:%s",
+            Tenant.TenantID, Tenant.PropertyID, Tenant.Rent, Tenant.BirthDate, Tenant.Name, Tenant.Surname);
+
+    FILE *myFile;
+    myFile = fopen("tenant_records.bin", "rb");
+
+    if(file_edit("tenant_record.bin",RecordNumberToEdit,formattedRecord) == 0) {
+        return 0;
+    } else {
+        return -1;
+    }
 };
 /**
  * @brief delete tenant record.
@@ -500,22 +573,221 @@ int edit_tenant_record(){
  * @return 0.
  */
 int delete_tenant_record(){
-    return 0;
+    
+    printf("\nPlease enter record number to delete:");
+    int RecordNumberToEdit;
+
+    if(file_line_delete("tenant_records.bin", RecordNumberToEdit) == 0) {
+        return 0;
+    } else {
+        return -1;
+    }
 };
+
 /**
- * @brief search tenant record.
- *
- * @return 0.
+ * @brief This a hoarePartition function for Randomized quick sort.
+ * @param arr[] array of tenants record.
+ * @param low start of the array.
+ * @param high end of the array.
+ * @return j
  */
-int search_tenant_record(){
-    return 0;
-};
+int hoarePartitionForTenants(TenantInfo arr[], int low, int high) {
+    int pivot = arr[low].TenantID; 
+    int i = low - 1, j = high + 1;
+
+    while (1) {
+        // Find leftmost element greater than or equal to pivot
+        do {
+            i++;
+        } while (arr[i].TenantID < pivot);
+
+        // Find rightmost element smaller than or equal to pivot
+        do {
+            j--;
+        } while (arr[j].TenantID > pivot);
+
+        if (i >= j)
+            return j;
+
+        // Swap arr[i] and arr[j]
+        TenantInfo temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+}
 /**
- * @brief sort tenant record.
+ * @brief swap function for randomization.
+ * @param a an element of TenantInfo.
+ * @param b an element of TenantInfo.
+ * @return void
+ */
+void swap(TenantInfo* a, TenantInfo* b) {
+    TenantInfo t = *a;
+    *a = *b;
+    *b = t;
+}
+/**
+ * @brief This a randomizedPartition function for Randomized quick sort.
+ * @param arr array of tenants record.
+ * @param low start of the array.
+ * @param high end of the array.
+ * @return hoarePartitionForTenants(arr, low, high)
+ */
+int randomizedPartition(TenantInfo arr[], int low, int high) {
+    int random = low + rand() % (high - low);
+    swap(&arr[random], &arr[low]);
+    return hoarePartitionForTenants(arr, low, high);
+}
+
+/**
+ * @brief This a randomizedPartition function for Randomized quick sort.
+ * @param arr array of tenants record.
+ * @param low start of the array.
+ * @param high end of the array.
+ * @return void
+ */
+void quickSort(TenantInfo arr[], int low, int high) {
+    if (low < high) {
+        // pi is partitioning index, arr[p] is now at right place 
+        int pi = randomizedPartition(arr, low, high);
+
+        // Separately sort elements before and after partition
+        quickSort(arr, low, pi);
+        quickSort(arr, pi + 1, high);
+    }
+}
+
+/**
+ * @brief Reads tenant_records.bin file and put contents in a structure then sorts them using QuickSort.
  *
- * @return 0.
+ * @return 0 on succes
+ * @return -1 on fail.
  */
 int sort_tenant_record(){
+
+    if (file_read("tenant_records.bin",'Y') == NULL)
+    {
+        return -1;
+    }
+    
+    char *input = file_read("tenant_records.bin",'Y');
+
+    int count = 0;
+
+    // Count how many records are there
+    char *ptr = input;
+    while ((ptr = strchr(ptr, '\n')) != NULL) {
+        count++;
+        ptr++;
+    }
+
+    TenantInfo *tenants = (TenantInfo *)malloc(count * sizeof(TenantInfo));
+
+    char *line = strtok(input, "\n");
+    int i = 0;
+    while (line != NULL && i < count) {
+        
+        sscanf(line, "%d-)TenantID:%d / PropertyID:%d / Rent:%d / BirthDate:%s / Name:%s / Surname:%s",
+               &tenants[i].RecordNumber,&tenants[i].TenantID, &tenants[i].PropertyID, &tenants[i].Rent, tenants[i].BirthDate, tenants[i].Name, tenants[i].Surname);
+        
+        line = strtok(NULL, "\n");
+        i++;
+    }
+    
+    int n = sizeof(tenants) / sizeof(tenants[0]);
+    quickSort(tenants, 0, n - 1);
+
+    printf("------------Tenant Records Sorted By TenantID------------");
+    for (i = 0; i < count; i++) {
+        printf("%d-)TenantID:%d / PropertyID:%d / Rent:%d / BirthDate:%s / Name:%s / Surname:%s\n",
+               &tenants[i].RecordNumber,tenants[i].TenantID, tenants[i].PropertyID, tenants[i].Rent, tenants[i].BirthDate, tenants[i].Name, tenants[i].Surname);
+    }
+
+    // free the allocated memory
+    free(tenants);
+
+    return 0;
+};
+/**
+ * @brief This a randomizedPartition function for Randomized quick sort.
+ * @param arr array of tenants record.
+ * @param l start of the array.
+ * @param r end of the array.
+ * @return void
+ */
+int recursiveBinarySearch(TenantInfo arr[], int l, int r, int tenantIDToFind) {
+    if (r >= l) {
+        int mid = l + (r - l) / 2;
+
+        // If the element is present at the middle
+        if (arr[mid].TenantID == tenantIDToFind)
+            return mid;
+
+        // If the element is smaller than mid, then it can only be present in the left subarray
+        if (arr[mid].TenantID > tenantIDToFind)
+            return recursiveBinarySearch(arr, l, mid - 1, tenantIDToFind);
+
+        // Else the element can only be present in the right subarray
+        return recursiveBinarySearch(arr, mid + 1, r, tenantIDToFind);
+    }
+
+    printf("There is no such TenantID.");
+    return -1;
+}
+
+/**
+ * @brief search and print tenant record with TenantID.
+ *
+ * @return 0 on succes
+ * @return -1 on fail.
+ */
+int search_tenant_record(){
+
+    printf("Please enter the ID of the Tenant you want to find:");
+    int tenantIDToFind;
+    scanf("%d", &tenantIDToFind);
+
+    if (file_read("tenant_records.bin",'Y') == NULL)
+    {
+        return -1;
+    }
+    char *input = file_read("tenant_records.bin",'Y');
+
+    int count = 0;
+
+    // Count how many records are there
+    char *ptr = input;
+    while ((ptr = strchr(ptr, '\n')) != NULL) {
+        count++;
+        ptr++;
+    }
+
+    TenantInfo *tenants = (TenantInfo *)malloc(count * sizeof(TenantInfo));
+
+    char *line = strtok(input, "\n");
+    int i = 0;
+    while (line != NULL && i < count) {
+        
+        sscanf(line, "%d-)TenantID:%d / PropertyID:%d / Rent:%d / BirthDate:%s / Name:%s / Surname:%s",
+               &tenants[i].RecordNumber,&tenants[i].TenantID, &tenants[i].PropertyID, &tenants[i].Rent, tenants[i].BirthDate, tenants[i].Name, tenants[i].Surname);
+        
+        line = strtok(NULL, "\n");
+        i++;
+    }
+    
+    int n = sizeof(tenants) / sizeof(tenants[0]);
+
+    quickSort(tenants, 0, n - 1);
+
+    int indexOfID = recursiveBinarySearch(tenants,0,n-1,tenantIDToFind);
+
+    printf("------------Tenant Record Founded By TenantID------------");
+    printf("%d-)TenantID:%d / PropertyID:%d / Rent:%d / BirthDate:%s / Name:%s / Surname:%s\n",
+            &tenants[indexOfID].RecordNumber,tenants[indexOfID].TenantID, tenants[indexOfID].PropertyID, tenants[indexOfID].Rent, tenants[indexOfID].BirthDate, tenants[indexOfID].Name, tenants[indexOfID].Surname);
+
+    // free the allocated memory
+    free(tenants);
+
     return 0;
 };
 
@@ -625,7 +897,7 @@ int properties_menu(){
         if (choice_properties == sub_menu.sub_menu_show)
         {
             printf("--------------Property Records--------------");
-            file_read("property_records.bin");
+            file_read("property_records.bin",'N');
             continue;
         }
         else if (choice_properties == sub_menu.sub_menu_add)
@@ -689,7 +961,7 @@ int tenants_menu(){
         if (choice_tenants == sub_menu.sub_menu_show)
         {
             printf("--------------Tenant Records--------------");
-            file_read("tenant_records.bin");
+            file_read("tenant_records.bin",'N');
             continue;
         }
         else if (choice_tenants == sub_menu.sub_menu_add)
@@ -722,7 +994,7 @@ int tenants_menu(){
             break;
         }
         else{
-            printf("Please input a correct choice.");
+            printf("Please input a correct choice.",'N');
             continue;
         }
     }
@@ -753,7 +1025,7 @@ int rents_menu(){
         if (choice_rents == sub_menu.sub_menu_show)
         {
             printf("--------------Rent Records--------------");
-            file_read("rent_records.bin");
+            file_read("rent_records.bin",'N');
             continue;
         }
         else if (choice_rents == sub_menu.sub_menu_add)
@@ -817,7 +1089,7 @@ int maintenance_menu(){
         if (choice_maintenances == sub_menu.sub_menu_show)
         {
             printf("--------------Maintenance Records--------------");
-            file_read("maintenance_records.bin");
+            file_read("maintenance_records.bin",'N');
             continue;
         }
         else if (choice_maintenances == sub_menu.sub_menu_add)
