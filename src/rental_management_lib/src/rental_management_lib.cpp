@@ -1179,14 +1179,6 @@ int main_menu(){
     return 0;
 }
 
-/**
- * @brief variables for login/register/cahnge password processes.
- *
- */
-char user_name[] = "";
-char password[] = "";
-char recovery_key[] = "";
-char user_file[] = "user.bin";
 
 /**
  * @brief login menu.
@@ -1194,11 +1186,14 @@ char user_file[] = "user.bin";
  * @return 0.
  */
 int login_menu(){
+    char user_name[100] = {};
+    char password[100] = {};
+    char user_file[] = "user.bin";
 
     printf("Please enter your username:");
-    scanf("%[^\n]%*c", user_name);
+    scanf("%s", user_name);
     printf("\nPlease enter your password:");
-    scanf("%[^\n]%*c", password);
+    scanf("%s", password);
 
 
     if (user_login(user_name,password,user_file) == 0)
@@ -1215,17 +1210,21 @@ int login_menu(){
  * @return 0.
  */
 int register_menu(){
+    char user_name[100] = {};
+    char password[100] = {};
+    char recovery_key[100] = {};
+    char user_file[] = "user.bin";
 
     printf("Please enter your new username:");
-    scanf("%[^\n]%*c", user_name);
+    scanf("%s", user_name);
     printf("\nPlease enter your new password:");
-    scanf("%[^\n]%*c", password);
+    scanf("%s", password);
     printf("\nPlease enter your new recovery key:");
-    scanf("%[^\n]%*c", recovery_key);
+    scanf("%s", recovery_key);
 
     char warning;
-    printf("------------WARNING------------\n");
-    printf("This process will delete all previous records, do you still wish to proceed?[Y/n]:");
+    printf("\n------------WARNING------------\n");
+    printf("\nThis process will delete all previous records, do you still wish to proceed?[Y/n]:");
     scanf("%c", &warning);
 
     if (warning == 'Y')
@@ -1245,10 +1244,14 @@ int register_menu(){
  * @return 0.
  */
 int change_password_menu(){
+    char password[100] = {};
+    char recovery_key[100] = {};
+    char user_file[] = "user.bin";
+    
     printf("Please enter your recovery key:");
-    scanf("%[^\n]%*c", recovery_key);
+    scanf("%s", recovery_key);
     printf("\nPlease enter your new password:");
-    scanf("%[^\n]%*c", password);
+    scanf("%s", password);
 
     user_change_password(recovery_key,password,user_file);
     return 0;
