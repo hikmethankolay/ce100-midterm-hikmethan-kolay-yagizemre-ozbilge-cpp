@@ -16,6 +16,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+
 /**
  * @brief Opens a binary file, deletes all of its content, and writes given text to it.
  *

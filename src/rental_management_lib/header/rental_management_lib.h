@@ -8,6 +8,68 @@
 #define RENTAL_MANAGEMENT_LIB_H
 
 /**
+ * 
+ * @brief Struct for Tenant logging.
+ *
+*/
+typedef struct
+{
+    int TenantID;
+    int PropertyID;
+    int Rent;
+    char BirthDate[50];
+    char Name[50];
+    char Surname[50];
+
+} TenantInfo;
+
+/**
+ * 
+ * @brief Struct for Property logging.
+ *
+*/
+typedef struct
+{
+    int PropertyID;
+    int PropertyAge;
+    int Bedrooms;
+    int Livingrooms;
+    int Floors;
+    int Size;
+    char Adress[50];
+
+} PropertyInfo;
+
+/**
+ * 
+ * @brief Struct for Rent logging.
+ *
+*/
+
+typedef struct
+{
+    int TenantID;
+    int CurrentRentDebt;
+    char DueDate[50];
+
+} RentInfo;
+
+/**
+ * 
+ * @brief Struct for Maintenance logging.
+ *
+*/
+typedef struct
+{
+    int PropertyID;
+    int Cost;
+    int Priority;
+    char MaintenanceType[50];
+    char ExpectedFinishingDate[50];
+
+} MaintenanceInfo;
+
+/**
  * @brief Opens a binary file, deletes all of its content, and writes given text to it.
  *
  * @param file_name The name of the file to write.
