@@ -882,7 +882,7 @@ int sort_maintenance_record(){
 int properties_menu(){
     while (true)
     {
-        printf("--------Properties--------\n");
+        printf("\n--------Properties--------\n");
         printf("1-)Show Properties\n");
         printf("2-)Add Propertie\n");
         printf("3-)Edit Properties\n");
@@ -946,7 +946,7 @@ int properties_menu(){
 int tenants_menu(){
     while (true)
     {
-        printf("--------Tenants--------\n");
+        printf("\n--------Tenants--------\n");
         printf("1-)Show Tenants\n");
         printf("2-)Add Tenants\n");
         printf("3-)Edit Tenants\n");
@@ -1010,7 +1010,7 @@ int tenants_menu(){
 int rents_menu(){
     while (true)
     {
-        printf("--------Rent Tracking--------\n");
+        printf("\n--------Rent Tracking--------\n");
         printf("1-)Show Rents\n");
         printf("2-)Add Rents\n");
         printf("3-)Edit Rents\n");
@@ -1074,7 +1074,7 @@ int rents_menu(){
 int maintenance_menu(){
     while (true)
     {
-        printf("--------Maintenance Tracking--------\n");
+        printf("\n--------Maintenance Tracking--------\n");
         printf("1-)Show Maintenances\n");
         printf("2-)Add Maintenances\n");
         printf("3-)Edit Maintenances\n");
@@ -1139,7 +1139,7 @@ int main_menu(){
 
     while (main_menu_choice.logged_in = true)
     {
-        printf("--------Main Menu--------\n");
+        printf("\n--------Main Menu--------\n");
         printf("1-)Properties\n");
         printf("2-)Tenants\n");
         printf("3-)Rent Tracking\n");
@@ -1214,6 +1214,9 @@ int register_menu(){
     char password[100] = {};
     char recovery_key[100] = {};
     char user_file[] = "user.bin";
+    char warning;
+
+
 
     printf("Please enter your new username:");
     scanf("%s", user_name);
@@ -1222,10 +1225,9 @@ int register_menu(){
     printf("\nPlease enter your new recovery key:");
     scanf("%s", recovery_key);
 
-    char warning;
     printf("\n------------WARNING------------\n");
     printf("\nThis process will delete all previous records, do you still wish to proceed?[Y/n]:");
-    scanf("%c", &warning);
+    scanf("%c", warning);
 
     if (warning == 'Y')
     {

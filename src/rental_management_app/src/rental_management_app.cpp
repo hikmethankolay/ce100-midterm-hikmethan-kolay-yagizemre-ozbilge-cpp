@@ -22,7 +22,7 @@ int main() {
     
     while (login_menu_choice.run)
     {
-        printf("--------Login Menu--------\n");
+        printf("\n--------Login Menu--------\n");
         printf("1-)Login\n");
         printf("2-)Register\n");
         printf("3-)Change Password\n");
