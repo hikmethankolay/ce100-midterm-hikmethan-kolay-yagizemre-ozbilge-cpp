@@ -653,7 +653,7 @@ void quickSort(TenantInfo arr[], int low, int high) {
         int pi = randomizedPartition(arr, low, high);
 
         // Separately sort elements before and after partition
-        quickSort(arr, low, pi);
+        quickSort(arr, low, pi-1);
         quickSort(arr, pi + 1, high);
     }
 }
@@ -666,12 +666,13 @@ void quickSort(TenantInfo arr[], int low, int high) {
  */
 int sort_tenant_record(){
 
-    if (file_read("tenant_records.bin",'Y') == NULL)
+    char *input = file_read("tenant_records.bin",'Y');
+
+    if (input == NULL)
     {
         return -1;
     }
     
-    char *input = file_read("tenant_records.bin",'Y');
 
     int count = 0;
 
@@ -695,10 +696,10 @@ int sort_tenant_record(){
         i++;
     }
     
-    int n = sizeof(tenants) / sizeof(tenants[0]);
-    quickSort(tenants, 0, n - 1);
 
-    printf("------------Tenant Records Sorted By TenantID------------");
+    quickSort(tenants, 0, count-1);
+
+    printf("------------Tenant Records Sorted By TenantID------------\n");
     for (i = 0; i < count; i++) {
         printf("%d-)TenantID:%d / PropertyID:%d / Rent:%d / BirthDate:%s / Name:%s / Surname:%s\n",
                tenants[i].RecordNumber,tenants[i].TenantID, tenants[i].PropertyID, tenants[i].Rent, tenants[i].BirthDate, tenants[i].Name, tenants[i].Surname);
@@ -748,11 +749,12 @@ int search_tenant_record(){
     int tenantIDToFind;
     scanf("%d", &tenantIDToFind);
 
-    if (file_read("tenant_records.bin",'Y') == NULL)
+    char *input = file_read("tenant_records.bin",'Y');
+
+    if (input == NULL)
     {
         return -1;
     }
-    char *input = file_read("tenant_records.bin",'Y');
 
     int count = 0;
 
@@ -775,14 +777,12 @@ int search_tenant_record(){
         line = strtok(NULL, "\n");
         i++;
     }
-    
-    int n = sizeof(tenants) / sizeof(tenants[0]);
 
-    quickSort(tenants, 0, n - 1);
+    quickSort(tenants, 0, count-1);
 
-    int indexOfID = recursiveBinarySearch(tenants,0,n-1,tenantIDToFind);
+    int indexOfID = recursiveBinarySearch(tenants,0,count-1,tenantIDToFind);
 
-    printf("------------Tenant Record Founded By TenantID------------");
+    printf("------------Tenant Record Founded By TenantID------------\n");
     printf("%d-)TenantID:%d / PropertyID:%d / Rent:%d / BirthDate:%s / Name:%s / Surname:%s\n",
             tenants[indexOfID].RecordNumber,tenants[indexOfID].TenantID, tenants[indexOfID].PropertyID, tenants[indexOfID].Rent, tenants[indexOfID].BirthDate, tenants[indexOfID].Name, tenants[indexOfID].Surname);
 
