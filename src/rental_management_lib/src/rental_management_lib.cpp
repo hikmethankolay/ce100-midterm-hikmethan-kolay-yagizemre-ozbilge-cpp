@@ -575,9 +575,10 @@ int edit_tenant_record(){
 int delete_tenant_record(){
     
     printf("\nPlease enter record number to delete:");
-    int RecordNumberToEdit;
+    int RecordNumberToDelete;
+    scanf("%d",&RecordNumberToDelete);
 
-    if(file_line_delete("tenant_records.bin", RecordNumberToEdit) == 0) {
+    if(file_line_delete("tenant_records.bin", RecordNumberToDelete) == 0) {
         return 0;
     } else {
         return -1;
@@ -700,7 +701,7 @@ int sort_tenant_record(){
     printf("------------Tenant Records Sorted By TenantID------------");
     for (i = 0; i < count; i++) {
         printf("%d-)TenantID:%d / PropertyID:%d / Rent:%d / BirthDate:%s / Name:%s / Surname:%s\n",
-               &tenants[i].RecordNumber,tenants[i].TenantID, tenants[i].PropertyID, tenants[i].Rent, tenants[i].BirthDate, tenants[i].Name, tenants[i].Surname);
+               tenants[i].RecordNumber,tenants[i].TenantID, tenants[i].PropertyID, tenants[i].Rent, tenants[i].BirthDate, tenants[i].Name, tenants[i].Surname);
     }
 
     // free the allocated memory
@@ -783,7 +784,7 @@ int search_tenant_record(){
 
     printf("------------Tenant Record Founded By TenantID------------");
     printf("%d-)TenantID:%d / PropertyID:%d / Rent:%d / BirthDate:%s / Name:%s / Surname:%s\n",
-            &tenants[indexOfID].RecordNumber,tenants[indexOfID].TenantID, tenants[indexOfID].PropertyID, tenants[indexOfID].Rent, tenants[indexOfID].BirthDate, tenants[indexOfID].Name, tenants[indexOfID].Surname);
+            tenants[indexOfID].RecordNumber,tenants[indexOfID].TenantID, tenants[indexOfID].PropertyID, tenants[indexOfID].Rent, tenants[indexOfID].BirthDate, tenants[indexOfID].Name, tenants[indexOfID].Surname);
 
     // free the allocated memory
     free(tenants);
@@ -994,7 +995,7 @@ int tenants_menu(){
             break;
         }
         else{
-            printf("Please input a correct choice.",'N');
+            printf("Please input a correct choice.");
             continue;
         }
     }

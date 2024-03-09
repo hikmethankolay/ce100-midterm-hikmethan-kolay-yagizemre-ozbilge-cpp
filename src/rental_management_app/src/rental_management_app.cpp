@@ -4,6 +4,7 @@
  *
  *
  */
+#define _CRT_SECURE_NO_WARNINGS
 
  // Standard Libraries
 #include <iostream>
