@@ -442,6 +442,7 @@ int user_register(const char *new_username, const char *new_password, const char
  * @return 0.
  */
 int add_property_record(){
+
     return 0;
 };
 /**
@@ -623,8 +624,8 @@ int properties_menu(){
 
         if (choice_properties == sub_menu.sub_menu_show)
         {
-            
-            file_read("propert_records.bin");
+            printf("--------------Property Records--------------");
+            file_read("property_records.bin");
             continue;
         }
         else if (choice_properties == sub_menu.sub_menu_add)
@@ -687,6 +688,7 @@ int tenants_menu(){
 
         if (choice_tenants == sub_menu.sub_menu_show)
         {
+            printf("--------------Tenant Records--------------");
             file_read("tenant_records.bin");
             continue;
         }
@@ -750,6 +752,7 @@ int rents_menu(){
 
         if (choice_rents == sub_menu.sub_menu_show)
         {
+            printf("--------------Rent Records--------------");
             file_read("rent_records.bin");
             continue;
         }
@@ -813,6 +816,7 @@ int maintenance_menu(){
 
         if (choice_maintenances == sub_menu.sub_menu_show)
         {
+            printf("--------------Maintenance Records--------------");
             file_read("maintenance_records.bin");
             continue;
         }
