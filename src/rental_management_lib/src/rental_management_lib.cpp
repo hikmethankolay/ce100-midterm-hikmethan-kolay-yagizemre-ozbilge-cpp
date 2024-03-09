@@ -961,7 +961,7 @@ int tenants_menu(){
 
         if (choice_tenants == sub_menu.sub_menu_show)
         {
-            printf("--------------Tenant Records--------------");
+            printf("--------------Tenant Records--------------\n");
             file_read("tenant_records.bin",'N');
             continue;
         }
@@ -995,7 +995,7 @@ int tenants_menu(){
             break;
         }
         else{
-            printf("Please input a correct choice.");
+            printf("\nPlease input a correct choice.");
             continue;
         }
     }
@@ -1025,7 +1025,7 @@ int rents_menu(){
 
         if (choice_rents == sub_menu.sub_menu_show)
         {
-            printf("--------------Rent Records--------------");
+            printf("--------------Rent Records--------------\n");
             file_read("rent_records.bin",'N');
             continue;
         }
@@ -1059,7 +1059,7 @@ int rents_menu(){
             break;
         }
         else{
-            printf("Please input a correct choice.");
+            printf("\nPlease input a correct choice.");
             continue;
         }
     }
@@ -1089,7 +1089,7 @@ int maintenance_menu(){
 
         if (choice_maintenances == sub_menu.sub_menu_show)
         {
-            printf("--------------Maintenance Records--------------");
+            printf("--------------Maintenance Records--------------\n");
             file_read("maintenance_records.bin",'N');
             continue;
         }
@@ -1123,7 +1123,7 @@ int maintenance_menu(){
             break;
         }
         else{
-            printf("Please input a correct choice.");
+            printf("\nPlease input a correct choice.");
             continue;
         }
     }
@@ -1168,7 +1168,7 @@ int main_menu(){
         else if (choice_main_menu == main_menu_choice.main_menu_log_out)
         {
             main_menu_choice.logged_in = false;
-            continue;
+            break;
         }
         else{
             printf("Please input a correct choice.");
@@ -1227,7 +1227,7 @@ int register_menu(){
 
     printf("\n------------WARNING------------\n");
     printf("\nThis process will delete all previous records, do you still wish to proceed?[Y/n]:");
-    scanf("%c", warning);
+    scanf(" %c", &warning);
 
     if (warning == 'Y')
     {
