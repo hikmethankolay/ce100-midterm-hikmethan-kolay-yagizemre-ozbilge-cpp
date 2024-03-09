@@ -6,6 +6,52 @@
 
 #ifndef RENTAL_MANAGEMENT_LIB_H
 #define RENTAL_MANAGEMENT_LIB_H
+/**
+ * 
+ * @brief Struct for login menu.
+ *
+*/
+struct login_menu_variables
+{
+    bool run = true;
+    bool run = true;
+    bool logged_in = true;
+    int login_menu_login = 1;
+    int login_menu_register = 2;
+    int login_menu_password_reset = 3;
+    int login_menu_exit = 4;
+    
+};
+/**
+ * 
+ * @brief Struct for main menu.
+ *
+*/
+struct manin_menu_variables
+{
+    
+    bool logged_in = true;
+    int main_menu_property = 1;
+    int main_menu_tenant = 2;
+    int main_menu_rent_tracking = 3;
+    int main_menu_maintenance = 4;
+    int main_menu_log_out = 5;
+};
+/**
+ * 
+ * @brief Struct for sub menus.
+ *
+*/
+struct sub_menu_variables
+{
+    int sub_menu_show = 1;
+    int sub_menu_add = 2;
+    int sub_menu_edit = 3;
+    int sub_menu_delete = 4;
+    int sub_menu_search = 5;
+    int sub_menu_sort = 6;
+    int sub_menu_return = 7;
+};
 
 /**
  * 
@@ -121,7 +167,9 @@ int file_line_delete(const char *file_name, int line_number_to_delete);
  * @brief This function is for user login
  *
  * Function read user.bin file and checks if username and password matchs with inputted username and password
- *
+ * @param username username.
+ * @param password password.
+ * @param user_file file that contains user info.
  * @return 0 on success.
  * @return -1 on fail.
  */
@@ -132,7 +180,10 @@ int user_login(const char *username, const char *password, const char *user_file
  * @brief This function is for user register
  *
  * Function creates a user file in binary format and writes inputted username and password in it. Additionaly deletes all previous records.
- *
+ * @param new_username new username.
+ * @param new_password new password.
+ * @param new_recovery_key new recovery key
+ * @param user_file file that contains user info.
  * @return 0 on success.
  * @return -1 on fail.
  */
@@ -140,10 +191,68 @@ int user_register(const char *new_username, const char *new_password, const char
 
 /**
  * @brief This function changes the password of a user.
- *
+ * @param recovery_key recovery_key.
+ * @param new_password new password.
+ * @param user_file file that contains user info.
  * @return 0 on success.
  * @return -1 on fail.
  */
 int user_change_password(const char *recovery_key, const char *new_password, const char *user_file);
+
+/**
+ * @brief properties menu.
+ *
+ * @return 0.
+ */
+int properties_menu();
+
+/**
+ * @brief tenants menu.
+ *
+ * @return 0.
+ */
+int tenants_menu();
+
+/**
+ * @brief rents menu.
+ *
+ * @return 0.
+ */
+int rents_menu();
+
+/**
+ * @brief maintenance menu.
+ *
+ * @return 0.
+ */
+int maintenance_menu();
+
+/**
+ * @brief main menu.
+ *
+ * @return 0.
+ */
+int main_menu();
+
+/**
+ * @brief login menu.
+ *
+ * @return 0.
+ */
+int login_menu();
+
+/**
+ * @brief register menu.
+ *
+ * @return 0.
+ */
+int register_menu();
+
+/**
+ * @brief change pssword menu.
+ *
+ * @return 0.
+ */
+int change_password_menu();
 
 #endif // RENTAL_MANAGEMENT_LIB_H

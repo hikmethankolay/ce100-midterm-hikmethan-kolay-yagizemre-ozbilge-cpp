@@ -16,6 +16,12 @@
 #include <stdlib.h>
 #include <string.h>
 
+/**
+ * @brief Structs for menu functions.
+ *
+ */
+struct manin_menu_variables main_menu_choice;
+struct sub_menu_variables sub_menu;
 
 /**
  * @brief Opens a binary file, deletes all of its content, and writes given text to it.
@@ -429,3 +435,355 @@ int user_register(const char *new_username, const char *new_password, const char
 
     return 0;
 }
+
+/**
+ * @brief properties menu.
+ *
+ * @return 0.
+ */
+int properties_menu(){
+    while (true)
+    {
+        printf("--------Properties--------\n");
+        printf("1-)Show Properties\n");
+        printf("2-)Add Propertie\n");
+        printf("3-)Edit Properties\n");
+        printf("4-)Delete Properties\n");
+        printf("5-)Search Properties\n");
+        printf("6-)Sort Properties\n");
+        printf("7-)Return to Main Menu\n");
+        printf("Please enter a choice:");
+
+        int choice_properties;
+        scanf("%d", &choice_properties);
+
+        if (choice_properties == sub_menu.sub_menu_show)
+        {
+            /* code */
+        }
+        else if (choice_properties == sub_menu.sub_menu_add)
+        {
+            /* code */
+        }
+        else if (choice_properties == sub_menu.sub_menu_edit)
+        {
+            /* code */
+        }
+        else if (choice_properties == sub_menu.sub_menu_delete)
+        {
+            /* code */
+        }
+        else if (choice_properties == sub_menu.sub_menu_search)
+        {
+            /* code */
+        }
+        else if (choice_properties == sub_menu.sub_menu_sort)
+        {
+            /* code */
+        }
+        else if (choice_properties == sub_menu.sub_menu_return)
+        {
+            break;
+        }
+        else{
+            printf("Please input a correct choice.");
+            continue;
+        }
+    }
+    
+    return 0;
+}
+/**
+ * @brief tenants menu.
+ *
+ * @return 0.
+ */
+int tenants_menu(){
+    while (true)
+    {
+        printf("--------Tenants--------\n");
+        printf("1-)Show Tenants\n");
+        printf("2-)Add Tenants\n");
+        printf("3-)Edit Tenants\n");
+        printf("4-)Delete Tenants\n");
+        printf("5-)Search Tenants\n");
+        printf("6-)Sort Tenants\n");
+        printf("7-)Return to Main Menu\n");
+        printf("Please enter a choice:");
+
+        int choice_tenants;
+        scanf("%d", &choice_tenants);
+
+        if (choice_tenants == sub_menu.sub_menu_show)
+        {
+            /* code */
+        }
+        else if (choice_tenants == sub_menu.sub_menu_add)
+        {
+            /* code */
+        }
+        else if (choice_tenants == sub_menu.sub_menu_edit)
+        {
+            /* code */
+        }
+        else if (choice_tenants == sub_menu.sub_menu_delete)
+        {
+            /* code */
+        }
+        else if (choice_tenants == sub_menu.sub_menu_search)
+        {
+            /* code */
+        }
+        else if (choice_tenants == sub_menu.sub_menu_sort)
+        {
+            /* code */
+        }
+        else if (choice_tenants == sub_menu.sub_menu_return)
+        {
+            break;
+        }
+        else{
+            printf("Please input a correct choice.");
+            continue;
+        }
+    }
+    
+    return 0;
+}
+/**
+ * @brief rents menu.
+ *
+ * @return 0.
+ */
+int rents_menu(){
+    while (true)
+    {
+        printf("--------Rent Tracking--------\n");
+        printf("1-)Show Rents\n");
+        printf("2-)Add Rents\n");
+        printf("3-)Edit Rents\n");
+        printf("4-)Delete Rents\n");
+        printf("5-)Search Rents\n");
+        printf("6-)Sort Rents\n");
+        printf("7-)Return to Main Menu\n");
+        printf("Please enter a choice:");
+
+        int choice_rents;
+        scanf("%d", &choice_rents);
+
+        if (choice_rents == sub_menu.sub_menu_show)
+        {
+            /* code */
+        }
+        else if (choice_rents == sub_menu.sub_menu_add)
+        {
+            /* code */
+        }
+        else if (choice_rents == sub_menu.sub_menu_edit)
+        {
+            /* code */
+        }
+        else if (choice_rents == sub_menu.sub_menu_delete)
+        {
+            /* code */
+        }
+        else if (choice_rents == sub_menu.sub_menu_search)
+        {
+            /* code */
+        }
+        else if (choice_rents == sub_menu.sub_menu_sort)
+        {
+            /* code */
+        }
+        else if (choice_rents == sub_menu.sub_menu_return)
+        {
+            break;
+        }
+        else{
+            printf("Please input a correct choice.");
+            continue;
+        }
+    }
+    
+    return 0;
+}
+/**
+ * @brief maintenance menu.
+ *
+ * @return 0.
+ */
+int maintenance_menu(){
+    while (true)
+    {
+        printf("--------Maintenance Tracking--------\n");
+        printf("1-)Show Maintenances\n");
+        printf("2-)Add Maintenances\n");
+        printf("3-)Edit Maintenances\n");
+        printf("4-)Delete Maintenances\n");
+        printf("5-)Search Maintenances\n");
+        printf("6-)Sort Maintenances\n");
+        printf("7-)Return to Main Menu\n");
+        printf("Please enter a choice:");
+
+        int choice_maintenances;
+        scanf("%d", &choice_maintenances);
+
+        if (choice_maintenances == sub_menu.sub_menu_show)
+        {
+            /* code */
+        }
+        else if (choice_maintenances == sub_menu.sub_menu_add)
+        {
+            /* code */
+        }
+        else if (choice_maintenances == sub_menu.sub_menu_edit)
+        {
+            /* code */
+        }
+        else if (choice_maintenances == sub_menu.sub_menu_delete)
+        {
+            /* code */
+        }
+        else if (choice_maintenances == sub_menu.sub_menu_search)
+        {
+            /* code */
+        }
+        else if (choice_maintenances == sub_menu.sub_menu_sort)
+        {
+            /* code */
+        }
+        else if (choice_maintenances == sub_menu.sub_menu_return)
+        {
+            break;
+        }
+        else{
+            printf("Please input a correct choice.");
+            continue;
+        }
+    }
+    
+    return 0;
+}
+/**
+ * @brief main menu.
+ *
+ * @return 0.
+ */
+int main_menu(){
+
+    while (main_menu_choice.logged_in = true)
+    {
+        printf("--------Main Menu--------\n");
+        printf("1-)Properties\n");
+        printf("2-)Tenants\n");
+        printf("3-)Rent Tracking\n");
+        printf("4-)Maintenance Tracking\n");
+        printf("5-)Log out\n");
+        printf("Please enter a choice:");
+        int choice_main_menu;
+        scanf("%d", &choice_main_menu);
+
+        if (choice_main_menu == main_menu_choice.main_menu_property)
+        {
+            properties_menu();
+        }
+        else if (choice_main_menu == main_menu_choice.main_menu_tenant)
+        {
+            tenants_menu();
+        }
+        else if (choice_main_menu == main_menu_choice.main_menu_rent_tracking)
+        {
+            rents_menu();
+        }
+        else if (choice_main_menu == main_menu_choice.main_menu_maintenance)
+        {
+            maintenance_menu();
+        }
+        else if (choice_main_menu == main_menu_choice.main_menu_log_out)
+        {
+            main_menu_choice.logged_in = false;
+            continue;
+        }
+        else{
+            printf("Please input a correct choice.");
+            continue;
+        }
+
+    }
+    return 0;
+}
+
+/**
+ * @brief variables for login/register/cahnge password processes.
+ *
+ */
+char user_name[] = "";
+char password[] = "";
+char recovery_key[] = "";
+char user_file[] = "user.bin";
+
+/**
+ * @brief login menu.
+ *
+ * @return 0.
+ */
+int login_menu(){
+
+    printf("Please enter your username:");
+    scanf("%[^\n]%*c", user_name);
+    printf("\nPlease enter your password:");
+    scanf("%[^\n]%*c", password);
+
+
+    if (user_login(user_name,password,user_file) == 0)
+    {
+        main_menu();
+    }
+
+    return 0;
+};
+
+/**
+ * @brief register menu.
+ *
+ * @return 0.
+ */
+int register_menu(){
+
+    printf("Please enter your new username:");
+    scanf("%[^\n]%*c", user_name);
+    printf("\nPlease enter your new password:");
+    scanf("%[^\n]%*c", password);
+    printf("\nPlease enter your new recovery key:");
+    scanf("%[^\n]%*c", recovery_key);
+
+    char warning;
+    printf("------------WARNING------------\n");
+    printf("This process will delete all previous records, do you still wish to proceed?[Y/n]:");
+    scanf("%c", &warning);
+
+    if (warning == 'Y')
+    {
+        user_register(user_name,password,recovery_key,user_file);
+    }
+    else{
+        printf("Process terminated.");
+    }
+
+    return 0;
+};
+
+/**
+ * @brief change pssword menu.
+ *
+ * @return 0.
+ */
+int change_password_menu(){
+    printf("Please enter your recovery key:");
+    scanf("%[^\n]%*c", recovery_key);
+    printf("\nPlease enter your new password:");
+    scanf("%[^\n]%*c", password);
+
+    user_change_password(recovery_key,password,user_file);
+    return 0;
+};
