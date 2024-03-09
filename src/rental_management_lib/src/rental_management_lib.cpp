@@ -419,10 +419,12 @@ int user_register(const char *new_username, const char *new_password, const char
     fclose(myFile);
 
 
-    remove("_records.bin");
-    remove("_records.bin");
-    remove("_records.bin");
-    remove("_records.bin");
+    remove("propert_records.bin");
+    remove("tenant_records.bin");
+    remove("rent_records.bin");
+    remove("maintenance_records.bin");
+
+    printf("\nRegister is successful and all previous record are deleted.");
 
     return 0;
 }
