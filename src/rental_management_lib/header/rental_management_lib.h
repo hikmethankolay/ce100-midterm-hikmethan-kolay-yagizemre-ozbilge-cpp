@@ -61,7 +61,7 @@ typedef struct
     int TenantID;
     int PropertyID;
     int Rent;
-    char BirthDate[50];
+    char BirthDate[11];
     char Name[50];
     char Surname[50];
 
@@ -196,6 +196,130 @@ int user_register(const char *new_username, const char *new_password, const char
  * @return -1 on fail.
  */
 int user_change_password(const char *recovery_key, const char *new_password, const char *user_file);
+
+/**
+ * @brief add property record.
+ *
+ * @return 0.
+ */
+int add_property_record();
+/**
+ * @brief edit property record.
+ *
+ * @return 0.
+ */
+int edit_property_record();
+/**
+ * @brief delete property record.
+ *
+ * @return 0.
+ */
+int delete_property_record();
+/**
+ * @brief search property record.
+ *
+ * @return 0.
+ */
+int search_property_record();
+/**
+ * @brief sort property record.
+ *
+ * @return 0.
+ */
+int sort_property_record();
+
+/**
+ * @brief add tenant record.
+ *
+ * @return 0.
+ */
+int add_tenant_record();
+/**
+ * @brief edit tenant record.
+ *
+ * @return 0.
+ */
+int edit_tenant_record();
+/**
+ * @brief delete tenant record.
+ *
+ * @return 0.
+ */
+int delete_tenant_record();
+/**
+ * @brief search tenant record.
+ *
+ * @return 0.
+ */
+int search_tenant_record();
+/**
+ * @brief sort tenant record.
+ *
+ * @return 0.
+ */
+int sort_tenant_record();
+
+/**
+ * @brief add rent record.
+ *
+ * @return 0.
+ */
+int add_rent_record();
+/**
+ * @brief edit rent record.
+ *
+ * @return 0.
+ */
+int edit_rent_record();
+/**
+ * @brief delete rent record.
+ *
+ * @return 0.
+ */
+int delete_rent_record();
+/**
+ * @brief search rent record.
+ *
+ * @return 0.
+ */
+int search_rent_record();
+/**
+ * @brief sort rent record.
+ *
+ * @return 0.
+ */
+int sort_rent_record();
+
+/**
+ * @brief add maintenance record.
+ *
+ * @return 0.
+ */
+int add_maintenance_record();
+/**
+ * @brief edit maintenance record.
+ *
+ * @return 0.
+ */
+int edit_maintenance_record();
+/**
+ * @brief delete maintenance record.
+ *
+ * @return 0.
+ */
+int delete_maintenance_record();
+/**
+ * @brief search maintenance record.
+ *
+ * @return 0.
+ */
+int search_maintenance_record();
+/**
+ * @brief sort maintenance record.
+ *
+ * @return 0.
+ */
+int sort_maintenance_record();
 
 /**
  * @brief properties menu.

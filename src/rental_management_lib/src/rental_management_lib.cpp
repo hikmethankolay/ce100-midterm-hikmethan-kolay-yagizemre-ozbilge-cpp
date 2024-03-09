@@ -436,7 +436,169 @@ int user_register(const char *new_username, const char *new_password, const char
     return 0;
 }
 
+/**
+ * @brief add property record.
+ *
+ * @return 0.
+ */
+int add_property_record(){
+    return 0;
+};
+/**
+ * @brief edit property record.
+ *
+ * @return 0.
+ */
+int edit_property_record(){
+    return 0;
+};
+/**
+ * @brief delete property record.
+ *
+ * @return 0.
+ */
+int delete_property_record(){
+    return 0;
+};
+/**
+ * @brief search property record.
+ *
+ * @return 0.
+ */
+int search_property_record(){
+    return 0;
+};
+/**
+ * @brief sort property record.
+ *
+ * @return 0.
+ */
+int sort_property_record(){
+    return 0;
+};
 
+/**
+ * @brief add tenant record.
+ *
+ * @return 0.
+ */
+int add_tenant_record(){
+    return 0;
+};
+/**
+ * @brief edit tenant record.
+ *
+ * @return 0.
+ */
+int edit_tenant_record(){
+    return 0;
+};
+/**
+ * @brief delete tenant record.
+ *
+ * @return 0.
+ */
+int delete_tenant_record(){
+    return 0;
+};
+/**
+ * @brief search tenant record.
+ *
+ * @return 0.
+ */
+int search_tenant_record(){
+    return 0;
+};
+/**
+ * @brief sort tenant record.
+ *
+ * @return 0.
+ */
+int sort_tenant_record(){
+    return 0;
+};
+
+/**
+ * @brief add rent record.
+ *
+ * @return 0.
+ */
+int add_rent_record(){
+    return 0;
+};
+/**
+ * @brief edit rent record.
+ *
+ * @return 0.
+ */
+int edit_rent_record(){
+    return 0;
+};
+/**
+ * @brief delete rent record.
+ *
+ * @return 0.
+ */
+int delete_rent_record(){
+    return 0;
+};
+/**
+ * @brief search rent record.
+ *
+ * @return 0.
+ */
+int search_rent_record(){
+    return 0;
+};
+/**
+ * @brief sort rent record.
+ *
+ * @return 0.
+ */
+int sort_rent_record(){
+    return 0;
+};
+
+/**
+ * @brief add maintenance record.
+ *
+ * @return 0.
+ */
+int add_maintenance_record(){
+    return 0;
+};
+/**
+ * @brief edit maintenance record.
+ *
+ * @return 0.
+ */
+int edit_maintenance_record(){
+    return 0;
+};
+/**
+ * @brief delete maintenance record.
+ *
+ * @return 0.
+ */
+int delete_maintenance_record(){
+    return 0;
+};
+/**
+ * @brief search maintenance record.
+ *
+ * @return 0.
+ */
+int search_maintenance_record(){
+    return 0;
+};
+/**
+ * @brief sort maintenance record.
+ *
+ * @return 0.
+ */
+int sort_maintenance_record(){
+    return 0;
+};
 
 /**
  * @brief properties menu.
@@ -461,27 +623,34 @@ int properties_menu(){
 
         if (choice_properties == sub_menu.sub_menu_show)
         {
-            /* code */
+            
+            file_read("propert_records.bin");
+            continue;
         }
         else if (choice_properties == sub_menu.sub_menu_add)
         {
-            /* code */
+            add_property_record();
+            continue;
         }
         else if (choice_properties == sub_menu.sub_menu_edit)
         {
-            /* code */
+            edit_property_record();
+            continue;
         }
         else if (choice_properties == sub_menu.sub_menu_delete)
         {
-            /* code */
+            delete_property_record();
+            continue;
         }
         else if (choice_properties == sub_menu.sub_menu_search)
         {
-            /* code */
+            search_property_record();
+            continue;
         }
         else if (choice_properties == sub_menu.sub_menu_sort)
         {
-            /* code */
+            sort_property_record();
+            continue;
         }
         else if (choice_properties == sub_menu.sub_menu_return)
         {
@@ -518,27 +687,33 @@ int tenants_menu(){
 
         if (choice_tenants == sub_menu.sub_menu_show)
         {
-            /* code */
+            file_read("tenant_records.bin");
+            continue;
         }
         else if (choice_tenants == sub_menu.sub_menu_add)
         {
-            /* code */
+            add_tenant_record();
+            continue;
         }
         else if (choice_tenants == sub_menu.sub_menu_edit)
         {
-            /* code */
+            edit_tenant_record();
+            continue;
         }
         else if (choice_tenants == sub_menu.sub_menu_delete)
         {
-            /* code */
+            delete_tenant_record();
+            continue;
         }
         else if (choice_tenants == sub_menu.sub_menu_search)
         {
-            /* code */
+            search_tenant_record();
+            continue;
         }
         else if (choice_tenants == sub_menu.sub_menu_sort)
         {
-            /* code */
+            sort_tenant_record();
+            continue;
         }
         else if (choice_tenants == sub_menu.sub_menu_return)
         {
@@ -575,27 +750,33 @@ int rents_menu(){
 
         if (choice_rents == sub_menu.sub_menu_show)
         {
-            /* code */
+            file_read("rent_records.bin");
+            continue;
         }
         else if (choice_rents == sub_menu.sub_menu_add)
         {
-            /* code */
+            add_rent_record();
+            continue;
         }
         else if (choice_rents == sub_menu.sub_menu_edit)
         {
-            /* code */
+            edit_rent_record();
+            continue;
         }
         else if (choice_rents == sub_menu.sub_menu_delete)
         {
-            /* code */
+            delete_rent_record();
+            continue;
         }
         else if (choice_rents == sub_menu.sub_menu_search)
         {
-            /* code */
+            search_rent_record();
+            continue;
         }
         else if (choice_rents == sub_menu.sub_menu_sort)
         {
-            /* code */
+            sort_rent_record();
+            continue;
         }
         else if (choice_rents == sub_menu.sub_menu_return)
         {
@@ -632,27 +813,33 @@ int maintenance_menu(){
 
         if (choice_maintenances == sub_menu.sub_menu_show)
         {
-            /* code */
+            file_read("maintenance_records.bin");
+            continue;
         }
         else if (choice_maintenances == sub_menu.sub_menu_add)
         {
-            /* code */
+            add_maintenance_record();
+            continue;
         }
         else if (choice_maintenances == sub_menu.sub_menu_edit)
         {
-            /* code */
+            edit_maintenance_record();
+            continue;
         }
         else if (choice_maintenances == sub_menu.sub_menu_delete)
         {
-            /* code */
+            delete_maintenance_record();
+            continue;
         }
         else if (choice_maintenances == sub_menu.sub_menu_search)
         {
-            /* code */
+            search_maintenance_record();
+            continue;
         }
         else if (choice_maintenances == sub_menu.sub_menu_sort)
         {
-            /* code */
+            sort_maintenance_record();
+            continue;
         }
         else if (choice_maintenances == sub_menu.sub_menu_return)
         {
