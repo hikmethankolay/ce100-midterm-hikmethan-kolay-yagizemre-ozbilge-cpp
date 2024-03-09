@@ -7,7 +7,7 @@
 
  // Standard Libraries
 #include <iostream>
-#include "../../rental_management_lib/header/rental_management_lib.h"  // Adjust this include path based on your project structure
+#include "../../rental_management_lib/header/rental_management_lib.h" 
 
 /**
  * 
@@ -19,7 +19,7 @@ int main() {
     struct menu_variables
     {
         bool run = true;
-        bool looged_in = true;
+        bool logged_in = true;
         int login_menu_login = 1;
         int login_menu_register = 2;
         int login_menu_password_reset = 3;
@@ -28,6 +28,7 @@ int main() {
         int main_menu_tenant = 2;
         int main_menu_rent_tracking = 3;
         int main_menu_maintenance = 4;
+        int main_menu_log_out = 5;
         
     };
 
@@ -60,7 +61,46 @@ int main() {
 
             if (user_login(user_name,password,user_file) == 0)
             {
-                /* code */
+                while (menu.logged_in = true)
+                {
+                    printf("--------Main Menu--------\n");
+                    printf("1-)Properties\n");
+                    printf("2-)Tenants\n");
+                    printf("3-)Rent Tracking\n");
+                    printf("4-)Maintenance Tracking\n");
+                    printf("5-)Log out\n");
+                    printf("Please enter a choice:");
+                    int choice_main_menu;
+                    scanf("%d", &choice_main_menu);
+
+                    if (choice_main_menu == menu.main_menu_property)
+                    {
+                        /* code */
+                    }
+                    else if (choice_main_menu == menu.main_menu_tenant)
+                    {
+                        /* code */
+                    }
+                    else if (choice_main_menu == menu.main_menu_rent_tracking)
+                    {
+                        /* code */
+                    }
+                    else if (choice_main_menu == menu.main_menu_maintenance)
+                    {
+                        /* code */
+                    }
+                    else if (choice_main_menu == menu.main_menu_log_out)
+                    {
+                        menu.logged_in = false;
+                        continue;
+                    }
+                    else{
+                        printf("Please input a coorect choice.");
+                        continue;
+                    }
+
+                }
+                
             }
             else{
                 continue;
