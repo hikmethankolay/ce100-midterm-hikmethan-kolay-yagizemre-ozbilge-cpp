@@ -28,7 +28,7 @@ int success = 0;
  */
 TEST_F(RentalTest, TestFileRead) {
   char testString[] = "1-)TEXT STRING1\n2-)TEXT STRING2\n3-)TEXT STRING3\n4-)TEXT STRING4\n5-)TEXT STRING5\n";
-  EXPECT_EQ(*testString, *file_read("test1.bin","N"));
+  EXPECT_EQ(*testString, *file_read("test1.bin",'N'));
 }
 
 /**
@@ -38,7 +38,7 @@ TEST_F(RentalTest, TestFileAppend) {
   char testString[] = "1-)TEXT STRING1\n2-)TEXT STRING2\n3-)TEXT STRING3\n4-)TEXT STRING4\n5-)TEXT STRING5\n6-)TEXT STRING6\n";
   char appendString[] = "TEXT STRING6";
   file_append("test2.bin", appendString);
-  EXPECT_EQ(*testString, *file_read("test2.bin","N"));
+  EXPECT_EQ(*testString, *file_read("test2.bin",'N'));
 }
 
 /**
@@ -48,7 +48,7 @@ TEST_F(RentalTest, TestFileEdit) {
   char testString[] = "1-)TEXT STRING1\n2-)TEXT STRING2\n3-)TEXT STRING EDIT\n4-)TEXT STRING4\n5-)TEXT STRING5\n";
   char editString[] = "TEXT STRING EDIT";
   file_edit("test3.bin", 3, editString);
-  EXPECT_EQ(*testString, *file_read("test3.bin","N"));
+  EXPECT_EQ(*testString, *file_read("test3.bin",'N'));
 }
 
 /**
@@ -57,7 +57,7 @@ TEST_F(RentalTest, TestFileEdit) {
 TEST_F(RentalTest, TestFileDelete) {
   char testString[] = "1-)TEXT STRING2\n2-)TEXT STRING3\n3-)TEXT STRING4\n4-)TEXT STRING5\n";
   file_line_delete("test4.bin", 1);
-  EXPECT_EQ(*testString, *file_read("test4.bin","N"));
+  EXPECT_EQ(*testString, *file_read("test4.bin",'N'));
 }
 
 /**
@@ -67,14 +67,14 @@ TEST_F(RentalTest, TestFileWrite) {
   char testString[] = "1-)TEXT STRING WRITE\n";
   char writeString[] = "TEXT STRING WRITE";
   file_write("test5.bin", writeString);
-  EXPECT_EQ(*testString, *file_read("test5.bin","N"));
+  EXPECT_EQ(*testString, *file_read("test5.bin",'N'));
 }
 
 /**
  * @brief Tests the file_read function in a fail case.
  */
 TEST_F(RentalTest, TestFileReadFail) {
-  ASSERT_EQ(NULL, file_read("test1f.bin","N"));
+  ASSERT_EQ(NULL, file_read("test1f.bin",'N'));
 }
 
 /**
@@ -135,7 +135,7 @@ TEST_F(RentalTest, TestUserChangePasswordFail) {
 TEST_F(RentalTest, TestUserRegister) {
   char testString[] = "username/password/recoverykey";
   user_register("username","password","recoverykey","usertest.bin");
-  EXPECT_EQ(*testString, *file_read("usertest.bin","N"));
+  EXPECT_EQ(*testString, *file_read("usertest.bin",'N'));
 }
 
 /**
