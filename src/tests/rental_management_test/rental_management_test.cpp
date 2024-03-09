@@ -27,7 +27,7 @@ int success = 0;
  * @brief Tests the file_read function.
  */
 TEST_F(RentalTest, TestFileRead) {
-  char testString[] = "0-)TEXT STRING0\n1-)TEXT STRING1\n2-)TEXT STRING2\n3-)TEXT STRING3\n4-)TEXT STRING4\n";
+  char testString[] = "1-)TEXT STRING1\n2-)TEXT STRING2\n3-)TEXT STRING3\n4-)TEXT STRING4\n5-)TEXT STRING5\n";
   EXPECT_EQ(*testString, *file_read("test1.bin"));
 }
 
@@ -35,8 +35,8 @@ TEST_F(RentalTest, TestFileRead) {
  * @brief Tests the file_append function.
  */
 TEST_F(RentalTest, TestFileAppend) {
-  char testString[] = "0-)TEXT STRING0\n1-)TEXT STRING1\n2-)TEXT STRING2\n3-)TEXT STRING3\n4-)TEXT STRING4\n5-)TEXT STRING5\n";
-  char appendString[] = "TEXT STRING5";
+  char testString[] = "1-)TEXT STRING1\n2-)TEXT STRING2\n3-)TEXT STRING3\n4-)TEXT STRING4\n5-)TEXT STRING5\n6-)TEXT STRING6\n";
+  char appendString[] = "TEXT STRING6";
   file_append("test2.bin", appendString);
   EXPECT_EQ(*testString, *file_read("test2.bin"));
 }
@@ -45,7 +45,7 @@ TEST_F(RentalTest, TestFileAppend) {
  * @brief Tests the file_edit function.
  */
 TEST_F(RentalTest, TestFileEdit) {
-  char testString[] = "0-)TEXT STRING0\n1-)TEXT STRING1\n2-)TEXT STRING2\n3-)TEXT STRING EDIT\n4-)TEXT STRING4\n";
+  char testString[] = "1-)TEXT STRING1\n2-)TEXT STRING2\n3-)TEXT STRING EDIT\n4-)TEXT STRING4\n5-)TEXT STRING5\n";
   char editString[] = "TEXT STRING EDIT";
   file_edit("test3.bin", 3, editString);
   EXPECT_EQ(*testString, *file_read("test3.bin"));
@@ -55,7 +55,7 @@ TEST_F(RentalTest, TestFileEdit) {
  * @brief Tests the file_line_delete function.
  */
 TEST_F(RentalTest, TestFileDelete) {
-  char testString[] = "0-)TEXT STRING0\n1-)TEXT STRING2\n2-)TEXT STRING3\n3-)TEXT STRING4\n";
+  char testString[] = "1-)TEXT STRING2\n2-)TEXT STRING3\n3-)TEXT STRING4\n4-)TEXT STRING5\n";
   file_line_delete("test4.bin", 1);
   EXPECT_EQ(*testString, *file_read("test4.bin"));
 }
@@ -64,7 +64,7 @@ TEST_F(RentalTest, TestFileDelete) {
  * @brief Tests the file_write function.
  */
 TEST_F(RentalTest, TestFileWrite) {
-  char testString[] = "0-)TEXT STRING WRITE\n";
+  char testString[] = "1-)TEXT STRING WRITE\n";
   char writeString[] = "TEXT STRING WRITE";
   file_write("test5.bin", writeString);
   EXPECT_EQ(*testString, *file_read("test5.bin"));

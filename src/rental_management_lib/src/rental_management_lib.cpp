@@ -35,7 +35,7 @@ int file_write(const char *file_name, const char *text) {
     char prefixText[1024];
 
     // Prepend "0-)" to text and store it in prefixText
-    snprintf(prefixText, sizeof(prefixText), "0-)%s\n", text);
+    snprintf(prefixText, sizeof(prefixText), "1-)%s\n", text);
 
     // Opens file with "wb" mode. 
     // The file is created if it does not exist.
@@ -197,8 +197,8 @@ int file_edit(const char *file_name, int line_number_to_edit, const char *new_li
 
     if (line_number_to_edit > 0 && line_number_to_edit <= line_count) {
         // Directly replace the line without additional formatting
-        snprintf(lines[line_number_to_edit], MAX_LINE_LENGTH, "%d-)%s", line_number_to_edit, new_line);
-        lines[line_number_to_edit][MAX_LINE_LENGTH - 1] = '\0'; // Ensure null-termination
+        snprintf(lines[line_number_to_edit-1], MAX_LINE_LENGTH, "%d-)%s", line_number_to_edit, new_line);
+        lines[line_number_to_edit-1][MAX_LINE_LENGTH - 1] = '\0'; // Ensure null-termination
     } else {
         printf("Invalid line number.\n");
         return -1;
@@ -264,7 +264,7 @@ int file_line_delete(const char *file_name, int line_number_to_delete) {
 
     // Delete the specified line
     if (line_number_to_delete > 0 && line_number_to_delete <= line_count) {
-        for (int j = line_number_to_delete; j < line_count - 1; j++) {
+        for (int j = line_number_to_delete-1; j < line_count - 1; j++) {
             strcpy(lines[j], lines[j + 1]); // Shift each line down
         }
         line_count--; // Decrement line count since one line is removed
@@ -435,6 +435,8 @@ int user_register(const char *new_username, const char *new_password, const char
 
     return 0;
 }
+
+
 
 /**
  * @brief properties menu.

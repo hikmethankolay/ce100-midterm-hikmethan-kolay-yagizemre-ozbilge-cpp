@@ -14,8 +14,6 @@
 struct login_menu_variables
 {
     bool run = true;
-    bool run = true;
-    bool logged_in = true;
     int login_menu_login = 1;
     int login_menu_register = 2;
     int login_menu_password_reset = 3;
@@ -254,5 +252,7 @@ int register_menu();
  * @return 0.
  */
 int change_password_menu();
+
+
 
 #endif // RENTAL_MANAGEMENT_LIB_H
