@@ -473,12 +473,161 @@ int edit_property_record(){
 int delete_property_record(){
     return 0;
 };
+
+/**
+ * @brief This a hoarePartition function for Randomized quick sort.
+ * @param arr[] array of property record.
+ * @param low start of the array.
+ * @param high end of the array.
+ * @return j
+ */
+int PropertyHoarePartition(PropertyInfo arr[], int low, int high) {
+    int pivot = arr[low].PropertyID; 
+    int i = low - 1, j = high + 1;
+
+    while (1) {
+        // Find leftmost element greater than or equal to pivot
+        do {
+            i++;
+        } while (arr[i].PropertyID < pivot);
+
+        // Find rightmost element smaller than or equal to pivot
+        do {
+            j--;
+        } while (arr[j].PropertyID > pivot);
+
+        if (i >= j)
+            return j;
+
+        // Swap arr[i] and arr[j]
+        PropertyInfo temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+}
+
+/**
+ * @brief This a randomizedPartition function for Randomized quick sort.
+ * @param arr array of property record.
+ * @param low start of the array.
+ * @param high end of the array.
+ * @return hoarePartitionForTenants(arr, low, high)
+ */
+int PropertyRandomizedPartition(PropertyInfo arr[], int low, int high) {
+    int random = low + rand() % (high - low);
+
+    PropertyInfo t = arr[random];
+    arr[random] = arr[low];
+    arr[low] = t;
+
+    return PropertyHoarePartition(arr, low, high);
+}
+
+/**
+ * @brief This a randomizedPartition function for Randomized quick sort.
+ * @param arr array of property record.
+ * @param low start of the array.
+ * @param high end of the array.
+ * @return void
+ */
+void PropertyQuickSort(PropertyInfo arr[], int low, int high) {
+    if (low < high) {
+        // pi is partitioning index
+        int pi = PropertyRandomizedPartition(arr, low, high);
+
+        // Separately sort elements before and after partition
+        PropertyQuickSort(arr, low, pi-1);
+        PropertyQuickSort(arr, pi + 1, high);
+    }
+}
+
+/**
+ * @brief This a randomizedPartition function for Randomized quick sort.
+ * @param arr array of property record.
+ * @param l start of the array.
+ * @param r end of the array.
+ * @return -1 on fail
+ * @return mid on success
+ */
+int PropertyRecursiveBinarySearch(PropertyInfo arr[], int l, int r, int tenantIDToFind) {
+    if (r >= l) {
+        int mid = l + (r - l) / 2;
+
+        // If the element is present at the middle
+        if (arr[mid].PropertyID == tenantIDToFind)
+            return mid;
+
+        // If the element is smaller than mid, then it can only be present in the left subarray
+        if (arr[mid].PropertyID > tenantIDToFind)
+            return PropertyRecursiveBinarySearch(arr, l, mid - 1, tenantIDToFind);
+
+        // Else the element can only be present in the right subarray
+        return PropertyRecursiveBinarySearch(arr, mid + 1, r, tenantIDToFind);
+    }
+
+    printf("There is no such PropertyID.");
+    return -1;
+}
+
 /**
  * @brief search property record.
  *
  * @return 0.
  */
 int search_property_record(){
+    printf("Please enter the ID of the Tenant you want to find:");
+    int propertyIDToFind;
+    scanf("%d", &propertyIDToFind);
+
+    char *input = file_read("property_records.bin",'Y');
+
+    if (input == NULL)
+    {
+        return -1;
+    }
+    
+
+    int count = 0;
+
+    // Count how many records are there
+    char *ptr = input;
+    while ((ptr = strchr(ptr, '\n')) != NULL) {
+        count++;
+        ptr++;
+    }
+
+    PropertyInfo *properties = (PropertyInfo *)malloc(count * sizeof(PropertyInfo));
+
+    char *line = strtok(input, "\n");
+    int i = 0;
+    while (line != NULL && i < count) {
+        
+        sscanf(line, "%d-)PropertyID:%d / PropertyAge:%d / Bedrooms:%d / Livingrooms:%s / Floors:%d / Size:%sm2 / Adress:%s",
+               &properties[i].RecordNumber,&properties[i].PropertyID, &properties[i].PropertyAge, &properties[i].Bedrooms, properties[i].Livingrooms, properties[i].Floors, properties[i].Size, properties[i].Adress);
+        
+        line = strtok(NULL, "\n");
+        i++;
+    }
+    
+
+    PropertyQuickSort(properties, 0, count-1);
+
+    int indexOfID = PropertyRecursiveBinarySearch(properties,0,count-1,propertyIDToFind);
+
+
+    if (indexOfID != -1)
+    {
+        printf("------------Property Records Founded By PropertyID------------\n");
+        printf("%d-)PropertyID:%d / PropertyAge:%d / Bedrooms:%d / Livingrooms:%s / Floors:%d / Size:%sm2 / Adress:%s\n",
+            properties[indexOfID].RecordNumber,properties[indexOfID].PropertyID, properties[indexOfID].PropertyAge, properties[indexOfID].Bedrooms, properties[indexOfID].Livingrooms, properties[indexOfID].Floors, properties[indexOfID].Size, properties[indexOfID].Adress);
+    }
+    
+    
+
+
+    // free the allocated memory
+    free(properties);
+
     return 0;
 };
 /**
@@ -487,6 +636,48 @@ int search_property_record(){
  * @return 0.
  */
 int sort_property_record(){
+    char *input = file_read("property_records.bin",'Y');
+
+    if (input == NULL)
+    {
+        return -1;
+    }
+    
+
+    int count = 0;
+
+    // Count how many records are there
+    char *ptr = input;
+    while ((ptr = strchr(ptr, '\n')) != NULL) {
+        count++;
+        ptr++;
+    }
+
+    PropertyInfo *properties = (PropertyInfo *)malloc(count * sizeof(PropertyInfo));
+
+    char *line = strtok(input, "\n");
+    int i = 0;
+    while (line != NULL && i < count) {
+        
+        sscanf(line, "%d-)PropertyID:%d / PropertyAge:%d / Bedrooms:%d / Livingrooms:%s / Floors:%d / Size:%sm2 / Adress:%s",
+               &properties[i].RecordNumber,&properties[i].PropertyID, &properties[i].PropertyAge, &properties[i].Bedrooms, properties[i].Livingrooms, properties[i].Floors, properties[i].Size, properties[i].Adress);
+        
+        line = strtok(NULL, "\n");
+        i++;
+    }
+    
+
+    PropertyQuickSort(properties, 0, count-1);
+
+    printf("------------Property Records Sorted By PropertyID------------\n");
+    for (i = 0; i < count; i++) {
+        printf("%d-)PropertyID:%d / PropertyAge:%d / Bedrooms:%d / Livingrooms:%s / Floors:%d / Size:%sm2 / Adress:%s\n",
+               properties[i].RecordNumber,properties[i].PropertyID, properties[i].PropertyAge, properties[i].Bedrooms, properties[i].Livingrooms, properties[i].Floors, properties[i].Size, properties[i].Adress);
+    }
+
+    // free the allocated memory
+    free(properties);
+
     return 0;
 };
 
@@ -592,7 +783,7 @@ int delete_tenant_record(){
  * @param high end of the array.
  * @return j
  */
-int hoarePartitionForTenants(TenantInfo arr[], int low, int high) {
+int TenantHoarePartition(TenantInfo arr[], int low, int high) {
     int pivot = arr[low].TenantID; 
     int i = low - 1, j = high + 1;
 
@@ -616,17 +807,7 @@ int hoarePartitionForTenants(TenantInfo arr[], int low, int high) {
         arr[j] = temp;
     }
 }
-/**
- * @brief swap function for randomization.
- * @param a an element of TenantInfo.
- * @param b an element of TenantInfo.
- * @return void
- */
-void swap(TenantInfo* a, TenantInfo* b) {
-    TenantInfo t = *a;
-    *a = *b;
-    *b = t;
-}
+
 /**
  * @brief This a randomizedPartition function for Randomized quick sort.
  * @param arr array of tenants record.
@@ -634,10 +815,14 @@ void swap(TenantInfo* a, TenantInfo* b) {
  * @param high end of the array.
  * @return hoarePartitionForTenants(arr, low, high)
  */
-int randomizedPartition(TenantInfo arr[], int low, int high) {
+int TenantRandomizedPartition(TenantInfo arr[], int low, int high) {
     int random = low + rand() % (high - low);
-    swap(&arr[random], &arr[low]);
-    return hoarePartitionForTenants(arr, low, high);
+
+    TenantInfo t = arr[random];
+    arr[random] = arr[low];
+    arr[low] = t;
+
+    return TenantHoarePartition(arr, low, high);
 }
 
 /**
@@ -647,15 +832,43 @@ int randomizedPartition(TenantInfo arr[], int low, int high) {
  * @param high end of the array.
  * @return void
  */
-void quickSort(TenantInfo arr[], int low, int high) {
+void TenantQuickSort(TenantInfo arr[], int low, int high) {
     if (low < high) {
-        // pi is partitioning index, arr[p] is now at right place 
-        int pi = randomizedPartition(arr, low, high);
+        // pi is partitioning index
+        int pi = TenantRandomizedPartition(arr, low, high);
 
         // Separately sort elements before and after partition
-        quickSort(arr, low, pi-1);
-        quickSort(arr, pi + 1, high);
+        TenantQuickSort(arr, low, pi-1);
+        TenantQuickSort(arr, pi + 1, high);
     }
+}
+
+/**
+ * @brief This a randomizedPartition function for Randomized quick sort.
+ * @param arr array of tenants record.
+ * @param l start of the array.
+ * @param r end of the array.
+ * @return -1 on fail
+ * @return mid on success
+ */
+int TenantRecursiveBinarySearch(TenantInfo arr[], int l, int r, int tenantIDToFind) {
+    if (r >= l) {
+        int mid = l + (r - l) / 2;
+
+        // If the element is present at the middle
+        if (arr[mid].TenantID == tenantIDToFind)
+            return mid;
+
+        // If the element is smaller than mid, then it can only be present in the left subarray
+        if (arr[mid].TenantID > tenantIDToFind)
+            return TenantRecursiveBinarySearch(arr, l, mid - 1, tenantIDToFind);
+
+        // Else the element can only be present in the right subarray
+        return TenantRecursiveBinarySearch(arr, mid + 1, r, tenantIDToFind);
+    }
+
+    printf("There is no such TenantID.");
+    return -1;
 }
 
 /**
@@ -697,7 +910,7 @@ int sort_tenant_record(){
     }
     
 
-    quickSort(tenants, 0, count-1);
+    TenantQuickSort(tenants, 0, count-1);
 
     printf("------------Tenant Records Sorted By TenantID------------\n");
     for (i = 0; i < count; i++) {
@@ -710,32 +923,7 @@ int sort_tenant_record(){
 
     return 0;
 };
-/**
- * @brief This a randomizedPartition function for Randomized quick sort.
- * @param arr array of tenants record.
- * @param l start of the array.
- * @param r end of the array.
- * @return void
- */
-int recursiveBinarySearch(TenantInfo arr[], int l, int r, int tenantIDToFind) {
-    if (r >= l) {
-        int mid = l + (r - l) / 2;
 
-        // If the element is present at the middle
-        if (arr[mid].TenantID == tenantIDToFind)
-            return mid;
-
-        // If the element is smaller than mid, then it can only be present in the left subarray
-        if (arr[mid].TenantID > tenantIDToFind)
-            return recursiveBinarySearch(arr, l, mid - 1, tenantIDToFind);
-
-        // Else the element can only be present in the right subarray
-        return recursiveBinarySearch(arr, mid + 1, r, tenantIDToFind);
-    }
-
-    printf("There is no such TenantID.");
-    return -1;
-}
 
 /**
  * @brief search and print tenant record with TenantID.
@@ -778,14 +966,17 @@ int search_tenant_record(){
         i++;
     }
 
-    quickSort(tenants, 0, count-1);
+    TenantQuickSort(tenants, 0, count-1);
 
-    int indexOfID = recursiveBinarySearch(tenants,0,count-1,tenantIDToFind);
+    int indexOfID = TenantRecursiveBinarySearch(tenants,0,count-1,tenantIDToFind);
 
-    printf("------------Tenant Record Founded By TenantID------------\n");
-    printf("%d-)TenantID:%d / PropertyID:%d / Rent:%d / BirthDate:%s / Name:%s / Surname:%s\n",
+    if (indexOfID != -1)
+    {
+        printf("------------Tenant Record Founded By TenantID------------\n");
+        printf("%d-)TenantID:%d / PropertyID:%d / Rent:%d / BirthDate:%s / Name:%s / Surname:%s\n",
             tenants[indexOfID].RecordNumber,tenants[indexOfID].TenantID, tenants[indexOfID].PropertyID, tenants[indexOfID].Rent, tenants[indexOfID].BirthDate, tenants[indexOfID].Name, tenants[indexOfID].Surname);
-
+    }
+    
     // free the allocated memory
     free(tenants);
 
@@ -816,12 +1007,156 @@ int edit_rent_record(){
 int delete_rent_record(){
     return 0;
 };
+
+/**
+ * @brief This a hoarePartition function for Randomized quick sort.
+ * @param arr[] array of tenants record.
+ * @param low start of the array.
+ * @param high end of the array.
+ * @return j
+ */
+int RentHoarePartition(RentInfo arr[], int low, int high) {
+    int pivot = arr[low].TenantID; 
+    int i = low - 1, j = high + 1;
+
+    while (1) {
+        // Find leftmost element greater than or equal to pivot
+        do {
+            i++;
+        } while (arr[i].TenantID < pivot);
+
+        // Find rightmost element smaller than or equal to pivot
+        do {
+            j--;
+        } while (arr[j].TenantID > pivot);
+
+        if (i >= j)
+            return j;
+
+        // Swap arr[i] and arr[j]
+        RentInfo temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+}
+
+/**
+ * @brief This a randomizedPartition function for Randomized quick sort.
+ * @param arr array of rent record.
+ * @param low start of the array.
+ * @param high end of the array.
+ * @return hoarePartitionForTenants(arr, low, high)
+ */
+int RentRandomizedPartition(RentInfo arr[], int low, int high) {
+    int random = low + rand() % (high - low);
+
+    RentInfo t = arr[random];
+    arr[random] = arr[low];
+    arr[low] = t;
+
+    return RentHoarePartition(arr, low, high);
+}
+
+/**
+ * @brief This a randomizedPartition function for Randomized quick sort.
+ * @param arr array of rent record.
+ * @param low start of the array.
+ * @param high end of the array.
+ * @return void
+ */
+void RentQuickSort(RentInfo arr[], int low, int high) {
+    if (low < high) {
+        // pi is partitioning index
+        int pi = RentRandomizedPartition(arr, low, high);
+
+        // Separately sort elements before and after partition
+        RentQuickSort(arr, low, pi-1);
+        RentQuickSort(arr, pi + 1, high);
+    }
+}
+
+/**
+ * @brief This a randomizedPartition function for Randomized quick sort.
+ * @param arr array of rent record.
+ * @param l start of the array.
+ * @param r end of the array.
+ * @return -1 on fail
+ * @return mid on success
+ */
+int RentRecursiveBinarySearch(RentInfo arr[], int l, int r, int tenantIDToFind) {
+    if (r >= l) {
+        int mid = l + (r - l) / 2;
+
+        // If the element is present at the middle
+        if (arr[mid].TenantID == tenantIDToFind)
+            return mid;
+
+        // If the element is smaller than mid, then it can only be present in the left subarray
+        if (arr[mid].TenantID > tenantIDToFind)
+            return RentRecursiveBinarySearch(arr, l, mid - 1, tenantIDToFind);
+
+        // Else the element can only be present in the right subarray
+        return RentRecursiveBinarySearch(arr, mid + 1, r, tenantIDToFind);
+    }
+
+    printf("There is no such TenantID.");
+    return -1;
+}
+
 /**
  * @brief search rent record.
  *
  * @return 0.
  */
 int search_rent_record(){
+
+    printf("Please enter the ID of the Tenant you want to find:");
+    int tenantIDToFind;
+    scanf("%d", &tenantIDToFind);
+
+    char *input = file_read("rent_records.bin",'Y');
+
+    if (input == NULL)
+    {
+        return -1;
+    }
+
+    int count = 0;
+
+    // Count how many records are there
+    char *ptr = input;
+    while ((ptr = strchr(ptr, '\n')) != NULL) {
+        count++;
+        ptr++;
+    }
+
+    RentInfo *rents = (RentInfo *)malloc(count * sizeof(RentInfo));
+
+    char *line = strtok(input, "\n");
+    int i = 0;
+    while (line != NULL && i < count) {
+        
+        sscanf(line, "%d-)TenantID:%d / CurrentRentDebt:%d / DueDate:%s",
+               &rents[i].RecordNumber,&rents[i].TenantID, &rents[i].CurrentRentDebt, &rents[i].DueDate);
+        
+        line = strtok(NULL, "\n");
+        i++;
+    }
+
+    RentQuickSort(rents, 0, count-1);
+
+    int indexOfID = RentRecursiveBinarySearch(rents,0,count-1,tenantIDToFind);
+
+    if (indexOfID != -1)
+    {
+        printf("------------Rent Record Founded By TenantID------------\n");
+        printf("%d-)TenantID:%d / CurrentRentDebt:%d / DueDate:%s\n",
+            rents[indexOfID].RecordNumber,rents[indexOfID].TenantID, rents[indexOfID].CurrentRentDebt, rents[indexOfID].DueDate);
+    }
+    
+    // free the allocated memory
+    free(rents);
+
     return 0;
 };
 /**
@@ -830,6 +1165,46 @@ int search_rent_record(){
  * @return 0.
  */
 int sort_rent_record(){
+    char *input = file_read("rent_records.bin",'Y');
+
+    if (input == NULL)
+    {
+        return -1;
+    }
+
+    int count = 0;
+
+    // Count how many records are there
+    char *ptr = input;
+    while ((ptr = strchr(ptr, '\n')) != NULL) {
+        count++;
+        ptr++;
+    }
+
+    RentInfo *rents = (RentInfo *)malloc(count * sizeof(RentInfo));
+
+    char *line = strtok(input, "\n");
+    int i = 0;
+    while (line != NULL && i < count) {
+        
+        sscanf(line, "%d-)TenantID:%d / CurrentRentDebt:%d / DueDate:%s",
+               &rents[i].RecordNumber,&rents[i].TenantID, &rents[i].CurrentRentDebt, &rents[i].DueDate);
+        
+        line = strtok(NULL, "\n");
+        i++;
+    }
+
+    RentQuickSort(rents, 0, count-1);
+
+    printf("------------Rent Records Sorted By TenantID------------\n");
+    for (i = 0; i < count; i++) {
+        printf("%d-)TenantID:%d / CurrentRentDebt:%d / DueDate:%s\n",
+               rents[i].RecordNumber,rents[i].TenantID, rents[i].CurrentRentDebt, rents[i].DueDate);
+    }
+
+    // free the allocated memory
+    free(rents);
+
     return 0;
 };
 
@@ -857,12 +1232,133 @@ int edit_maintenance_record(){
 int delete_maintenance_record(){
     return 0;
 };
+
+
+void MaintenanceHeapify(MaintenanceInfo arr[], int n, int i) {
+    int largest = i;
+    int left = 2 * i + 1; // left = 2*i + 1
+    int right = 2 * i + 2; // right = 2*i + 2
+
+    // If left child is larger than root
+    if (left < n && arr[left].Priority > arr[largest].Priority)
+        largest = left;
+
+    // If right child is larger than largest so far
+    if (right < n && arr[right].Priority > arr[largest].Priority)
+        largest = right;
+
+    // If largest is not root
+    if (largest != i) {
+
+        MaintenanceInfo temp = arr[i];
+        arr[i] = arr[largest];
+        arr[largest] = temp;
+
+        // Recursively heapify the affected sub-tree
+        MaintenanceHeapify(arr, n, largest);
+    }
+}
+
+// Main function to do heap sort
+void MaintenanceheapSort(MaintenanceInfo arr[], int n) {
+    // Build heap (rearrange array)
+    for (int i = n / 2 - 1; i >= 0; i--)
+        MaintenanceHeapify(arr, n, i);
+
+    // One by one extract an element from heap
+    for (int i = n - 1; i >= 0; i--) {
+
+        // Move current root to end
+        MaintenanceInfo temp = arr[0];
+        arr[0] = arr[i];
+        arr[i] = temp;
+
+        // call max heapify on the reduced heap
+        MaintenanceHeapify(arr, i, 0);
+    }
+}
+
+/**
+ * @brief This a randomizedPartition function for Randomized quick sort.
+ * @param arr array of rent record.
+ * @param l start of the array.
+ * @param r end of the array.
+ * @return -1 on fail
+ * @return mid on success
+ */
+int MaintenanceRecursiveBinarySearch(MaintenanceInfo arr[], int l, int r, int propertyIDToFind) {
+    if (r >= l) {
+        int mid = l + (r - l) / 2;
+
+        // If the element is present at the middle
+        if (arr[mid].PropertyID == propertyIDToFind)
+            return mid;
+
+        // If the element is smaller than mid, then it can only be present in the left subarray
+        if (arr[mid].PropertyID > propertyIDToFind)
+            return MaintenanceRecursiveBinarySearch(arr, l, mid - 1, propertyIDToFind);
+
+        // Else the element can only be present in the right subarray
+        return MaintenanceRecursiveBinarySearch(arr, mid + 1, r, propertyIDToFind);
+    }
+
+    printf("There is no such PropertyID.");
+    return -1;
+}
+
 /**
  * @brief search maintenance record.
  *
  * @return 0.
  */
 int search_maintenance_record(){
+
+    printf("Please enter the ID of the Property you want to find:");
+    int propertyIDToFind;
+    scanf("%d", &propertyIDToFind);
+
+    char *input = file_read("maintenance_records.bin",'Y');
+
+    if (input == NULL)
+    {
+        return -1;
+    }
+
+    int count = 0;
+
+    // Count how many records are there
+    char *ptr = input;
+    while ((ptr = strchr(ptr, '\n')) != NULL) {
+        count++;
+        ptr++;
+    }
+
+    MaintenanceInfo *maintenances = (MaintenanceInfo *)malloc(count * sizeof(MaintenanceInfo));
+
+    char *line = strtok(input, "\n");
+    int i = 0;
+    while (line != NULL && i < count) {
+        
+        sscanf(line, "%d-)PropertyID:%d / Cost:%d / Priority:%d / MaintenanceType:%s ExpectedFinishingDate:%s",
+               &maintenances[i].RecordNumber,&maintenances[i].PropertyID, &maintenances[i].Cost, &maintenances[i].Priority, &maintenances[i].MaintenanceType, &maintenances[i].ExpectedFinishingDate);
+        
+        line = strtok(NULL, "\n");
+        i++;
+    }
+
+    MaintenanceheapSort(maintenances, count-1);
+    int indexOfID = MaintenanceRecursiveBinarySearch(maintenances,0,count-1,propertyIDToFind);
+
+    if (indexOfID != -1)
+    {
+        printf("------------Maintenance Record Founded By PropertyID------------\n");
+        printf("%d-)PropertyID:%d / Cost:%d / Priority:%d / MaintenanceType:%s ExpectedFinishingDate:%s\n",
+            maintenances[indexOfID].RecordNumber,maintenances[indexOfID].PropertyID, maintenances[indexOfID].Cost, maintenances[indexOfID].Priority, maintenances[indexOfID].MaintenanceType, maintenances[indexOfID].ExpectedFinishingDate);
+    
+    }
+    // free the allocated memory
+    free(maintenances);
+
     return 0;
 };
 /**
@@ -871,6 +1367,46 @@ int search_maintenance_record(){
  * @return 0.
  */
 int sort_maintenance_record(){
+    char *input = file_read("maintenance_records.bin",'Y');
+
+    if (input == NULL)
+    {
+        return -1;
+    }
+
+    int count = 0;
+
+    // Count how many records are there
+    char *ptr = input;
+    while ((ptr = strchr(ptr, '\n')) != NULL) {
+        count++;
+        ptr++;
+    }
+
+    MaintenanceInfo *maintenances = (MaintenanceInfo *)malloc(count * sizeof(MaintenanceInfo));
+
+    char *line = strtok(input, "\n");
+    int i = 0;
+    while (line != NULL && i < count) {
+        
+        sscanf(line, "%d-)PropertyID:%d / Cost:%d / Priority:%d / MaintenanceType:%s ExpectedFinishingDate:%s",
+               &maintenances[i].RecordNumber,&maintenances[i].PropertyID, &maintenances[i].Cost, &maintenances[i].Priority, &maintenances[i].MaintenanceType, &maintenances[i].ExpectedFinishingDate);
+        
+        line = strtok(NULL, "\n");
+        i++;
+    }
+
+    MaintenanceheapSort(maintenances, count-1);
+
+    printf("------------maintenances Records Sorted By PropertyID------------\n");
+    for (i = 0; i < count; i++) {
+        printf("%d-)PropertyID:%d / Cost:%d / Priority:%d / MaintenanceType:%s ExpectedFinishingDate:%s\n",
+               maintenances[i].RecordNumber,maintenances[i].PropertyID, maintenances[i].Cost, maintenances[i].Priority, maintenances[i].MaintenanceType, maintenances[i].ExpectedFinishingDate);
+    }
+
+    // free the allocated memory
+    free(maintenances);
+
     return 0;
 };
 
