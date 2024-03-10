@@ -317,7 +317,6 @@ int file_line_delete(const char *file_name, int line_number_to_delete) {
 int user_login(const char *username, const char *password, const char *user_file) {
     char username_read[256] = ""; 
     char password_read[256] = "";
-    char recovery_key_read[256] = "";
     FILE *myFile;
     int count = 0;
     char i;
@@ -369,7 +368,6 @@ int user_login(const char *username, const char *password, const char *user_file
  */
 int user_change_password(const char *recovery_key, const char *new_password, const char *user_file) {
     char username_read[256] = "";
-    char password_read[256] = "";
     char recovery_key_read[256] = "";
     FILE *myFile;
     int count = 0;
@@ -472,7 +470,7 @@ int add_property_record(){
     printf("\nPlease enter Size:");
     scanf("%d", &Property.Size);
     printf("\nPlease enter Address:");
-    scanf("%s", &Property.Adress);
+    scanf("%s", Property.Adress);
 
     char formattedRecord[1024];
 
@@ -515,7 +513,7 @@ int edit_property_record(){
     printf("\nPlease enter Size:");
     scanf("%d", &Property.Size);
     printf("\nPlease enter Address:");
-    scanf("%s", &Property.Adress);
+    scanf("%s", Property.Adress);
 
     char formattedRecord[1024];
 
@@ -678,7 +676,7 @@ int search_property_record(){
     while (line != NULL && i < count) {
         
         sscanf(line, "%d-)PropertyID:%d / PropertyAge:%d / Bedrooms:%d / Livingrooms:%d / Floors:%d / Size:%dm2 / Adress:%s",
-               &properties[i].RecordNumber,&properties[i].PropertyID, &properties[i].PropertyAge, &properties[i].Bedrooms, &properties[i].Livingrooms, &properties[i].Floors, &properties[i].Size, &properties[i].Adress);
+               &properties[i].RecordNumber,&properties[i].PropertyID, &properties[i].PropertyAge, &properties[i].Bedrooms, &properties[i].Livingrooms, &properties[i].Floors, &properties[i].Size, properties[i].Adress);
         
         line = strtok(NULL, "\n");
         i++;
@@ -735,7 +733,7 @@ int sort_property_record(){
     while (line != NULL && i < count) {
         
         sscanf(line, "%d-)PropertyID:%d / PropertyAge:%d / Bedrooms:%d / Livingrooms:%d / Floors:%d / Size:%dm2 / Adress:%s",
-               &properties[i].RecordNumber,&properties[i].PropertyID, &properties[i].PropertyAge, &properties[i].Bedrooms, &properties[i].Livingrooms, &properties[i].Floors, &properties[i].Size, &properties[i].Adress);
+               &properties[i].RecordNumber,&properties[i].PropertyID, &properties[i].PropertyAge, &properties[i].Bedrooms, &properties[i].Livingrooms, &properties[i].Floors, &properties[i].Size, properties[i].Adress);
         
         line = strtok(NULL, "\n");
         i++;
@@ -770,11 +768,11 @@ int add_tenant_record(){
     printf("\nPlease enter Rent:");
     scanf("%d",&Tenant.Rent);
     printf("\nPlease enter BirthDate:");
-    scanf("%s",&Tenant.BirthDate);
+    scanf("%s",Tenant.BirthDate);
     printf("\nPlease enter Name:");
-    scanf("%s",&Tenant.Name);
+    scanf("%s",Tenant.Name);
     printf("\nPlease enter Surname:");
-    scanf("%s",&Tenant.Surname);
+    scanf("%s",Tenant.Surname);
 
     char formattedRecord[1024];
 
@@ -812,11 +810,11 @@ int edit_tenant_record(){
     printf("\nPlease enter Rent:");
     scanf("%d",&Tenant.Rent);
     printf("\nPlease enter BirthDate:");
-    scanf("%s",&Tenant.BirthDate);
+    scanf("%s",Tenant.BirthDate);
     printf("\nPlease enter Name:");
-    scanf("%s",&Tenant.Name);
+    scanf("%s",Tenant.Name);
     printf("\nPlease enter Surname:");
-    scanf("%s",&Tenant.Surname);
+    scanf("%s",Tenant.Surname);
 
     char formattedRecord[1024];
 
@@ -1069,7 +1067,7 @@ int add_rent_record(){
     printf("\nPlease enter  CurrentRentDebt:");
     scanf("%d ", &Rent.CurrentRentDebt);
     printf("\nPlease enter  DueDate:");
-    scanf("%s ", &Rent.DueDate);
+    scanf("%s ", Rent.DueDate);
 
     char formattedRecord[1024];
 
@@ -1105,7 +1103,7 @@ int edit_rent_record(){
     printf("\nPlease enter  CurrentRentDebt:");
     scanf("%d ", &Rent.CurrentRentDebt);
     printf("\nPlease enter  DueDate:");
-    scanf("%s ", &Rent.DueDate);
+    scanf("%s ", Rent.DueDate);
 
     char formattedRecord[1024];
 
@@ -1265,7 +1263,7 @@ int search_rent_record(){
     while (line != NULL && i < count) {
         
         sscanf(line, "%d-)TenantID:%d / CurrentRentDebt:%d / DueDate:%s",
-               &rents[i].RecordNumber,&rents[i].TenantID, &rents[i].CurrentRentDebt, &rents[i].DueDate);
+               &rents[i].RecordNumber,&rents[i].TenantID, &rents[i].CurrentRentDebt, rents[i].DueDate);
         
         line = strtok(NULL, "\n");
         i++;
@@ -1316,7 +1314,7 @@ int sort_rent_record(){
     while (line != NULL && i < count) {
         
         sscanf(line, "%d-)TenantID:%d / CurrentRentDebt:%d / DueDate:%s",
-               &rents[i].RecordNumber,&rents[i].TenantID, &rents[i].CurrentRentDebt, &rents[i].DueDate);
+               &rents[i].RecordNumber,&rents[i].TenantID, &rents[i].CurrentRentDebt, rents[i].DueDate);
         
         line = strtok(NULL, "\n");
         i++;
@@ -1350,9 +1348,9 @@ int add_maintenance_record(){
     printf("\nPlease enter Priority:");
     scanf("%d", &Maintenance.Priority);
     printf("\nPlease enter MaintenanceType:");
-    scanf("%s", &Maintenance.MaintenanceType);
+    scanf("%s", Maintenance.MaintenanceType);
     printf("\nPlease enter ExpectedFinishingDate:");
-    scanf("%s", &Maintenance.ExpectedFinishingDate);
+    scanf("%s", Maintenance.ExpectedFinishingDate);
 
     char formattedRecord[1024];
 
@@ -1389,9 +1387,9 @@ int edit_maintenance_record(){
     printf("\nPlease enter Priority:");
     scanf("%d", &Maintenance.Priority);
     printf("\nPlease enter MaintenanceType:");
-    scanf("%s", &Maintenance.MaintenanceType);
+    scanf("%s", Maintenance.MaintenanceType);
     printf("\nPlease enter ExpectedFinishingDate:");
-    scanf("%s", &Maintenance.ExpectedFinishingDate);
+    scanf("%s", Maintenance.ExpectedFinishingDate);
 
     char formattedRecord[1024];
     snprintf(formattedRecord, sizeof(formattedRecord), "PropertyID:%d / Cost: %d / Priority: %d / MaintenanceType: %s / ExpectedFinishingDate: %s",
@@ -1543,7 +1541,7 @@ int search_maintenance_record(){
     while (line != NULL && i < count) {
         
         sscanf(line, "%d-)PropertyID:%d / Cost:%d / Priority:%d / MaintenanceType:%s ExpectedFinishingDate:%s",
-               &maintenances[i].RecordNumber,&maintenances[i].PropertyID, &maintenances[i].Cost, &maintenances[i].Priority, &maintenances[i].MaintenanceType, &maintenances[i].ExpectedFinishingDate);
+               &maintenances[i].RecordNumber,&maintenances[i].PropertyID, &maintenances[i].Cost, &maintenances[i].Priority, maintenances[i].MaintenanceType, maintenances[i].ExpectedFinishingDate);
         
         line = strtok(NULL, "\n");
         i++;
@@ -1593,7 +1591,7 @@ int sort_maintenance_record(){
     while (line != NULL && i < count) {
         
         sscanf(line, "%d-)PropertyID:%d / Cost:%d / Priority:%d / MaintenanceType:%s ExpectedFinishingDate:%s",
-               &maintenances[i].RecordNumber,&maintenances[i].PropertyID, &maintenances[i].Cost, &maintenances[i].Priority, &maintenances[i].MaintenanceType, &maintenances[i].ExpectedFinishingDate);
+               &maintenances[i].RecordNumber,&maintenances[i].PropertyID, &maintenances[i].Cost, &maintenances[i].Priority, maintenances[i].MaintenanceType, maintenances[i].ExpectedFinishingDate);
         
         line = strtok(NULL, "\n");
         i++;
@@ -1876,7 +1874,7 @@ int maintenance_menu(){
  */
 int main_menu(){
 
-    while (main_menu_choice.logged_in = true)
+    while (main_menu_choice.logged_in == true)
     {
         printf("\n--------Main Menu--------\n");
         printf("1-)Properties\n");
