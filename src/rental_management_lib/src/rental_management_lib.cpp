@@ -1962,7 +1962,7 @@ int register_menu(){
     printf("\nPlease enter your new recovery key:");
     scanf("%s", recovery_key);
 
-    printf("\n------------WARNING------------\n");
+    printf("\n------------WARNING------------");
     printf("\nThis process will delete all previous records, do you still wish to proceed?[Y/n]:");
     scanf(" %c", &warning);
 
@@ -1995,3 +1995,26 @@ int change_password_menu(){
     user_change_password(recovery_key,password,user_file);
     return 0;
 };
+/**
+ * @brief This is a helper function for unit test. it read output data from files.
+ * @param filename output file to read
+ * @return string
+ */
+char* readOutput(const char* filename) {
+    FILE* file = fopen(filename, "r");
+    if (file == NULL) {
+        perror("Failed to open file");
+        exit(EXIT_FAILURE);
+    }
+
+    fseek(file, 0, SEEK_END);
+    long fsize = ftell(file);
+    fseek(file, 0, SEEK_SET);
+
+    char* string = (char*)malloc(fsize + 1);
+    fread(string, 1, fsize, file);
+    fclose(file);
+
+    string[fsize] = 0; // Null-terminate the string
+    return string;
+}
