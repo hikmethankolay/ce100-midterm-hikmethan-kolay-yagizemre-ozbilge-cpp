@@ -173,6 +173,39 @@ TEST_F(RentalTest, TestUserChangePassword) {
 TEST_F(RentalTest, TestUserChangePasswordFail_2) {
     EXPECT_EQ(fail, user_change_password("recoverykeyaa", "newpassword", "usertest.bin"));
 }
+
+/**
+ * @brief Tests for register user menu
+ */
+TEST_F(RentalTest, TestLoginMenu) {
+    
+    fflush(stdout);
+    if (freopen("login_menu_output.txt", "w", stdout) == NULL) {
+        perror("Failed to open output.txt for stdout");
+        exit(EXIT_FAILURE);
+    }
+    if (freopen("login_menu_input.txt", "r", stdin) == NULL) {
+        perror("Failed to open input.txt for stdin");
+        exit(EXIT_FAILURE);
+    }
+
+    register_menu();
+
+    if (freopen("/dev/tty", "w", stdout) == NULL) {
+        perror("Failed to restore stdout to CON");
+        exit(EXIT_FAILURE);
+    }
+    fflush(stdout);
+    if (freopen("/dev/tty", "r", stdin) == NULL) {
+        perror("Failed to restore stdin from CON");
+        exit(EXIT_FAILURE);
+    }
+
+    const char* expectedOutput = "Please enter your new username:\nPlease enter your new password:\nPlease enter your new recovery key:\n------------WARNING------------\nThis process will delete all previous records, do you still wish to proceed?[Y/n]:\nRegister is successful and all previous record are deleted.";
+    EXPECT_EQ(*expectedOutput, *readOutput("output.txt"));
+}
+
+
 /**
  * @brief The main function of the test program.
  *

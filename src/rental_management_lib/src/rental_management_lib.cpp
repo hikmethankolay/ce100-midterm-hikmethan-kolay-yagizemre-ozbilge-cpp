@@ -2002,10 +2002,6 @@ int change_password_menu(){
  */
 char* readOutput(const char* filename) {
     FILE* file = fopen(filename, "r");
-    if (file == NULL) {
-        perror("Failed to open file");
-        exit(EXIT_FAILURE);
-    }
 
     fseek(file, 0, SEEK_END);
     long fsize = ftell(file);
