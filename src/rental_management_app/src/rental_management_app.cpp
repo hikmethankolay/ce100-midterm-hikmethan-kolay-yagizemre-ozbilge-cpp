@@ -13,11 +13,12 @@
  // Standard Libraries
 #include <iostream>
 #include "../../rental_management_lib/header/rental_management_lib.h" 
+#include "../header/rental_management_app.h"
 
 /**
  * 
  * @brief Main function of app.
- *
+ * @return 0
  */
 int main() {
 
