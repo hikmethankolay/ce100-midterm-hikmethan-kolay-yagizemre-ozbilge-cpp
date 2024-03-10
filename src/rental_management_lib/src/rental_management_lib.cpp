@@ -494,7 +494,39 @@ int add_property_record(){
  * @return 0.
  */
 int edit_property_record(){
-    return 0;
+    PropertyInfo Property;
+    int RecordNumberToEdit;
+    printf("\nPlease enter record number to edit:");
+    scanf("%d", &RecordNumberToEdit);
+    printf("\nPlease enter PropertyID:");
+    scanf("%d", &Property.PropertyID);
+    printf("\nPlease enter PropertyAge:");
+    scanf("%d", &Property.PropertyAge);
+    printf("\nPlease enter Bedrooms:");
+    scanf("%d", &Property.Bedrooms);
+    printf("\nPlease enter LivingRooms:");
+    scanf("%d", &Property.Livingrooms);
+    printf("\nPlease enter Floors:");
+    scanf("%d", &Property.Floors);
+    printf("\nPlease enter Size:");
+    scanf("%d", &Property.Size);
+    printf("\nPlease enter Address:");
+    scanf("%s", &Property.Adress);
+
+    char formattedRecord[1024];
+
+    //Format the string first
+    snprintf(formattedRecord, sizeof(formattedRecord), "PropertyID: %d / PropertyAge: %d / Bedrooms: %d / LivingRooms: %d / Floors: %d / Size: %d / Address: %s /",
+        Property.PropertyID, Property.PropertyAge, Property.Bedrooms, Property.Livingrooms, Property.Floors, Property.Size, Property.Adress);
+
+    FILE *myFile;
+    myFile = fopen("property_records.bin", "rb");
+    if (file_edit("property_records.bin", RecordNumberToEdit, formattedRecord) == 0) {
+        return 0;
+    }
+    else {
+        return -1;
+    }
 };
 /**
  * @brief delete property record.
