@@ -1,11 +1,11 @@
 # Project information
-site_name: 'CALCULATOR APP'
+site_name: 'RENTAL MANAGEMENT APP'
 docs_dir: docs  # Where to find the English markdown files
 site_dir: site  # Where to put the English HTML files
-site_author: 'Asst. Prof. Dr. Uğur CORUH'
-site_url: 'https://coruhtech.github.io/6g-lock-model-cpp/'
+site_author: 'Hikmethan Kolay'
+site_url: 'https://github.com/hikmethankolay/ce100-midterm-hikmethan-kolay-yagizemre-ozbilge-cpp'
 site_description: >-
-    CALCULATOR APP
+    RENTAL MANAGEMENT APP
 
 # Repository
 repo_name: 'GitHub'
@@ -13,7 +13,7 @@ repo_url: 'https://github.com/coruhtech/6g-lock-model-cpp'
 edit_uri: ''
 
 # Copyright
-copyright: Copyright &copy; 2019 - 2023 CORUH ARGE VE TEKNOLOJI
+copyright: Copyright &copy; 2019 - 2024 Hikmethan Kolay
 
 theme:
   name: material
