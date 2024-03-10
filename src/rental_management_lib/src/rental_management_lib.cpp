@@ -542,12 +542,13 @@ void PropertyQuickSort(PropertyInfo arr[], int low, int high) {
 }
 
 /**
- * @brief This a randomizedPartition function for Randomized quick sort.
- * @param arr array of property record.
- * @param l start of the array.
- * @param r end of the array.
- * @return -1 on fail
- * @return mid on success
+ * @brief Performs binary search on an array of PropertyInfo structs sorted by tenantID.
+ *
+ * @param arr Array of PropertyInfo structs, sorted by Priority.
+ * @param l Left index of the subarray to be searched (initially 0).
+ * @param r Right index of the subarray to be searched (initially n-1, where n is the number of elements).
+ * @param x The Priority value to search for.
+ * @return The index of the element with the given Priority, or -1 if not found.
  */
 int PropertyRecursiveBinarySearch(PropertyInfo arr[], int l, int r, int tenantIDToFind) {
     if (r >= l) {
@@ -844,12 +845,13 @@ void TenantQuickSort(TenantInfo arr[], int low, int high) {
 }
 
 /**
- * @brief This a randomizedPartition function for Randomized quick sort.
- * @param arr array of tenants record.
- * @param l start of the array.
- * @param r end of the array.
- * @return -1 on fail
- * @return mid on success
+ * @brief Performs binary search on an array of TenantInfo structs sorted by tenantID.
+ *
+ * @param arr Array of PropertyInfo structs, sorted by Priority.
+ * @param l Left index of the subarray to be searched (initially 0).
+ * @param r Right index of the subarray to be searched (initially n-1, where n is the number of elements).
+ * @param x The Priority value to search for.
+ * @return The index of the element with the given Priority, or -1 if not found.
  */
 int TenantRecursiveBinarySearch(TenantInfo arr[], int l, int r, int tenantIDToFind) {
     if (r >= l) {
@@ -1074,14 +1076,14 @@ void RentQuickSort(RentInfo arr[], int low, int high) {
         RentQuickSort(arr, pi + 1, high);
     }
 }
-
 /**
- * @brief This a randomizedPartition function for Randomized quick sort.
- * @param arr array of rent record.
- * @param l start of the array.
- * @param r end of the array.
- * @return -1 on fail
- * @return mid on success
+ * @brief Performs binary search on an array of RentInfo structs sorted by tenantID.
+ *
+ * @param arr Array of RentInfo structs, sorted by Priority.
+ * @param l Left index of the subarray to be searched (initially 0).
+ * @param r Right index of the subarray to be searched (initially n-1, where n is the number of elements).
+ * @param x The Priority value to search for.
+ * @return The index of the element with the given Priority, or -1 if not found.
  */
 int RentRecursiveBinarySearch(RentInfo arr[], int l, int r, int tenantIDToFind) {
     if (r >= l) {
@@ -1233,7 +1235,13 @@ int delete_maintenance_record(){
     return 0;
 };
 
-
+/**
+ * @brief Maintains the heap property by ensuring the subtree rooted at index i is a max heap.
+ *
+ * @param arr Array of MaintenanceInfo structs.
+ * @param n Total number of elements in the array.
+ * @param i Index of the root of the subtree to heapify.
+ */
 void MaintenanceHeapify(MaintenanceInfo arr[], int n, int i) {
     int largest = i;
     int left = 2 * i + 1; // left = 2*i + 1
@@ -1259,7 +1267,12 @@ void MaintenanceHeapify(MaintenanceInfo arr[], int n, int i) {
     }
 }
 
-// Main function to do heap sort
+/**
+ * @brief Performs heap sort on an array of MaintenanceInfo structs.
+ *
+ * @param arr Array of MaintenanceInfo structs to be sorted.
+ * @param n Total number of elements in the array.
+ */
 void MaintenanceheapSort(MaintenanceInfo arr[], int n) {
     // Build heap (rearrange array)
     for (int i = n / 2 - 1; i >= 0; i--)
@@ -1279,12 +1292,13 @@ void MaintenanceheapSort(MaintenanceInfo arr[], int n) {
 }
 
 /**
- * @brief This a randomizedPartition function for Randomized quick sort.
- * @param arr array of rent record.
- * @param l start of the array.
- * @param r end of the array.
- * @return -1 on fail
- * @return mid on success
+ * @brief Performs binary search on an array of MaintenanceInfo structs sorted by Priority.
+ *
+ * @param arr Array of MaintenanceInfo structs, sorted by Priority.
+ * @param l Left index of the subarray to be searched (initially 0).
+ * @param r Right index of the subarray to be searched (initially n-1, where n is the number of elements).
+ * @param x The Priority value to search for.
+ * @return The index of the element with the given Priority, or -1 if not found.
  */
 int MaintenanceRecursiveBinarySearch(MaintenanceInfo arr[], int l, int r, int propertyIDToFind) {
     if (r >= l) {
