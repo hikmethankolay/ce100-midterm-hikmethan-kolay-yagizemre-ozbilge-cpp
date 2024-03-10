@@ -603,8 +603,8 @@ int search_property_record(){
     int i = 0;
     while (line != NULL && i < count) {
         
-        sscanf(line, "%d-)PropertyID:%d / PropertyAge:%d / Bedrooms:%d / Livingrooms:%s / Floors:%d / Size:%sm2 / Adress:%s",
-               &properties[i].RecordNumber,&properties[i].PropertyID, &properties[i].PropertyAge, &properties[i].Bedrooms, properties[i].Livingrooms, properties[i].Floors, properties[i].Size, properties[i].Adress);
+        sscanf(line, "%d-)PropertyID:%d / PropertyAge:%d / Bedrooms:%d / Livingrooms:%d / Floors:%d / Size:%dm2 / Adress:%s",
+               &properties[i].RecordNumber,&properties[i].PropertyID, &properties[i].PropertyAge, &properties[i].Bedrooms, &properties[i].Livingrooms, &properties[i].Floors, &properties[i].Size, &properties[i].Adress);
         
         line = strtok(NULL, "\n");
         i++;
@@ -619,7 +619,7 @@ int search_property_record(){
     if (indexOfID != -1)
     {
         printf("------------Property Records Founded By PropertyID------------\n");
-        printf("%d-)PropertyID:%d / PropertyAge:%d / Bedrooms:%d / Livingrooms:%s / Floors:%d / Size:%sm2 / Adress:%s\n",
+        printf("%d-)PropertyID:%d / PropertyAge:%d / Bedrooms:%d / Livingrooms:%d / Floors:%d / Size:%dm2 / Adress:%s\n",
             properties[indexOfID].RecordNumber,properties[indexOfID].PropertyID, properties[indexOfID].PropertyAge, properties[indexOfID].Bedrooms, properties[indexOfID].Livingrooms, properties[indexOfID].Floors, properties[indexOfID].Size, properties[indexOfID].Adress);
     }
     
@@ -660,8 +660,8 @@ int sort_property_record(){
     int i = 0;
     while (line != NULL && i < count) {
         
-        sscanf(line, "%d-)PropertyID:%d / PropertyAge:%d / Bedrooms:%d / Livingrooms:%s / Floors:%d / Size:%sm2 / Adress:%s",
-               &properties[i].RecordNumber,&properties[i].PropertyID, &properties[i].PropertyAge, &properties[i].Bedrooms, properties[i].Livingrooms, properties[i].Floors, properties[i].Size, properties[i].Adress);
+        sscanf(line, "%d-)PropertyID:%d / PropertyAge:%d / Bedrooms:%d / Livingrooms:%d / Floors:%d / Size:%dm2 / Adress:%s",
+               &properties[i].RecordNumber,&properties[i].PropertyID, &properties[i].PropertyAge, &properties[i].Bedrooms, &properties[i].Livingrooms, &properties[i].Floors, &properties[i].Size, &properties[i].Adress);
         
         line = strtok(NULL, "\n");
         i++;
@@ -672,7 +672,7 @@ int sort_property_record(){
 
     printf("------------Property Records Sorted By PropertyID------------\n");
     for (i = 0; i < count; i++) {
-        printf("%d-)PropertyID:%d / PropertyAge:%d / Bedrooms:%d / Livingrooms:%s / Floors:%d / Size:%sm2 / Adress:%s\n",
+        printf("%d-)PropertyID:%d / PropertyAge:%d / Bedrooms:%d / Livingrooms:%d / Floors:%d / Size:%dm2 / Adress:%s\n",
                properties[i].RecordNumber,properties[i].PropertyID, properties[i].PropertyAge, properties[i].Bedrooms, properties[i].Livingrooms, properties[i].Floors, properties[i].Size, properties[i].Adress);
     }
 
