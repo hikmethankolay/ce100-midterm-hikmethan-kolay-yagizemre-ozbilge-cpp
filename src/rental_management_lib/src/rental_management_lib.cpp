@@ -534,7 +534,16 @@ int edit_property_record(){
  * @return 0.
  */
 int delete_property_record(){
-    return 0;
+    printf("\nPlease enter record number to delete:");
+    int RecordNumberToDelete;
+    scanf("%d", &RecordNumberToDelete);
+
+    if (file_line_delete("property_records.bin", RecordNumberToDelete) == 0) {
+        return 0;
+    }
+    else {
+        return -1;
+    }
 };
 
 /**
