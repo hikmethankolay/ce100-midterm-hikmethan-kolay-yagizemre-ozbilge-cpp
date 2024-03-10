@@ -1393,7 +1393,6 @@ int edit_maintenance_record(){
     snprintf(formattedRecord, sizeof(formattedRecord), "PropertyID:%d / Cost: %d / Priority: %d / MaintenanceType: %s / ExpectedFinishingDate: %s",
         Maintenance.PropertyID, Maintenance.Cost, Maintenance.Priority, Maintenance.MaintenanceType, Maintenance.ExpectedFinishingDate);
 
-    myFile = fopen("maintenance_records.bin", "rb");
 
     if (file_edit("maintenance_records.bin", RecordNumberToEdit, formattedRecord) == 0) {
         return 0;
@@ -1402,6 +1401,7 @@ int edit_maintenance_record(){
         return -1;
     }
 };
+
 /**
  * @brief delete maintenance record.
  *
