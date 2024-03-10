@@ -454,8 +454,39 @@ int user_register(const char *new_username, const char *new_password, const char
  * @return 0.
  */
 int add_property_record(){
+    PropertyInfo Property;
+    printf("\nPlease enter PropertyID:");
+    scanf("%d", &Property.PropertyID);
+    printf("\nPlease enter PropertyAge:");
+    scanf("%d", &Property.PropertyAge);
+    printf("\nPlease enter Bedrooms:");
+    scanf("%d", &Property.Bedrooms);
+    printf("\nPlease enter LivingRooms:");
+    scanf("%d", &Property.Livingrooms);
+    printf("\nPlease enter Floors:");
+    scanf("%d", &Property.Floors);
+    printf("\nPlease enter Size:");
+    scanf("%d", &Property.Size);
+    printf("\nPlease enter Address:");
+    scanf("%s", &Property.Adress);
 
-    return 0;
+    char formattedRecord[1024];
+
+    //Format the string first
+    snprintf(formattedRecord, sizeof(formattedRecord), "PropertyID: %d / PropertyAge: %d / Bedrooms: %d / LivingRooms: %d / Floors: %d / Size: %d / Address: %s /",
+        Property.PropertyID, Property.PropertyAge, Property.Bedrooms, Property.Livingrooms, Property.Floors, Property.Size, Property.Adress);
+    FILE* myFile;
+    myFile = fopen("property_records.bin", "rb");
+    if (myFile == NULL) {
+        file_write("property_records.bin", formattedRecord);
+        return 0;
+    }
+    else {
+        fclose(myFile);
+        file_append("property_records.bin", formattedRecord);
+        return 0;
+    }
+
 };
 /**
  * @brief edit property record.
