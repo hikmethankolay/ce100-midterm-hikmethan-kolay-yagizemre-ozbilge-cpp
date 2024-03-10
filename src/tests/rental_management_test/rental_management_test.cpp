@@ -1,7 +1,6 @@
 #include "gtest/gtest.h"
 #include <string.h>
 #include "../../rental_management_lib/header/rental_management_lib.h"  // Adjust this include path based on your project structure
-#include "../../rental_management_app/header/rental_management_app.h"
 
 class RentalTest : public ::testing::Test {
 protected:
