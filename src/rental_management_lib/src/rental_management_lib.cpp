@@ -750,8 +750,6 @@ int edit_tenant_record(){
     snprintf(formattedRecord, sizeof(formattedRecord), "TenantID:%d / PropertyID:%d / Rent:%d / BirthDate:%s / Name:%s / Surname:%s",
             Tenant.TenantID, Tenant.PropertyID, Tenant.Rent, Tenant.BirthDate, Tenant.Name, Tenant.Surname);
 
-    FILE *myFile;
-    myFile = fopen("tenant_records.bin", "rb");
 
     if(file_edit("tenant_record.bin",RecordNumberToEdit,formattedRecord) == 0) {
         return 0;
@@ -1002,7 +1000,8 @@ int add_rent_record(){
     char formattedRecord[1024];
 
     // Format the string first
-    snprintf(formattedRecord), "TenantID:%d/ CurrentRentDate:%d/ DueDate:%s", Rent.TenantID, Rent.CurrentRentDebt, Rent.DueDate);
+    snprintf(formattedRecord, sizeof(formattedRecord), "TenantID:%d/ CurrentRentDate:%d/ DueDate:%s", Rent.TenantID, Rent.CurrentRentDebt, Rent.DueDate);
+
     FILE* myFile;
     myFile = fopen("rent_records.bin", "rb");
     if (myFile == NULL)
@@ -1037,9 +1036,8 @@ int edit_rent_record(){
     char formattedRecord[1024];
 
     // Format the string first
-    snprintf(formattedRecord), "TenantID:%d / CurrentRentDate:%d / DueDate:%s", Rent.TenantID, Rent.CurrentRentDebt, Rent.DueDate);
-    FILE* myFile;
-    myFile = fopen("rent_records.bin", "rb");
+    snprintf(formattedRecord, sizeof(formattedRecord), "TenantID:%d/ CurrentRentDate:%d/ DueDate:%s", Rent.TenantID, Rent.CurrentRentDebt, Rent.DueDate);
+
     if (file_edit("rent_records.bin", RecordNumberToEdit, formattedRecord) == 0) {
         return 0;
     } else {
