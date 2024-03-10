@@ -1023,8 +1023,30 @@ int add_rent_record(){
  * @return 0.
  */
 int edit_rent_record(){
-    return 0;
+    RentInfo Rent;
+    int RecordNumberToEdit;
+    printf("\nPlease enter record number to edit:");
+    scanf("%d", &RecordNumberToEdit);
+    printf("\nPlease enter  TenantID:");
+    scanf("%d ", &Rent.TenantID);
+    printf("\nPlease enter  CurrentRentDebt:");
+    scanf("%d ", &Rent.CurrentRentDebt);
+    printf("\nPlease enter  DueDate:");
+    scanf("%s ", &Rent.DueDate);
+
+    char formattedRecord[1024];
+
+    // Format the string first
+    snprintf(formattedRecord), "TenantID:%d / CurrentRentDate:%d / DueDate:%s", Rent.TenantID, Rent.CurrentRentDebt, Rent.DueDate);
+    FILE* myFile;
+    myFile = fopen("rent_records.bin", "rb");
+    if (file_edit("rent_records.bin", RecordNumberToEdit, formattedRecord) == 0) {
+        return 0;
+    } else {
+        return -1;
+    }
 };
+
 /**
  * @brief delete rent record.
  *
