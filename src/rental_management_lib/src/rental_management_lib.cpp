@@ -991,7 +991,31 @@ int search_tenant_record(){
  * @return 0.
  */
 int add_rent_record(){
-    return 0;
+    RentInfo Rent;
+    printf("\nPlease enter  TenantID:");
+    scanf("%d ", &Rent.TenantID);
+    printf("\nPlease enter  CurrentRentDebt:");
+    scanf("%d ", &Rent.CurrentRentDebt);
+    printf("\nPlease enter  DueDate:");
+    scanf("%s ", &Rent.DueDate);
+
+    char formattedRecord[1024];
+
+    // Format the string first
+    snprintf(formattedRecord), "TenantID:%d/ CurrentRentDate:%d/ DueDate:%s", Rent.TenantID, Rent.CurrentRentDebt, Rent.DueDate);
+    FILE* myFile;
+    myFile = fopen("rent_records.bin", "rb");
+    if (myFile == NULL)
+    {
+        file_write("rent_records.bin", formattedRecord);
+        return 0;
+    }
+    else {
+        fclose(myFile);
+        file_append("rent_records.bin", formattedRecord);
+        return 0;
+    }
+    
 };
 /**
  * @brief edit rent record.
