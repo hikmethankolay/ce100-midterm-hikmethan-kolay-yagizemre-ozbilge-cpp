@@ -454,8 +454,39 @@ int user_register(const char *new_username, const char *new_password, const char
  * @return 0.
  */
 int add_property_record(){
+    PropertyInfo Property;
+    printf("\nPlease enter PropertyID:");
+    scanf("%d", &Property.PropertyID);
+    printf("\nPlease enter PropertyAge:");
+    scanf("%d", &Property.PropertyAge);
+    printf("\nPlease enter Bedrooms:");
+    scanf("%d", &Property.Bedrooms);
+    printf("\nPlease enter LivingRooms:");
+    scanf("%d", &Property.Livingrooms);
+    printf("\nPlease enter Floors:");
+    scanf("%d", &Property.Floors);
+    printf("\nPlease enter Size:");
+    scanf("%d", &Property.Size);
+    printf("\nPlease enter Address:");
+    scanf("%s", &Property.Adress);
 
-    return 0;
+    char formattedRecord[1024];
+
+    //Format the string first
+    snprintf(formattedRecord, sizeof(formattedRecord), "PropertyID: %d / PropertyAge: %d / Bedrooms: %d / LivingRooms: %d / Floors: %d / Size: %d / Address: %s /",
+        Property.PropertyID, Property.PropertyAge, Property.Bedrooms, Property.Livingrooms, Property.Floors, Property.Size, Property.Adress);
+    FILE* myFile;
+    myFile = fopen("property_records.bin", "rb");
+    if (myFile == NULL) {
+        file_write("property_records.bin", formattedRecord);
+        return 0;
+    }
+    else {
+        fclose(myFile);
+        file_append("property_records.bin", formattedRecord);
+        return 0;
+    }
+
 };
 /**
  * @brief edit property record.
@@ -463,7 +494,37 @@ int add_property_record(){
  * @return 0.
  */
 int edit_property_record(){
-    return 0;
+    PropertyInfo Property;
+    int RecordNumberToEdit;
+    printf("\nPlease enter record number to edit:");
+    scanf("%d", &RecordNumberToEdit);
+    printf("\nPlease enter PropertyID:");
+    scanf("%d", &Property.PropertyID);
+    printf("\nPlease enter PropertyAge:");
+    scanf("%d", &Property.PropertyAge);
+    printf("\nPlease enter Bedrooms:");
+    scanf("%d", &Property.Bedrooms);
+    printf("\nPlease enter LivingRooms:");
+    scanf("%d", &Property.Livingrooms);
+    printf("\nPlease enter Floors:");
+    scanf("%d", &Property.Floors);
+    printf("\nPlease enter Size:");
+    scanf("%d", &Property.Size);
+    printf("\nPlease enter Address:");
+    scanf("%s", &Property.Adress);
+
+    char formattedRecord[1024];
+
+    //Format the string first
+    snprintf(formattedRecord, sizeof(formattedRecord), "PropertyID: %d / PropertyAge: %d / Bedrooms: %d / LivingRooms: %d / Floors: %d / Size: %d / Address: %s /",
+        Property.PropertyID, Property.PropertyAge, Property.Bedrooms, Property.Livingrooms, Property.Floors, Property.Size, Property.Adress);
+
+    if (file_edit("property_records.bin", RecordNumberToEdit, formattedRecord) == 0) {
+        return 0;
+    }
+    else {
+        return -1;
+    }
 };
 /**
  * @brief delete property record.
@@ -471,7 +532,16 @@ int edit_property_record(){
  * @return 0.
  */
 int delete_property_record(){
-    return 0;
+    printf("\nPlease enter record number to delete:");
+    int RecordNumberToDelete;
+    scanf("%d", &RecordNumberToDelete);
+
+    if (file_line_delete("property_records.bin", RecordNumberToDelete) == 0) {
+        return 0;
+    }
+    else {
+        return -1;
+    }
 };
 
 /**
@@ -1268,7 +1338,35 @@ int sort_rent_record(){
  * @return 0.
  */
 int add_maintenance_record(){
-    return 0;
+    MaintenanceInfo Maintenance;
+    printf("\nPlease enter PropertyID:");
+    scanf("%d", &Maintenance.PropertyID);
+    printf("\nPlease enter Cost:");
+    scanf("%d", &Maintenance.Cost);
+    printf("\nPlease enter Priority:");
+    scanf("%d", &Maintenance.Priority);
+    printf("\nPlease enter MaintenanceType:");
+    scanf("%s", &Maintenance.MaintenanceType);
+    printf("\nPlease enter ExpectedFinishingDate:");
+    scanf("%s", &Maintenance.ExpectedFinishingDate);
+
+    char formattedRecord[1024];
+
+    //Format the string first
+    snprintf(formattedRecord, sizeof(formattedRecord), "PropertyID:%d / Cost: %d / Priority: %d / MaintenanceType: %s / ExpectedFinishingDate: %s",
+        Maintenance.PropertyID, Maintenance.Cost,  Maintenance.Priority, Maintenance.MaintenanceType, Maintenance.ExpectedFinishingDate);
+    FILE* myFile;
+    myFile = fopen("maintenance_records.bin", "rb");
+    if (myFile == NULL) {
+        file_write("maintenance_records.bin", formattedRecord);
+        return 0;
+    }
+    else {
+        fclose(myFile);
+        file_append("maintenance_records.bin", formattedRecord);
+        return 0;
+    }
+    
 };
 /**
  * @brief edit maintenance record.
@@ -1276,7 +1374,33 @@ int add_maintenance_record(){
  * @return 0.
  */
 int edit_maintenance_record(){
-    return 0;
+    MaintenanceInfo Maintenance;
+    int RecordNumberToEdit;
+    printf("\nPlease enter record number to edit:");
+    scanf("%d", &RecordNumberToEdit);
+    printf("\nPlease enter PropertyID:");
+    scanf("%d", &Maintenance.PropertyID);
+    printf("\nPlease enter Cost:");
+    scanf("%d", &Maintenance.Cost);
+    printf("\nPlease enter Priority:");
+    scanf("%d", &Maintenance.Priority);
+    printf("\nPlease enter MaintenanceType:");
+    scanf("%s", &Maintenance.MaintenanceType);
+    printf("\nPlease enter ExpectedFinishingDate:");
+    scanf("%s", &Maintenance.ExpectedFinishingDate);
+
+    char formattedRecord[1024];
+    snprintf(formattedRecord, sizeof(formattedRecord), "PropertyID:%d / Cost: %d / Priority: %d / MaintenanceType: %s / ExpectedFinishingDate: %s",
+        Maintenance.PropertyID, Maintenance.Cost, Maintenance.Priority, Maintenance.MaintenanceType, Maintenance.ExpectedFinishingDate);
+
+    myFile = fopen("maintenance_records.bin", "rb");
+
+    if (file_edit("maintenance_records.bin", RecordNumberToEdit, formattedRecord) == 0) {
+        return 0;
+    }
+    else {
+        return -1;
+    }
 };
 /**
  * @brief delete maintenance record.
@@ -1284,7 +1408,16 @@ int edit_maintenance_record(){
  * @return 0.
  */
 int delete_maintenance_record(){
-    return 0;
+    printf("\nPlease enter record number to delete:");
+    int RecordNumberToDelete;
+    scanf("%d", &RecordNumberToDelete);
+
+    if (file_line_delete("rent_records.bin", RecordNumberToDelete) == 0) {
+        return 0;
+    }
+    else {
+        return -1;
+    }
 };
 
 /**
