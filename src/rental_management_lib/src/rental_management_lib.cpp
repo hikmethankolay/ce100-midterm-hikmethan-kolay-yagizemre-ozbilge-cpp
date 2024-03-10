@@ -1286,7 +1286,7 @@ int add_maintenance_record(){
 
     //Format the string first
     snprintf(formattedRecord, sizeof(formattedRecord), "PropertyID:%d / Cost: %d / Priority: %d / MaintenanceType: %s / ExpectedFinishingDate: %s",
-        Maintenance.PropertyID, Maintenance.Cost,  Maintenance.Priority Maintenance.MaintenanceType, Maintenance.ExpectedFinishingDate);
+        Maintenance.PropertyID, Maintenance.Cost,  Maintenance.Priority, Maintenance.MaintenanceType, Maintenance.ExpectedFinishingDate);
     FILE* myFile;
     myFile = fopen("maintenance_records.bin", "rb");
     if (myFile == NULL) {
@@ -1306,7 +1306,33 @@ int add_maintenance_record(){
  * @return 0.
  */
 int edit_maintenance_record(){
-    return 0;
+    MaintenanceInfo Maintenance;
+    int RecordNumberToEdit;
+    printf("\nPlease enter record number to edit:");
+    scanf("%d", &RecordNumberToEdit);
+    printf("\nPlease enter PropertyID:");
+    scanf("%d", &Maintenance.PropertyID);
+    printf("\nPlease enter Cost:");
+    scanf("%d", &Maintenance.Cost);
+    printf("\nPlease enter Priority:");
+    scanf("%d", &Maintenance.Priority);
+    printf("\nPlease enter MaintenanceType:");
+    scanf("%s", &Maintenance.MaintenanceType);
+    printf("\nPlease enter ExpectedFinishingDate:");
+    scanf("%s", &Maintenance.ExpectedFinishingDate);
+
+    char formattedRecord[1024];
+    snprintf(formattedRecord, sizeof(formattedRecord), "PropertyID:%d / Cost: %d / Priority: %d / MaintenanceType: %s / ExpectedFinishingDate: %s",
+        Maintenance.PropertyID, Maintenance.Cost, Maintenance.Priority, Maintenance.MaintenanceType, Maintenance.ExpectedFinishingDate);
+
+    myFile = fopen("maintenance_records.bin", "rb");
+
+    if (file_edit("maintenance_records.bin", RecordNumberToEdit, formattedRecord) == 0) {
+        return 0;
+    }
+    else {
+        return -1;
+    }
 };
 /**
  * @brief delete maintenance record.
