@@ -750,8 +750,6 @@ int edit_tenant_record(){
     snprintf(formattedRecord, sizeof(formattedRecord), "TenantID:%d / PropertyID:%d / Rent:%d / BirthDate:%s / Name:%s / Surname:%s",
             Tenant.TenantID, Tenant.PropertyID, Tenant.Rent, Tenant.BirthDate, Tenant.Name, Tenant.Surname);
 
-    FILE *myFile;
-    myFile = fopen("tenant_records.bin", "rb");
 
     if(file_edit("tenant_record.bin",RecordNumberToEdit,formattedRecord) == 0) {
         return 0;
@@ -991,7 +989,32 @@ int search_tenant_record(){
  * @return 0.
  */
 int add_rent_record(){
-    return 0;
+    RentInfo Rent;
+    printf("\nPlease enter  TenantID:");
+    scanf("%d ", &Rent.TenantID);
+    printf("\nPlease enter  CurrentRentDebt:");
+    scanf("%d ", &Rent.CurrentRentDebt);
+    printf("\nPlease enter  DueDate:");
+    scanf("%s ", &Rent.DueDate);
+
+    char formattedRecord[1024];
+
+    // Format the string first
+    snprintf(formattedRecord, sizeof(formattedRecord), "TenantID:%d/ CurrentRentDate:%d/ DueDate:%s", Rent.TenantID, Rent.CurrentRentDebt, Rent.DueDate);
+
+    FILE* myFile;
+    myFile = fopen("rent_records.bin", "rb");
+    if (myFile == NULL)
+    {
+        file_write("rent_records.bin", formattedRecord);
+        return 0;
+    }
+    else {
+        fclose(myFile);
+        file_append("rent_records.bin", formattedRecord);
+        return 0;
+    }
+    
 };
 /**
  * @brief edit rent record.
@@ -999,15 +1022,44 @@ int add_rent_record(){
  * @return 0.
  */
 int edit_rent_record(){
-    return 0;
+    RentInfo Rent;
+    int RecordNumberToEdit;
+    printf("\nPlease enter record number to edit:");
+    scanf("%d", &RecordNumberToEdit);
+    printf("\nPlease enter  TenantID:");
+    scanf("%d ", &Rent.TenantID);
+    printf("\nPlease enter  CurrentRentDebt:");
+    scanf("%d ", &Rent.CurrentRentDebt);
+    printf("\nPlease enter  DueDate:");
+    scanf("%s ", &Rent.DueDate);
+
+    char formattedRecord[1024];
+
+    // Format the string first
+    snprintf(formattedRecord, sizeof(formattedRecord), "TenantID:%d/ CurrentRentDate:%d/ DueDate:%s", Rent.TenantID, Rent.CurrentRentDebt, Rent.DueDate);
+
+    if (file_edit("rent_records.bin", RecordNumberToEdit, formattedRecord) == 0) {
+        return 0;
+    } else {
+        return -1;
+    }
 };
+
 /**
  * @brief delete rent record.
  *
  * @return 0.
  */
 int delete_rent_record(){
-    return 0;
+    printf("\nPlease enter record number to delete:");
+    int RecordNumberToDelete;
+    scanf("%d", &RecordNumberToDelete);
+
+    if (file_line_delete("rent_records.bin", RecordNumberToDelete) == 0) {
+        return 0;
+    } else {
+        return -1;
+    }
 };
 
 /**
