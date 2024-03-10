@@ -17,10 +17,14 @@
 #include <string.h>
 
 /**
- * @brief Structs for menu functions.
+ * @brief Struct for menu functions.
  *
  */
 struct manin_menu_variables main_menu_choice;
+/**
+ * @brief Struct for menu functions.
+ *
+ */
 struct sub_menu_variables sub_menu;
 
 /**
