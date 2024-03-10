@@ -13,10 +13,25 @@
 */
 struct login_menu_variables
 {
+    /**
+     * @brief a varible to control app's running state.
+    */
     bool run = true;
+    /**
+    * @brief a varible for menu navigation.
+    */
     int login_menu_login = 1;
+    /**
+    * @brief a varible for menu navigation.
+    */
     int login_menu_register = 2;
+    /**
+    * @brief a varible for menu navigation.
+    */
     int login_menu_password_reset = 3;
+    /**
+    * @brief a varible for menu navigation.
+    */
     int login_menu_exit = 4;
     
 };
@@ -27,12 +42,29 @@ struct login_menu_variables
 */
 struct manin_menu_variables
 {
-    
+    /**
+    * @brief a varible to control app's running state.
+    */
     bool logged_in = true;
+    /**
+    * @brief a varible for menu navigation.
+    */
     int main_menu_property = 1;
+    /**
+    * @brief a varible for menu navigation.
+    */
     int main_menu_tenant = 2;
+    /**
+    * @brief a varible for menu navigation.
+    */
     int main_menu_rent_tracking = 3;
+    /**
+    * @brief a varible for menu navigation.
+    */
     int main_menu_maintenance = 4;
+    /**
+    * @brief a varible for menu navigation.
+    */
     int main_menu_log_out = 5;
 };
 /**
@@ -42,12 +74,33 @@ struct manin_menu_variables
 */
 struct sub_menu_variables
 {
+    /**
+    * @brief a varible for menu navigation.
+    */
     int sub_menu_show = 1;
+    /**
+    * @brief a varible for menu navigation.
+    */
     int sub_menu_add = 2;
+    /**
+    * @brief a varible for menu navigation.
+    */
     int sub_menu_edit = 3;
+    /**
+    * @brief a varible for menu navigation.
+    */
     int sub_menu_delete = 4;
+    /**
+    * @brief a varible for menu navigation.
+    */
     int sub_menu_search = 5;
+    /**
+    * @brief a varible for menu navigation.
+    */
     int sub_menu_sort = 6;
+    /**
+    * @brief a varible for menu navigation.
+    */
     int sub_menu_return = 7;
 };
 
@@ -58,12 +111,33 @@ struct sub_menu_variables
 */
 typedef struct
 {   
+    /**
+    * @brief a variable to hold record's line number.
+    */
     int RecordNumber;
+    /**
+    * @brief a variable to hold Tenants ID.
+    */
     int TenantID;
+    /**
+    * @brief a variable to hold Properties ID.
+    */
     int PropertyID;
+    /**
+    * @brief a variable to hold rent.
+    */
     int Rent;
+    /**
+    * @brief a variable to hold Tennat's birth date.
+    */
     char BirthDate[11];
+    /**
+    * @brief a variable to hold Tennat's name.
+    */
     char Name[50];
+    /**
+    * @brief a variable to hold Tennat's surname.
+    */
     char Surname[50];
 
 } TenantInfo;
@@ -75,13 +149,37 @@ typedef struct
 */
 typedef struct
 {
+    /**
+    * @brief a variable to hold record's line number.
+    */
     int RecordNumber;
+    /**
+    * @brief a variable to hold Properties ID.
+    */
     int PropertyID;
+    /**
+    * @brief a variable to hold Properties age.
+    */
     int PropertyAge;
+    /**
+    * @brief a variable to hold Properties bedroom count.
+    */
     int Bedrooms;
+    /**
+    * @brief a variable to hold Properties livingromm count.
+    */
     int Livingrooms;
+    /**
+    * @brief a variable to hold Properties floor count.
+    */
     int Floors;
+    /**
+    * @brief a variable to hold Properties size.
+    */
     int Size;
+    /**
+    * @brief a variable to hold Properties adress.
+    */
     char Adress[50];
 
 } PropertyInfo;
@@ -94,9 +192,21 @@ typedef struct
 
 typedef struct
 {
+    /**
+    * @brief a variable to hold record's line number.
+    */
     int RecordNumber;
+    /**
+    * @brief a variable to hold Tenant's ID that owes rent.
+    */
     int TenantID;
+    /**
+    * @brief a variable to hold Tenant's rent debt.
+    */
     int CurrentRentDebt;
+    /**
+    * @brief a variable to hold rents due date.
+    */
     char DueDate[50];
 
 } RentInfo;
@@ -108,11 +218,29 @@ typedef struct
 */
 typedef struct
 {
+    /**
+    * @brief a variable to hold record's line number.
+    */
     int RecordNumber;
+    /**
+    * @brief a variable to hold Properties ID.
+    */
     int PropertyID;
+    /**
+    * @brief a variable to hold cost.
+    */
     int Cost;
+    /**
+    * @brief a variable to hold priority level.
+    */
     int Priority;
+    /**
+    * @brief a variable to hold maintenance type.
+    */
     char MaintenanceType[50];
+    /**
+    * @brief a variable to hold expected finishing date.
+    */
     char ExpectedFinishingDate[50];
 
 } MaintenanceInfo;

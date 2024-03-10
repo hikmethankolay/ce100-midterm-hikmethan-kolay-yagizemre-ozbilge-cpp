@@ -2,6 +2,10 @@
  * @file rental_management_app.cpp
  * @brief A simple program to demonstrate the usage of the rental_management_lib model class.
  *
+ */
+
+/**
+ * @brief a variable to mute warnings.
  *
  */
 #define _CRT_SECURE_NO_WARNINGS
