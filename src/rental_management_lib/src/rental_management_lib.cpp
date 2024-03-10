@@ -519,8 +519,6 @@ int edit_property_record(){
     snprintf(formattedRecord, sizeof(formattedRecord), "PropertyID: %d / PropertyAge: %d / Bedrooms: %d / LivingRooms: %d / Floors: %d / Size: %d / Address: %s /",
         Property.PropertyID, Property.PropertyAge, Property.Bedrooms, Property.Livingrooms, Property.Floors, Property.Size, Property.Adress);
 
-    FILE *myFile;
-    myFile = fopen("property_records.bin", "rb");
     if (file_edit("property_records.bin", RecordNumberToEdit, formattedRecord) == 0) {
         return 0;
     }
