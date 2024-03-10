@@ -1270,7 +1270,35 @@ int sort_rent_record(){
  * @return 0.
  */
 int add_maintenance_record(){
-    return 0;
+    MaintenanceInfo Maintenance;
+    printf("\nPlease enter PropertyID:");
+    scanf("%d", &Maintenance.PropertyID);
+    printf("\nPlease enter Cost:");
+    scanf("%d", &Maintenance.Cost);
+    printf("\nPlease enter Priority:");
+    scanf("%d", &Maintenance.Priority);
+    printf("\nPlease enter MaintenanceType:");
+    scanf("%s", &Maintenance.MaintenanceType);
+    printf("\nPlease enter ExpectedFinishingDate:");
+    scanf("%s", &Maintenance.ExpectedFinishingDate);
+
+    char formattedRecord[1024];
+
+    //Format the string first
+    snprintf(formattedRecord, sizeof(formattedRecord), "PropertyID:%d / Cost: %d / Priority: %d / MaintenanceType: %s / ExpectedFinishingDate: %s",
+        Maintenance.PropertyID, Maintenance.Cost,  Maintenance.Priority Maintenance.MaintenanceType, Maintenance.ExpectedFinishingDate);
+    FILE* myFile;
+    myFile = fopen("maintenance_records.bin", "rb");
+    if (myFile == NULL) {
+        file_write("maintenance_records.bin", formattedRecord);
+        return 0;
+    }
+    else {
+        fclose(myFile);
+        file_append("maintenance_records.bin", formattedRecord);
+        return 0;
+    }
+    
 };
 /**
  * @brief edit maintenance record.
