@@ -187,20 +187,17 @@ TEST_F(RentalTest, TestRegisterMenu) {
     register_menu();
 
 #ifdef _WIN32
-    
     freopen("CON", "w", stdout);
     fflush(stdout);
     freopen("CON", "r", stdin);
-
 #else
     freopen("/dev/tty", "w", stdout);
     fflush(stdout);
     freopen("/dev/tty", "r", stdin);
-
 #endif
 
     const char* expectedOutput = "Please enter your new username:\nPlease enter your new password:\nPlease enter your new recovery key:\n------------WARNING------------\nThis process will delete all previous records, do you still wish to proceed?[Y/n]:\nRegister is successful and all previous record are deleted.";
-    EXPECT_EQ(*expectedOutput, *file_read("login_menu_output_test.bin",'N'));
+    EXPECT_EQ(*expectedOutput, *file_read("register_menu_output_test.bin",'N'));
 }
 
 
