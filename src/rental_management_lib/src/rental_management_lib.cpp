@@ -283,7 +283,7 @@ int file_line_delete(const char *file_name, int line_number_to_delete) {
     }
 
     fclose(myFile); // Close the file
-    printf("\nData successfully deleted\n\n");
+    printf("\nData successfully deleted");
     return 0;
 }
 
@@ -458,7 +458,7 @@ int add_property_record(){
     char formattedRecord[1024];
 
     //Format the string first
-    snprintf(formattedRecord, sizeof(formattedRecord), "PropertyID: %d / PropertyAge: %d / Bedrooms: %d / LivingRooms: %d / Floors: %d / Size: %d / Address: %s /",
+    snprintf(formattedRecord, sizeof(formattedRecord), "PropertyID: %d / PropertyAge: %d / Bedrooms: %d / LivingRooms: %d / Floors: %d / Size: %d / Address: %s",
         Property.PropertyID, Property.PropertyAge, Property.Bedrooms, Property.Livingrooms, Property.Floors, Property.Size, Property.Adress);
     FILE* myFile;
     myFile = fopen("property_records.bin", "rb");
@@ -501,7 +501,7 @@ int edit_property_record(){
     char formattedRecord[1024];
 
     //Format the string first
-    snprintf(formattedRecord, sizeof(formattedRecord), "PropertyID: %d / PropertyAge: %d / Bedrooms: %d / LivingRooms: %d / Floors: %d / Size: %d / Address: %s /",
+    snprintf(formattedRecord, sizeof(formattedRecord), "PropertyID: %d / PropertyAge: %d / Bedrooms: %d / LivingRooms: %d / Floors: %d / Size: %d / Address: %s",
         Property.PropertyID, Property.PropertyAge, Property.Bedrooms, Property.Livingrooms, Property.Floors, Property.Size, Property.Adress);
 
     if (file_edit("property_records.bin", RecordNumberToEdit, formattedRecord) == 0) {
@@ -631,7 +631,7 @@ int PropertyRecursiveBinarySearch(PropertyInfo arr[], int l, int r, int tenantID
  * @return 0.
  */
 int search_property_record(){
-    printf("Please enter the ID of the Tenant you want to find:");
+    printf("\nPlease enter the ID of the Tenant you want to find:");
     int propertyIDToFind;
     scanf("%d", &propertyIDToFind);
 
@@ -673,7 +673,7 @@ int search_property_record(){
 
     if (indexOfID != -1)
     {
-        printf("------------Property Records Founded By PropertyID------------\n");
+        printf("\n------------Property Records Founded By PropertyID------------");
         printf("%d-)PropertyID:%d / PropertyAge:%d / Bedrooms:%d / Livingrooms:%d / Floors:%d / Size:%dm2 / Adress:%s\n",
             properties[indexOfID].RecordNumber,properties[indexOfID].PropertyID, properties[indexOfID].PropertyAge, properties[indexOfID].Bedrooms, properties[indexOfID].Livingrooms, properties[indexOfID].Floors, properties[indexOfID].Size, properties[indexOfID].Adress);
     }
@@ -725,7 +725,7 @@ int sort_property_record(){
 
     PropertyQuickSort(properties, 0, count-1);
 
-    printf("------------Property Records Sorted By PropertyID------------\n");
+    printf("\n------------Property Records Sorted By PropertyID------------");
     for (i = 0; i < count; i++) {
         printf("%d-)PropertyID:%d / PropertyAge:%d / Bedrooms:%d / Livingrooms:%d / Floors:%d / Size:%dm2 / Adress:%s\n",
                properties[i].RecordNumber,properties[i].PropertyID, properties[i].PropertyAge, properties[i].Bedrooms, properties[i].Livingrooms, properties[i].Floors, properties[i].Size, properties[i].Adress);
@@ -1602,22 +1602,22 @@ int sort_maintenance_record(){
 int properties_menu(){
     while (true)
     {
-        printf("\n--------Properties--------\n");
-        printf("1-)Show Properties\n");
-        printf("2-)Add Propertie\n");
-        printf("3-)Edit Properties\n");
-        printf("4-)Delete Properties\n");
-        printf("5-)Search Properties\n");
-        printf("6-)Sort Properties\n");
-        printf("7-)Return to Main Menu\n");
-        printf("Please enter a choice:");
+        printf("\n--------Properties--------");
+        printf("\n1-)Show Properties");
+        printf("\n2-)Add Propertie");
+        printf("\n3-)Edit Properties");
+        printf("\n4-)Delete Properties");
+        printf("\n5-)Search Properties");
+        printf("\n6-)Sort Properties");
+        printf("\n7-)Return to Main Menu");
+        printf("\nPlease enter a choice:");
 
         int choice_properties;
         scanf("%d", &choice_properties);
 
         if (choice_properties == sub_menu.sub_menu_show)
         {
-            printf("--------------Property Records--------------");
+            printf("\n--------------Property Records--------------\n");
             file_read("property_records.bin",'N');
             continue;
         }
@@ -1651,7 +1651,7 @@ int properties_menu(){
             break;
         }
         else{
-            printf("Please input a correct choice.");
+            printf("\nPlease input a correct choice.");
             continue;
         }
     }

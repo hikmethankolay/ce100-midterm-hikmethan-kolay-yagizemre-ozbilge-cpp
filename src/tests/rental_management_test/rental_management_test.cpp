@@ -253,6 +253,141 @@ TEST_F(RentalTest, TestLoginMenu) {
 }
 
 /**
+ * @brief Tests for properties user menu
+ */
+TEST_F(RentalTest, TestPropertiesMenu) {
+    
+    fflush(stdout);
+    
+    freopen("properties_menu_output_test.bin", "wb", stdout);
+    freopen("properties_menu_input_test.bin", "rb", stdin);
+
+    properties_menu();
+
+#ifdef _WIN32
+    freopen("CON", "w", stdout);
+    fflush(stdout);
+    freopen("CON", "r", stdin);
+#else
+    freopen("/dev/tty", "w", stdout);
+    fflush(stdout);
+    freopen("/dev/tty", "r", stdin);
+#endif
+
+    const char* expectedOutput = R"(
+    --------Properties--------
+    1-)Show Properties
+    2-)Add Propertie
+    3-)Edit Properties
+    4-)Delete Properties
+    5-)Search Properties
+    6-)Sort Properties
+    7-)Return to Main Menu
+    Please enter a choice:
+    Please enter PropertyID:
+    Please enter PropertyAge:
+    Please enter Bedrooms:
+    Please enter LivingRooms:
+    Please enter Floors:
+    Please enter Size:
+    Please enter Address:
+    --------Properties--------
+    1-)Show Properties
+    2-)Add Propertie
+    3-)Edit Properties
+    4-)Delete Properties
+    5-)Search Properties
+    6-)Sort Properties
+    7-)Return to Main Menu
+    Please enter a choice:
+    Please enter PropertyID:
+    Please enter PropertyAge:
+    Please enter Bedrooms:
+    Please enter LivingRooms:
+    Please enter Floors:
+    Please enter Size:
+    Please enter Address:
+    --------------Property Records--------------
+    1-)PropertyID: 123 / PropertyAge: 23 / Bedrooms: 3 / LivingRooms: 3 / Floors: 3 / Size: 137 / Address: asd
+    2-)PropertyID: 34 / PropertyAge: 23 / Bedrooms: 3 / LivingRooms: 3 / Floors: 3 / Size: 137 / Address: asd
+
+    --------Properties--------
+    1-)Show Properties
+    2-)Add Propertie
+    3-)Edit Properties
+    4-)Delete Properties
+    5-)Search Properties
+    6-)Sort Properties
+    7-)Return to Main Menu
+    Please enter a choice:
+    Please enter record number to edit:
+    Please enter PropertyID:
+    Please enter PropertyAge:
+    Please enter Bedrooms:
+    Please enter LivingRooms:
+    Please enter Floors:
+    Please enter Size:
+    Please enter Address:
+    --------Properties--------
+    1-)Show Properties
+    2-)Add Propertie
+    3-)Edit Properties
+    4-)Delete Properties
+    5-)Search Properties
+    6-)Sort Properties
+    7-)Return to Main Menu
+    Please enter a choice:
+    Please enter the ID of the Tenant you want to find:
+    ------------Property Records Founded By PropertyID------------
+    2-)PropertyID: 34 / PropertyAge: 23 / Bedrooms: 3 / LivingRooms: 6 / Floors: 7 / Size: 137 / Address: asd
+    --------Properties--------
+    1-)Show Properties
+    2-)Add Propertie
+    3-)Edit Properties
+    4-)Delete Properties
+    5-)Search Properties
+    6-)Sort Properties
+    7-)Return to Main Menu
+    Please enter a choice:
+    ------------Property Records Sorted By PropertyID------------
+    2-)PropertyID: 34 / PropertyAge: 23 / Bedrooms: 3 / LivingRooms: 3 / Floors: 3 / Size: 137 / Address: asd
+    1-)PropertyID: 123 / PropertyAge: 23 / Bedrooms: 3 / LivingRooms: 3 / Floors: 3 / Size: 137 / Address: asd
+    --------Properties--------
+    1-)Show Properties
+    2-)Add Propertie
+    3-)Edit Properties
+    4-)Delete Properties
+    5-)Search Properties
+    6-)Sort Properties
+    7-)Return to Main Menu
+    Please enter a choice:
+    Please enter record number to delete:
+    Data successfully deleted
+    --------Properties--------
+    1-)Show Properties
+    2-)Add Propertie
+    3-)Edit Properties
+    4-)Delete Properties
+    5-)Search Properties
+    6-)Sort Properties
+    7-)Return to Main Menu
+    Please enter a choice:
+    Please input a correct choice.
+    --------Properties--------
+    1-)Show Properties
+    2-)Add Propertie
+    3-)Edit Properties
+    4-)Delete Properties
+    5-)Search Properties
+    6-)Sort Properties
+    7-)Return to Main Menu
+    Please enter a choice:
+    )";
+
+    EXPECT_EQ(*expectedOutput, *file_read("properties_menu_output_test.bin",'N'));
+}
+
+/**
  * @brief The main function of the test program.
  *
  * @param argc The number of command-line arguments.
