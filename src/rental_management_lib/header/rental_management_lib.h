@@ -510,11 +510,4 @@ int register_menu();
  */
 int change_password_menu();
 
-/**
- * @brief This is a helper function for unit test. it read output data from files.
- * @param filename output file to read
- * @return string
- */
-char* readOutput(const char* filename);
-
 #endif // RENTAL_MANAGEMENT_LIB_H

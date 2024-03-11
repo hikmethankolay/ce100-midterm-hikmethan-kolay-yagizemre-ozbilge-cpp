@@ -59,53 +59,36 @@ int file_write(const char *file_name, const char *text) {
  * @brief Opens a binary file, reads all of its content, separates lines with "\n", and writes them to console. Also returns the contents of the file as a string for unit tests.
  *
  * @param file_name The name of the file to read from.
- * @return The contents of the file as a dynamically allocated string.
+ * @param is_sorting It is a variable to disabling wrting content to console so i wont display them twice during sorting
+ * @return The contents of the file as a staticly allocated string.
  */
-char* file_read(const char *file_name, char is_sorting) {
-    FILE *myFile;
-    char *content = NULL;
-    int length = 0, capacity = 0;
-    char i;
-
-    myFile = fopen(file_name, "rb"); // Opens file with read binary mode
-    if (myFile == NULL) {
+char* file_read(const char* file_name, char is_sorting) {
+    const int MAX_FILE_SIZE = 1024;
+    static char content[MAX_FILE_SIZE]; // Static buffer for file content
+    FILE* myFile = fopen(file_name, "rb");
+    if (!myFile) {
         printf("File operation failed, There is no record\n");
         return NULL;
     }
 
-    while ((i = fgetc(myFile)) != EOF) { // Takes all ASCII characters one by one
-        if (i == '\r') {
-            continue; // Skip carriage return
-        }
-
-        // Dynamically allocate or resize the content buffer
-        if (length + 1 >= capacity) {
-            capacity = capacity == 0 ? 128 : capacity * 2; // Start with 128 bytes or double the capacity
-            char *new_content = static_cast<char*>(realloc(content, capacity * sizeof(char)));
-            if (new_content == NULL) {
-                free(content);
-                fclose(myFile);
-                return NULL; // Memory allocation failed
-            }
-            content = new_content;
-        }
-
-        content[length++] = i; // Append character to content
+    size_t length = 0;
+    int ch;
+    while ((ch = fgetc(myFile)) != EOF && length < MAX_FILE_SIZE - 1) { // Ensure there's room for null terminator
+        if (ch == '\r') continue; // Skip '\r'
+        content[length++] = ch; // Append character to content
     }
+    content[length] = '\0'; // Null-terminate the string
 
-    if (content && is_sorting != 'Y') {
-        content[length] = '\0'; // Null-terminate the string
+    if (is_sorting != 'Y') {
         printf("%s", content); // Print the content to the console
     }
-    else if (content)
-    {
-        content[length] = '\0'; // Null-terminate the string
-    }
-    
 
-    fclose(myFile);
-    return content; // Return the dynamically allocated content
+    fclose(myFile); // Ensure the file is closed
+
+    // Return a pointer to the static buffer.
+    return content;
 }
+
 
 /**
  * @brief Appends given text to a binary file with an automatic calculated line number.
@@ -171,7 +154,7 @@ int file_append(const char *file_name, const char *text) {
  */
 int file_edit(const char *file_name, int line_number_to_edit, const char *new_line) {
     const int MAX_LINE_COUNT = 100;
-    const int MAX_LINE_LENGTH = 1024;
+    const int MAX_LINE_LENGTH = 100;
 
     FILE *myFile;
     char lines[MAX_LINE_COUNT][MAX_LINE_LENGTH]; // Array to store lines
@@ -236,7 +219,7 @@ int file_edit(const char *file_name, int line_number_to_edit, const char *new_li
  */
 int file_line_delete(const char *file_name, int line_number_to_delete) {
     const int MAX_LINE_COUNT = 100;
-    const int MAX_LINE_LENGTH = 1024;
+    const int MAX_LINE_LENGTH = 100;
 
     FILE *myFile;
     char lines[MAX_LINE_COUNT][MAX_LINE_LENGTH];
@@ -1995,22 +1978,3 @@ int change_password_menu(){
     user_change_password(recovery_key,password,user_file);
     return 0;
 };
-/**
- * @brief This is a helper function for unit test. it read output data from files.
- * @param filename output file to read
- * @return string
- */
-char* readOutput(const char* filename) {
-    FILE* file = fopen(filename, "r");
-
-    fseek(file, 0, SEEK_END);
-    long fsize = ftell(file);
-    fseek(file, 0, SEEK_SET);
-
-    char* string = (char*)malloc(fsize + 1);
-    fread(string, 1, fsize, file);
-    fclose(file);
-
-    string[fsize] = 0; // Null-terminate the string
-    return string;
-}
