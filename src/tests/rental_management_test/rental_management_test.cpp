@@ -177,22 +177,31 @@ TEST_F(RentalTest, TestUserChangePasswordFail_2) {
 /**
  * @brief Tests for register user menu
  */
-TEST_F(RentalTest, TestLoginMenu) {
+TEST_F(RentalTest, TestRegisterMenu) {
     
     fflush(stdout);
-    if (freopen("login_menu_output_test.bin", "wb", stdout) == NULL) {
-        perror("Failed to open login_menu_output_test.bin for stdout");
+    if (freopen("register_menu_output_test.bin", "wb", stdout) == NULL) {
+        perror("Failed to open register_menu_output_test.bin for stdout");
         exit(EXIT_FAILURE);
     }
-    if (freopen("login_menu_input_test.bin", "rb", stdin) == NULL) {
-        perror("Failed to open login_menu_input_test.bin for stdin");
+    if (freopen("register_menu_input_test.bin", "rb", stdin) == NULL) {
+        perror("Failed to open register_menu_input_test.bin for stdin");
         exit(EXIT_FAILURE);
     }
 
     register_menu();
 
-#ifdef _WIN32
-
+#ifdef _WIN64
+    
+    if (freopen("CON", "w", stdout) == NULL) {
+        perror("Failed to restore stdin from /dev/tty");
+        exit(EXIT_FAILURE);
+    }
+    fflush(stdout);
+    if (freopen("CON", "r", stdin) == NULL) {
+        perror("Failed to restore stdin from /dev/tty");
+        exit(EXIT_FAILURE);
+    }
 #else
     if (freopen("/dev/tty", "w", stdout) == NULL) {
         perror("Failed to restore stdout to /dev/tty");
