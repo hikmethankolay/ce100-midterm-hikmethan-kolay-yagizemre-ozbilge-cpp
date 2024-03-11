@@ -200,6 +200,57 @@ TEST_F(RentalTest, TestRegisterMenu) {
     EXPECT_EQ(*expectedOutput, *file_read("register_menu_output_test.bin",'N'));
 }
 
+/**
+ * @brief Tests for change password user menu
+ */
+TEST_F(RentalTest, TestChangePasswordMenu) {
+    
+    fflush(stdout);
+    
+    freopen("change_password_menu_output_test.bin", "wb", stdout);
+    freopen("change_password_menu_input_test.bin", "rb", stdin);
+
+    change_password_menu();
+
+#ifdef _WIN32
+    freopen("CON", "w", stdout);
+    fflush(stdout);
+    freopen("CON", "r", stdin);
+#else
+    freopen("/dev/tty", "w", stdout);
+    fflush(stdout);
+    freopen("/dev/tty", "r", stdin);
+#endif
+
+    const char* expectedOutput = "Please enter your recovery key:\nPlease enter your new password:\nRecovery Key Approved\nPassword changed successfully";
+    EXPECT_EQ(*expectedOutput, *file_read("change_password_menu_output_test.bin",'N'));
+}
+
+/**
+ * @brief Tests for login user menu
+ */
+TEST_F(RentalTest, TestLoginMenu) {
+    
+    fflush(stdout);
+    
+    freopen("login_menu_output_test.bin", "wb", stdout);
+    freopen("login_menu_input_test.bin", "rb", stdin);
+
+    login_menu();
+
+#ifdef _WIN32
+    freopen("CON", "w", stdout);
+    fflush(stdout);
+    freopen("CON", "r", stdin);
+#else
+    freopen("/dev/tty", "w", stdout);
+    fflush(stdout);
+    freopen("/dev/tty", "r", stdin);
+#endif
+
+    const char* expectedOutput = "Please enter your username:\nPlease enter your password:\nLogin Successful\n--------Main Menu--------\n1-)Properties\n2-)Tenants\n3-)Rent Tracking\n4-)Maintenance Tracking\n5-)Log out\nPlease enter a choice:";
+    EXPECT_EQ(*expectedOutput, *file_read("login_menu_output_test.bin",'N'));
+}
 
 /**
  * @brief The main function of the test program.

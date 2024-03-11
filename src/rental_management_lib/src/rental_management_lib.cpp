@@ -333,10 +333,10 @@ int user_login(const char *username, const char *password, const char *user_file
     fclose(myFile);
 
     if (strcmp(username, username_read) == 0 && strcmp(password, password_read) == 0) {
-        printf("Login Successful\n");
+        printf("\nLogin Successful");
         return 0;
     } else {
-        printf("Wrong username or password\n");
+        printf("\nWrong username or password");
         return -1;
     }
 }
@@ -385,17 +385,17 @@ int user_change_password(const char *recovery_key, const char *new_password, con
     }
 
     if (strcmp(recovery_key, recovery_key_read) == 0) {
-        printf("Recovery Key Approved\n");
+        printf("\nRecovery Key Approved");
 
         myFile = fopen(user_file, "wb"); // Open file with output tag in binary mode, truncating existing content
 
         fprintf(myFile, "%s/%s/%s", username_read, new_password, recovery_key_read); // Write new login info
         fclose(myFile);
-        printf("Password changed successfully\n");
+        printf("\nPassword changed successfully");
         return 0;
 
     } else {
-        printf("Wrong Recovery Key\n");
+        printf("\nWrong Recovery Key");
         return -1;
     }
 }
@@ -1859,13 +1859,13 @@ int main_menu(){
 
     while (main_menu_choice.logged_in == true)
     {
-        printf("\n--------Main Menu--------\n");
-        printf("1-)Properties\n");
-        printf("2-)Tenants\n");
-        printf("3-)Rent Tracking\n");
-        printf("4-)Maintenance Tracking\n");
-        printf("5-)Log out\n");
-        printf("Please enter a choice:");
+        printf("\n--------Main Menu--------");
+        printf("\n1-)Properties");
+        printf("\n2-)Tenants");
+        printf("\n3-)Rent Tracking");
+        printf("\n4-)Maintenance Tracking");
+        printf("\n5-)Log out");
+        printf("\nPlease enter a choice:");
         int choice_main_menu;
         scanf("%d", &choice_main_menu);
 
