@@ -180,38 +180,23 @@ TEST_F(RentalTest, TestUserChangePasswordFail_2) {
 TEST_F(RentalTest, TestRegisterMenu) {
     
     fflush(stdout);
-    if (freopen("register_menu_output_test.bin", "wb", stdout) == NULL) {
-        perror("Failed to open register_menu_output_test.bin for stdout");
-        exit(EXIT_FAILURE);
-    }
-    if (freopen("register_menu_input_test.bin", "rb", stdin) == NULL) {
-        perror("Failed to open register_menu_input_test.bin for stdin");
-        exit(EXIT_FAILURE);
-    }
+    
+    freopen("register_menu_output_test.bin", "wb", stdout);
+    freopen("register_menu_input_test.bin", "rb", stdin);
 
     register_menu();
 
-#ifdef _WIN64
+#ifdef _WIN32
     
-    if (freopen("CON", "w", stdout) == NULL) {
-        perror("Failed to restore stdin from /dev/tty");
-        exit(EXIT_FAILURE);
-    }
+    freopen("CON", "w", stdout);
     fflush(stdout);
-    if (freopen("CON", "r", stdin) == NULL) {
-        perror("Failed to restore stdin from /dev/tty");
-        exit(EXIT_FAILURE);
-    }
+    freopen("CON", "r", stdin);
+
 #else
-    if (freopen("/dev/tty", "w", stdout) == NULL) {
-        perror("Failed to restore stdout to /dev/tty");
-        exit(EXIT_FAILURE);
-    }
+    freopen("/dev/tty", "w", stdout);
     fflush(stdout);
-    if (freopen("/dev/tty", "r", stdin) == NULL) {
-        perror("Failed to restore stdin from /dev/tty");
-        exit(EXIT_FAILURE);
-    }
+    freopen("/dev/tty", "r", stdin);
+
 #endif
 
     const char* expectedOutput = "Please enter your new username:\nPlease enter your new password:\nPlease enter your new recovery key:\n------------WARNING------------\nThis process will delete all previous records, do you still wish to proceed?[Y/n]:\nRegister is successful and all previous record are deleted.";
