@@ -94,10 +94,11 @@ lcov --rc lcov_branch_coverage=1 --capture --initial --directory . --output-file
 lcov --rc lcov_branch_coverage=1 --capture --directory . --output-file coverage_linux.info
 lcov --rc lcov_branch_coverage=1 --remove coverage_linux.info '/usr/*' --output-file coverage_linux.info
 lcov --rc lcov_branch_coverage=1 --remove coverage_linux.info 'tests/*' --output-file coverage_linux.info
+lcov --rc lcov_branch_coverage=1 --remove coverage_linux.info '*gtest*' --output-file coverage_linux.info
 lcov --rc lcov_branch_coverage=1 --list coverage_linux.info
 
 echo "Generate Test Report"
-reportgenerator "-title:Rental Management Library Unit Test Coverage Report (Linux)" "-reports:**/coverage_linux.info" "-targetdir:docs/coveragereportliblinux" "-reporttypes:Html" 
+reportgenerator "-title:Rental Management Library Unit Test Coverage Report (Linux)" "-reports:**/coverage_linux.info" "-targetdir:docs/coveragereportliblinux" "-reporttypes:Html" "-sourcedirs:src/rental_management_lib/src;src/rental_management_lib/header;src/rental_management_app/src;src/rental_management_app/header;src/tests/rental_management_test" "-filefilters:-*minkernel\*;-*gtest*;-*a_work\*;-*gtest-*;-*gtest.cc;-*gtest.h;-*build*" "-historydir:report_test_hist_linux"
 
 "-sourcedirs:src/rental_management_lib/src;src/rental_management_lib/header;src/rental_management_app/src;src/rental_management_app/header;src/tests/rental_management_lib" "-filefilters:-*minkernel\*;-*gtest*;-*a\_work\*;-*gtest-*;-*gtest.cc;-*gtest.h;-*build*" "-historydir:report_test_hist_linux"
 reportgenerator "-reports:**/coverage_linux.info" "-targetdir:assets/codecoverageliblinux" "-reporttypes:Badges" "-sourcedirs:src/rental_management_lib/src;src/rental_management_lib/header;src/rental_management_app/src;src/rental_management_app/header;src/tests/rental_management_test" "-filefilters:-*minkernel\*;-*gtest*;-*a\_work\*;-*gtest-*;-*gtest.cc;-*gtest.h;-*build*"
