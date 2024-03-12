@@ -247,7 +247,6 @@ TEST_F(RentalTest, TestLoginMenu) {
     fflush(stdout);
     freopen("/dev/tty", "r", stdin);
 #endif
-
     const char* expectedOutput = "Please enter your username:\nPlease enter your password:\nLogin Successful\n--------Main Menu--------\n1-)Properties\n2-)Tenants\n3-)Rent Tracking\n4-)Maintenance Tracking\n5-)Log out\nPlease enter a choice:";
     EXPECT_EQ(*expectedOutput, *file_read("login_menu_output_test.bin",'N'));
 }
@@ -383,7 +382,6 @@ TEST_F(RentalTest, TestPropertiesMenu) {
     7-)Return to Main Menu
     Please enter a choice:
     )";
-
     EXPECT_EQ(*expectedOutput, *file_read("properties_menu_output_test.bin",'N'));
 }
 
@@ -397,6 +395,7 @@ TEST_F(RentalTest, TestPropertiesMenu) {
 int main(int argc, char** argv) {
 #ifdef ENABLE_RENTAL_TEST
 	::testing::InitGoogleTest(&argc, argv);
+    ::testing::GTEST_FLAG(color) = "no";
 	return RUN_ALL_TESTS();
 #else
 	return 0;
