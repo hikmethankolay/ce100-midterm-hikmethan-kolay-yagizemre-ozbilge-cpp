@@ -1,0 +1,185 @@
+
+--------Properties--------
+1-)Show Properties
+2-)Add Propertie
+3-)Edit Properties
+4-)Delete Properties
+5-)Search Properties
+6-)Sort Properties
+7-)Return to Main Menu
+Please enter a choice:
+Please enter PropertyID:
+Please enter PropertyAge:
+Please enter Bedrooms:
+Please enter LivingRooms:
+Please enter Floors:
+Please enter Size:
+Please enter Address:
+--------Properties--------
+1-)Show Properties
+2-)Add Propertie
+3-)Edit Properties
+4-)Delete Properties
+5-)Search Properties
+6-)Sort Properties
+7-)Return to Main Menu
+Please enter a choice:
+Please enter PropertyID:
+Please enter PropertyAge:
+Please enter Bedrooms:
+Please enter LivingRooms:
+Please enter Floors:
+Please enter Size:
+Please enter Address:
+--------Properties--------
+1-)Show Properties
+2-)Add Propertie
+3-)Edit Properties
+4-)Delete Properties
+5-)Search Properties
+6-)Sort Properties
+7-)Return to Main Menu
+Please enter a choice:
+Please enter PropertyID:
+Please enter PropertyAge:
+Please enter Bedrooms:
+Please enter LivingRooms:
+Please enter Floors:
+Please enter Size:
+Please enter Address:
+--------Properties--------
+1-)Show Properties
+2-)Add Propertie
+3-)Edit Properties
+4-)Delete Properties
+5-)Search Properties
+6-)Sort Properties
+7-)Return to Main Menu
+Please enter a choice:
+Please enter PropertyID:
+Please enter PropertyAge:
+Please enter Bedrooms:
+Please enter LivingRooms:
+Please enter Floors:
+Please enter Size:
+Please enter Address:
+--------Properties--------
+1-)Show Properties
+2-)Add Propertie
+3-)Edit Properties
+4-)Delete Properties
+5-)Search Properties
+6-)Sort Properties
+7-)Return to Main Menu
+Please enter a choice:
+Please enter PropertyID:
+Please enter PropertyAge:
+Please enter Bedrooms:
+Please enter LivingRooms:
+Please enter Floors:
+Please enter Size:
+Please enter Address:
+--------Properties--------
+1-)Show Properties
+2-)Add Propertie
+3-)Edit Properties
+4-)Delete Properties
+5-)Search Properties
+6-)Sort Properties
+7-)Return to Main Menu
+Please enter a choice:
+--------------Property Records--------------
+1-)PropertyID:123 / PropertyAge:23 / Bedrooms:3 / Livingrooms:3 / Floors:3 / Size:137m2 / Adress:asd
+2-)PropertyID:67 / PropertyAge:23 / Bedrooms:5 / Livingrooms:3 / Floors:7 / Size:137m2 / Adress:ghjhgk
+3-)PropertyID:896 / PropertyAge:23 / Bedrooms:5 / Livingrooms:3 / Floors:7 / Size:137m2 / Adress:ghjhgk
+4-)PropertyID:67 / PropertyAge:23 / Bedrooms:5 / Livingrooms:3 / Floors:7 / Size:137m2 / Adress:ghjhgk
+5-)PropertyID:34 / PropertyAge:23 / Bedrooms:3 / Livingrooms:3 / Floors:3 / Size:137m2 / Adress:asd
+
+--------Properties--------
+1-)Show Properties
+2-)Add Propertie
+3-)Edit Properties
+4-)Delete Properties
+5-)Search Properties
+6-)Sort Properties
+7-)Return to Main Menu
+Please enter a choice:
+Please enter record number to edit:
+Please enter PropertyID:
+Please enter PropertyAge:
+Please enter Bedrooms:
+Please enter LivingRooms:
+Please enter Floors:
+Please enter Size:
+Please enter Address:
+Data successfully edited.
+--------Properties--------
+1-)Show Properties
+2-)Add Propertie
+3-)Edit Properties
+4-)Delete Properties
+5-)Search Properties
+6-)Sort Properties
+7-)Return to Main Menu
+Please enter a choice:
+Please enter the ID of the Property you want to find:
+------------Property Records Founded By PropertyID------------
+5-)PropertyID:34 / PropertyAge:23 / Bedrooms:3 / Livingrooms:3 / Floors:3 / Size:137m2 / Adress:asd
+
+--------Properties--------
+1-)Show Properties
+2-)Add Propertie
+3-)Edit Properties
+4-)Delete Properties
+5-)Search Properties
+6-)Sort Properties
+7-)Return to Main Menu
+Please enter a choice:
+Please enter the ID of the Property you want to find:
+There is no such PropertyID.
+--------Properties--------
+1-)Show Properties
+2-)Add Propertie
+3-)Edit Properties
+4-)Delete Properties
+5-)Search Properties
+6-)Sort Properties
+7-)Return to Main Menu
+Please enter a choice:
+------------Property Records Sorted By PropertyID------------
+5-)PropertyID:34 / PropertyAge:23 / Bedrooms:3 / Livingrooms:3 / Floors:3 / Size:137m2 / Adress:asd
+2-)PropertyID:67 / PropertyAge:23 / Bedrooms:3 / Livingrooms:6 / Floors:7 / Size:137m2 / Adress:asd
+1-)PropertyID:123 / PropertyAge:23 / Bedrooms:3 / Livingrooms:3 / Floors:3 / Size:137m2 / Adress:asd
+4-)PropertyID:67 / PropertyAge:23 / Bedrooms:5 / Livingrooms:3 / Floors:7 / Size:137m2 / Adress:ghjhgk
+3-)PropertyID:896 / PropertyAge:23 / Bedrooms:5 / Livingrooms:3 / Floors:7 / Size:137m2 / Adress:ghjhgk
+
+--------Properties--------
+1-)Show Properties
+2-)Add Propertie
+3-)Edit Properties
+4-)Delete Properties
+5-)Search Properties
+6-)Sort Properties
+7-)Return to Main Menu
+Please enter a choice:
+Please enter record number to delete:
+Data successfully deleted
+--------Properties--------
+1-)Show Properties
+2-)Add Propertie
+3-)Edit Properties
+4-)Delete Properties
+5-)Search Properties
+6-)Sort Properties
+7-)Return to Main Menu
+Please enter a choice:
+Please input a correct choice.
+--------Properties--------
+1-)Show Properties
+2-)Add Propertie
+3-)Edit Properties
+4-)Delete Properties
+5-)Search Properties
+6-)Sort Properties
+7-)Return to Main Menu
+Please enter a choice:

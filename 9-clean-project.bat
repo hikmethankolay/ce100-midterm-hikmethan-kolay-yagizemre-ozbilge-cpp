@@ -64,10 +64,8 @@ del usertest.bin
 del user.bin
 del *_records.bin
 del *_test.bin
-del *_test.txt
-del *_test_2.bin
-del *_test_3.bin
-del *_test_4.bin
+del *_output.bin
+
 
 echo Delete the "site" folder and its contents
 rd /S /Q "site"
