@@ -993,7 +993,7 @@ int add_rent_record() {
   scanf("%s", Rent.DueDate);
   char formattedRecord[1024];
   // Format the string first
-  snprintf(formattedRecord, sizeof(formattedRecord), "TenantID:%d / CurrentRentDate:%d / DueDate:%s", Rent.TenantID, Rent.CurrentRentDebt, Rent.DueDate);
+  snprintf(formattedRecord, sizeof(formattedRecord), "TenantID:%d / CurrentRentDebt:%d / DueDate:%s", Rent.TenantID, Rent.CurrentRentDebt, Rent.DueDate);
   FILE *myFile;
   myFile = fopen("rent_records.bin", "rb");
 
@@ -1024,7 +1024,7 @@ int edit_rent_record() {
   scanf("%s", Rent.DueDate);
   char formattedRecord[1024];
   // Format the string first
-  snprintf(formattedRecord, sizeof(formattedRecord), "TenantID:%d/ CurrentRentDate:%d/ DueDate:%s", Rent.TenantID, Rent.CurrentRentDebt, Rent.DueDate);
+  snprintf(formattedRecord, sizeof(formattedRecord), "TenantID:%d / CurrentRentDebt:%d / DueDate:%s", Rent.TenantID, Rent.CurrentRentDebt, Rent.DueDate);
 
   if (file_edit("rent_records.bin", RecordNumberToEdit, formattedRecord) == 0) {
     return 0;
@@ -1181,7 +1181,7 @@ int search_rent_record() {
   int indexOfID = RentRecursiveBinarySearch(rents,0,count-1,tenantIDToFind);
 
   if (indexOfID != -1) {
-    printf("------------Rent Record Founded By TenantID------------\n");
+    printf("\n------------Rent Record Founded By TenantID------------\n");
     printf("%d-)TenantID:%d / CurrentRentDebt:%d / DueDate:%s\n",
            rents[indexOfID].RecordNumber,rents[indexOfID].TenantID, rents[indexOfID].CurrentRentDebt, rents[indexOfID].DueDate);
   }
@@ -1223,7 +1223,7 @@ int sort_rent_record() {
   }
 
   RentQuickSort(rents, 0, count-1);
-  printf("------------Rent Records Sorted By TenantID------------\n");
+  printf("\n------------Rent Records Sorted By TenantID------------\n");
 
   for (i = 0; i < count; i++) {
     printf("%d-)TenantID:%d / CurrentRentDebt:%d / DueDate:%s\n",
@@ -1289,7 +1289,7 @@ int edit_maintenance_record() {
   printf("\nPlease enter ExpectedFinishingDate:");
   scanf("%s", Maintenance.ExpectedFinishingDate);
   char formattedRecord[1024];
-  snprintf(formattedRecord, sizeof(formattedRecord), "PropertyID:%d / Cost: %d / Priority: %d / MaintenanceType: %s / ExpectedFinishingDate: %s",
+  snprintf(formattedRecord, sizeof(formattedRecord), "PropertyID:%d / Cost:%d / Priority:%d / MaintenanceType:%s / ExpectedFinishingDate:%s",
            Maintenance.PropertyID, Maintenance.Cost, Maintenance.Priority, Maintenance.MaintenanceType, Maintenance.ExpectedFinishingDate);
 
   if (file_edit("maintenance_records.bin", RecordNumberToEdit, formattedRecord) == 0) {
@@ -1377,20 +1377,20 @@ void MaintenanceheapSort(MaintenanceInfo arr[], int n) {
  * @param x The Priority value to search for.
  * @return The index of the element with the given Priority, or -1 if not found.
  */
-int MaintenanceRecursiveBinarySearch(MaintenanceInfo arr[], int l, int r, int propertyIDToFind) {
+int MaintenanceRecursiveBinarySearch(MaintenanceInfo arr[], int l, int r, int PriorityToFind) {
   if (r >= l) {
     int mid = l + (r - l) / 2;
 
     // If the element is present at the middle
-    if (arr[mid].PropertyID == propertyIDToFind)
+    if (arr[mid].Priority == PriorityToFind)
       return mid;
 
     // If the element is smaller than mid, then it can only be present in the left subarray
-    if (arr[mid].PropertyID > propertyIDToFind)
-      return MaintenanceRecursiveBinarySearch(arr, l, mid - 1, propertyIDToFind);
+    if (arr[mid].Priority > PriorityToFind)
+      return MaintenanceRecursiveBinarySearch(arr, l, mid - 1, PriorityToFind);
 
     // Else the element can only be present in the right subarray
-    return MaintenanceRecursiveBinarySearch(arr, mid + 1, r, propertyIDToFind);
+    return MaintenanceRecursiveBinarySearch(arr, mid + 1, r, PriorityToFind);
   }
 
   printf("\nThere is no such PropertyID.");
@@ -1403,7 +1403,7 @@ int MaintenanceRecursiveBinarySearch(MaintenanceInfo arr[], int l, int r, int pr
  * @return 0.
  */
 int search_maintenance_record() {
-  printf("Please enter the ID of the Property you want to find:");
+  printf("\nPlease enter the Priority of the Property you want to find:");
   int propertyIDToFind;
   scanf("%d", &propertyIDToFind);
   char *input = file_read("maintenance_records.bin",'Y');
@@ -1426,7 +1426,7 @@ int search_maintenance_record() {
   int i = 0;
 
   while (line != NULL && i < count) {
-    sscanf(line, "%d-)PropertyID:%d / Cost:%d / Priority:%d / MaintenanceType:%s ExpectedFinishingDate:%s",
+    sscanf(line, "%d-)PropertyID:%d / Cost:%d / Priority:%d / MaintenanceType:%s / ExpectedFinishingDate:%s",
            &maintenances[i].RecordNumber,&maintenances[i].PropertyID, &maintenances[i].Cost, &maintenances[i].Priority, maintenances[i].MaintenanceType, maintenances[i].ExpectedFinishingDate);
     line = strtok(NULL, "\n");
     i++;
@@ -1436,8 +1436,8 @@ int search_maintenance_record() {
   int indexOfID = MaintenanceRecursiveBinarySearch(maintenances,0,count-1,propertyIDToFind);
 
   if (indexOfID != -1) {
-    printf("------------Maintenance Record Founded By PropertyID------------\n");
-    printf("%d-)PropertyID:%d / Cost:%d / Priority:%d / MaintenanceType:%s ExpectedFinishingDate:%s\n",
+    printf("\n------------Maintenance Record Founded By Priority------------\n");
+    printf("%d-)PropertyID:%d / Cost:%d / Priority:%d / MaintenanceType:%s / ExpectedFinishingDate:%s\n",
            maintenances[indexOfID].RecordNumber,maintenances[indexOfID].PropertyID, maintenances[indexOfID].Cost, maintenances[indexOfID].Priority, maintenances[indexOfID].MaintenanceType,
            maintenances[indexOfID].ExpectedFinishingDate);
   }
@@ -1472,17 +1472,17 @@ int sort_maintenance_record() {
   int i = 0;
 
   while (line != NULL && i < count) {
-    sscanf(line, "%d-)PropertyID:%d / Cost:%d / Priority:%d / MaintenanceType:%s ExpectedFinishingDate:%s",
+    sscanf(line, "%d-)PropertyID:%d / Cost:%d / Priority:%d / MaintenanceType:%s / ExpectedFinishingDate:%s",
            &maintenances[i].RecordNumber,&maintenances[i].PropertyID, &maintenances[i].Cost, &maintenances[i].Priority, maintenances[i].MaintenanceType, maintenances[i].ExpectedFinishingDate);
     line = strtok(NULL, "\n");
     i++;
   }
 
   MaintenanceheapSort(maintenances, count-1);
-  printf("------------maintenances Records Sorted By PropertyID------------\n");
+  printf("\n------------Maintenances Records Sorted By Priority------------");
 
   for (i = 0; i < count; i++) {
-    printf("%d-)PropertyID:%d / Cost:%d / Priority:%d / MaintenanceType:%s ExpectedFinishingDate:%s\n",
+    printf("%d-)PropertyID:%d / Cost:%d / Priority:%d / MaintenanceType:%s / ExpectedFinishingDate:%s\n",
            maintenances[i].RecordNumber,maintenances[i].PropertyID, maintenances[i].Cost, maintenances[i].Priority, maintenances[i].MaintenanceType, maintenances[i].ExpectedFinishingDate);
   }
 
@@ -1594,20 +1594,20 @@ int tenants_menu() {
  */
 int rents_menu() {
   while (true) {
-    printf("\n--------Rent Tracking--------\n");
-    printf("1-)Show Rents\n");
-    printf("2-)Add Rents\n");
-    printf("3-)Edit Rents\n");
-    printf("4-)Delete Rents\n");
-    printf("5-)Search Rents\n");
-    printf("6-)Sort Rents\n");
-    printf("7-)Return to Main Menu\n");
-    printf("Please enter a choice:");
+    printf("\n--------Rent Tracking--------");
+    printf("\n1-)Show Rents");
+    printf("\n2-)Add Rents");
+    printf("\n3-)Edit Rents");
+    printf("\n4-)Delete Rents");
+    printf("\n5-)Search Rents");
+    printf("\n6-)Sort Rents");
+    printf("\n7-)Return to Main Menu");
+    printf("\nPlease enter a choice:");
     int choice_rents;
     scanf("%d", &choice_rents);
 
     if (choice_rents == sub_menu.sub_menu_show) {
-      printf("--------------Rent Records--------------\n");
+      printf("\n--------------Rent Records--------------\n");
       file_read("rent_records.bin",'N');
       continue;
     } else if (choice_rents == sub_menu.sub_menu_add) {
@@ -1642,20 +1642,20 @@ int rents_menu() {
  */
 int maintenance_menu() {
   while (true) {
-    printf("\n--------Maintenance Tracking--------\n");
-    printf("1-)Show Maintenances\n");
-    printf("2-)Add Maintenances\n");
-    printf("3-)Edit Maintenances\n");
-    printf("4-)Delete Maintenances\n");
-    printf("5-)Search Maintenances\n");
-    printf("6-)Sort Maintenances\n");
-    printf("7-)Return to Main Menu\n");
-    printf("Please enter a choice:");
+    printf("\n--------Maintenance Tracking--------");
+    printf("\n1-)Show Maintenances");
+    printf("\n2-)Add Maintenances");
+    printf("\n3-)Edit Maintenances");
+    printf("\n4-)Delete Maintenances");
+    printf("\n5-)Search Maintenances");
+    printf("\n6-)Sort Maintenances");
+    printf("\n7-)Return to Main Menu");
+    printf("\nPlease enter a choice:");
     int choice_maintenances;
     scanf("%d", &choice_maintenances);
 
     if (choice_maintenances == sub_menu.sub_menu_show) {
-      printf("--------------Maintenance Records--------------\n");
+      printf("\n--------------Maintenance Records--------------\n");
       file_read("maintenance_records.bin",'N');
       continue;
     } else if (choice_maintenances == sub_menu.sub_menu_add) {
@@ -1689,7 +1689,7 @@ int maintenance_menu() {
  * @return 0.
  */
 int main_menu() {
-  while (main_menu_choice.logged_in == true) {
+  while (true) {
     printf("\n--------Main Menu--------");
     printf("\n1-)Properties");
     printf("\n2-)Tenants");
@@ -1709,7 +1709,6 @@ int main_menu() {
     } else if (choice_main_menu == main_menu_choice.main_menu_maintenance) {
       maintenance_menu();
     } else if (choice_main_menu == main_menu_choice.main_menu_log_out) {
-      main_menu_choice.logged_in = false;
       break;
     } else {
       printf("Please input a correct choice.");

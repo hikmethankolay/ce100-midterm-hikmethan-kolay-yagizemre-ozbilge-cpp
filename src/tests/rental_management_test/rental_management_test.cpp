@@ -255,7 +255,6 @@ TEST_F(RentalTest, TestPropertiesMenu) {
   fflush(stdout);
   freopen("/dev/tty", "r", stdin);
 #endif
-  const char *expectedOutput = "";
   EXPECT_EQ(*file_read("properties_menu_expected_output.bin",'Y'), *file_read("properties_menu_output_test.bin",'Y'));
 }
 
@@ -278,6 +277,67 @@ TEST_F(RentalTest, TestTenantMenu) {
 #endif
   EXPECT_EQ(*file_read("tenant_menu_expected_output.bin",'Y'), *file_read("tenant_menu_output_test.bin",'Y'));
 }
+
+/**
+ * @brief Tests for Rent user menu
+ */
+TEST_F(RentalTest, TestRentMenu) {
+  fflush(stdout);
+  freopen("rent_menu_output_test.bin", "wb", stdout);
+  freopen("rent_menu_input_test.bin", "rb", stdin);
+  rents_menu();
+#ifdef _WIN32
+  freopen("CON", "w", stdout);
+  fflush(stdout);
+  freopen("CON", "r", stdin);
+#else
+  freopen("/dev/tty", "w", stdout);
+  fflush(stdout);
+  freopen("/dev/tty", "r", stdin);
+#endif
+  EXPECT_EQ(*file_read("rent_menu_expected_output.bin",'Y'), *file_read("rent_menu_output_test.bin",'Y'));
+}
+
+/**
+ * @brief Tests for maintenante user menu
+ */
+TEST_F(RentalTest, TestMaintenanceMenu) {
+  fflush(stdout);
+  freopen("maintenance_menu_output_test.bin", "wb", stdout);
+  freopen("maintenance_menu_input_test.bin", "rb", stdin);
+  maintenance_menu();
+#ifdef _WIN32
+  freopen("CON", "w", stdout);
+  fflush(stdout);
+  freopen("CON", "r", stdin);
+#else
+  freopen("/dev/tty", "w", stdout);
+  fflush(stdout);
+  freopen("/dev/tty", "r", stdin);
+#endif
+  EXPECT_EQ(*file_read("maintenance_menu_expected_output.bin",'Y'), *file_read("maintenance_menu_output_test.bin",'Y'));
+}
+
+/**
+ * @brief Tests for Main user menu
+ */
+TEST_F(RentalTest, TestMainMenu) {
+  fflush(stdout);
+  freopen("main_menu_output_test.bin", "wb", stdout);
+  freopen("main_menu_input_test.bin", "rb", stdin);
+  main_menu();
+#ifdef _WIN32
+  freopen("CON", "w", stdout);
+  fflush(stdout);
+  freopen("CON", "r", stdin);
+#else
+  freopen("/dev/tty", "w", stdout);
+  fflush(stdout);
+  freopen("/dev/tty", "r", stdin);
+#endif
+  EXPECT_EQ(*file_read("main_menu_expected_output.bin",'Y'), *file_read("main_menu_output_test.bin",'Y'));
+}
+
 /**
  * @brief The main function of the test program.
  *

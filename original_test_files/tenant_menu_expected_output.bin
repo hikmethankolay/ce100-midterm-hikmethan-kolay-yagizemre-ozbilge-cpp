@@ -68,6 +68,21 @@ Please enter Surname:
 6-)Sort Tenants
 7-)Return to Main Menu
 Please enter a choice:
+--------------Tenant Records--------------
+1-)TenantID:123 / PropertyID:234 / Rent:345 / BirthDate:22/55/2356 / Name:Alex / Surname:Smith
+2-)TenantID:456 / PropertyID:675 / Rent:978 / BirthDate:22/55/5467 / Name:Jhon / Surname:Stone
+3-)TenantID:12 / PropertyID:234 / Rent:345 / BirthDate:22/55/2356 / Name:Alex / Surname:Smith
+4-)TenantID:765 / PropertyID:675 / Rent:345 / BirthDate:22/55/5467 / Name:Jhon / Surname:Stone
+
+--------Tenants--------
+1-)Show Tenants
+2-)Add Tenants
+3-)Edit Tenants
+4-)Delete Tenants
+5-)Search Tenants
+6-)Sort Tenants
+7-)Return to Main Menu
+Please enter a choice:
 Please enter record number to edit:
 Please enter TenantID:
 Please enter PropertyID:
