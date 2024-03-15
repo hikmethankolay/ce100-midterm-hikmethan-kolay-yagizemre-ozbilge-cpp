@@ -566,9 +566,9 @@ int PropertyRandomizedPartition(PropertyInfo arr[], int low, int high) {
  * @param arr array of property record.
  * @param low start of the array.
  * @param high end of the array.
- * @return void
+ * @return 0
  */
-void PropertyQuickSort(PropertyInfo arr[], int low, int high) {
+int PropertyQuickSort(PropertyInfo arr[], int low, int high) {
   if (low < high) {
     // pi is partitioning index
     int pi = PropertyRandomizedPartition(arr, low, high);
@@ -576,6 +576,8 @@ void PropertyQuickSort(PropertyInfo arr[], int low, int high) {
     PropertyQuickSort(arr, low, pi-1);
     PropertyQuickSort(arr, pi + 1, high);
   }
+
+  return 0;
 }
 
 /**
@@ -840,9 +842,9 @@ int TenantRandomizedPartition(TenantInfo arr[], int low, int high) {
  * @param arr array of tenants record.
  * @param low start of the array.
  * @param high end of the array.
- * @return void
+ * @return 0
  */
-void TenantQuickSort(TenantInfo arr[], int low, int high) {
+int TenantQuickSort(TenantInfo arr[], int low, int high) {
   if (low < high) {
     // pi is partitioning index
     int pi = TenantRandomizedPartition(arr, low, high);
@@ -850,6 +852,8 @@ void TenantQuickSort(TenantInfo arr[], int low, int high) {
     TenantQuickSort(arr, low, pi-1);
     TenantQuickSort(arr, pi + 1, high);
   }
+
+  return 0;
 }
 
 /**
@@ -1102,9 +1106,9 @@ int RentRandomizedPartition(RentInfo arr[], int low, int high) {
  * @param arr array of rent record.
  * @param low start of the array.
  * @param high end of the array.
- * @return void
+ * @return 0
  */
-void RentQuickSort(RentInfo arr[], int low, int high) {
+int RentQuickSort(RentInfo arr[], int low, int high) {
   if (low < high) {
     // pi is partitioning index
     int pi = RentRandomizedPartition(arr, low, high);
@@ -1112,6 +1116,8 @@ void RentQuickSort(RentInfo arr[], int low, int high) {
     RentQuickSort(arr, low, pi-1);
     RentQuickSort(arr, pi + 1, high);
   }
+
+  return 0;
 }
 /**
  * @brief Performs binary search on an array of RentInfo structs sorted by tenantID.
@@ -1322,8 +1328,9 @@ int delete_maintenance_record() {
  * @param arr Array of MaintenanceInfo structs.
  * @param n Total number of elements in the array.
  * @param i Index of the root of the subtree to heapify.
+ * @return 0
  */
-void MaintenanceHeapify(MaintenanceInfo arr[], int n, int i) {
+int MaintenanceHeapify(MaintenanceInfo arr[], int n, int i) {
   int largest = i;
   int left = 2 * i + 1; // left = 2*i + 1
   int right = 2 * i + 2; // right = 2*i + 2
@@ -1344,6 +1351,8 @@ void MaintenanceHeapify(MaintenanceInfo arr[], int n, int i) {
     // Recursively heapify the affected sub-tree
     MaintenanceHeapify(arr, n, largest);
   }
+
+  return 0;
 }
 
 /**
@@ -1351,11 +1360,13 @@ void MaintenanceHeapify(MaintenanceInfo arr[], int n, int i) {
  *
  * @param arr Array of MaintenanceInfo structs to be sorted.
  * @param n Total number of elements in the array.
+ * @return 0
  */
-void MaintenanceheapSort(MaintenanceInfo arr[], int n) {
+int MaintenanceheapSort(MaintenanceInfo arr[], int n) {
   // Build heap (rearrange array)
-  for (int i = n / 2 - 1; i >= 0; i--)
+  for (int i = n / 2 - 1; i >= 0; i--) {
     MaintenanceHeapify(arr, n, i);
+  }
 
   // One by one extract an element from heap
   for (int i = n - 1; i >= 0; i--) {
@@ -1366,6 +1377,8 @@ void MaintenanceheapSort(MaintenanceInfo arr[], int n) {
     // call max heapify on the reduced heap
     MaintenanceHeapify(arr, i, 0);
   }
+
+  return 0;
 }
 
 /**
