@@ -364,7 +364,7 @@ jobs:
         shell: bash
         run: |
             status=$?
-            cmd="build/build/Release/calculator_test"
+            cmd="build/build/Release/rental_management_test"
             $cmd
             status=$?
             [ $status -eq 0 ] && exit 0 || exit 1  
@@ -374,7 +374,7 @@ jobs:
         shell: bash
         run: |
             status=$?
-            cmd="build/build/Release/calculator_test"
+            cmd="build/build/Release/rental_management_test"
             $cmd
             status=$?
             [ $status -eq 0 ] && exit 0 || exit 1
@@ -384,7 +384,7 @@ jobs:
         shell: bash
         run: |
             status=$?
-            cmd="./build/build/Release/calculator_test"
+            cmd="./build/build/Release/rental_management_test"
             $cmd
             status=$?
             [ $status -eq 0 ] && exit 0 || exit 1
@@ -413,7 +413,7 @@ jobs:
         shell: bash
         run: |
             status=$?
-            cmd="build/build/Debug/calculator_test"
+            cmd="build/build/Debug/rental_management_test"
             $cmd
             status=$?
             [ $status -eq 0 ] && exit 0 || exit 1  
@@ -423,7 +423,7 @@ jobs:
         shell: bash
         run: |
             status=$?
-            cmd="build/build/Debug/calculator_test"
+            cmd="build/build/Debug/rental_management_test"
             $cmd
             status=$?
             [ $status -eq 0 ] && exit 0 || exit 1
@@ -433,7 +433,7 @@ jobs:
         shell: bash
         run: |
             status=$?
-            cmd="./build/build/Debug/calculator_test"
+            cmd="./build/build/Debug/rental_management_test"
             $cmd
             status=$?
             [ $status -eq 0 ] && exit 0 || exit 1
@@ -481,7 +481,7 @@ jobs:
         if: startsWith(matrix.config.os, 'windows') && matrix.config.active == true && matrix.config.testcoverage == true
         shell: cmd
         run: |
-            OpenCppCoverage.exe --export_type=cobertura:cobertura.xml --sources calculator\application\src --sources calculator\application\header --sources calculator\library\src --sources calculator\library\header  --sources calculator\tests\src -- build\build\Debug\calculator_test.exe
+            OpenCppCoverage.exe --export_type=cobertura:cobertura.xml --sources src\rental_management_app\src --sources src\rental_management_app\header --sources src\rental_management_lib\src --sources src\rental_management_lib\src\header  --sources src\tests\rental_management_test -- build\build\Debug\rental_management_test.exe
   
       - name: Generate Test Coverage on Ubuntu and MacOS
         if: (startsWith(matrix.config.os, 'ubuntu') || startsWith(matrix.config.os, 'macos')) && matrix.config.active == true  && matrix.config.testcoverage == true
@@ -500,15 +500,14 @@ jobs:
         if: startsWith(matrix.config.os, 'windows') && matrix.config.active == true  && matrix.config.testcoverage == true
         shell: cmd
         run: |
-            call reportgenerator "-title:Test Coverage Report" "-reports:**/cobertura.xml" "-sourcedirs:calculator/application/src;calculator/application/header;calculator/library/src;calculator/library/header;calculator/tests/src" "-targetdir:docs/coveragereport" -reporttypes:Html -filefilters:-*minkernel\*;-*a\_work\*;-*gtest-*;-*gtest.cc;-*gtest.h
-            call reportgenerator "-reports:**/cobertura.xml" "-sourcedirs:calculator/application/src;calculator/application/header;calculator/library/src;calculator/library/header;calculator/tests/src" "-targetdir:assets/codecoverage" -reporttypes:Badges -filefilters:-*minkernel\*;-*a\_work\*;-*gtest-*;-*gtest.cc;-*gtest.h
-  
+            call reportgenerator "-title:Test Coverage Report" "-reports:**/cobertura.xml" "-sourcedirs:src\rental_management_app\src;src\rental_management_app\header;src\rental_management_lib\src;src\rental_management_lib\src\header;src\tests\rental_management_test" "-targetdir:docs/coveragereport" -reporttypes:Html -filefilters:-*minkernel\*;-*a\_work\*;-*gtest-*;-*gtest.cc;-*gtest.h
+            call reportgenerator "-reports:**/cobertura.xml" "-sourcedirs:src\rental_management_app\src;src\rental_management_app\header;src\rental_management_lib\src;src\rental_management_lib\src\header;src\tests\rental_management_test" "-targetdir:assets/codecoverage" -reporttypes:Badges -filefilters:-*minkernel\*;-*a\_work\*;-*gtest-*;-*gtest.cc;-*gtest.h
       - name: Generate Test Report on Ubuntu and MacOS
         if: (startsWith(matrix.config.os, 'ubuntu') || startsWith(matrix.config.os, 'macos')) && matrix.config.active == true  && matrix.config.testcoverage == true
         shell: bash
         run: |
-            reportgenerator "-title:Test Coverage Report" "-reports:**/coverage.info" "-sourcedirs:calculator/application/src;calculator/application/header;calculator/library/src;calculator/library/header;calculator/tests/src" "-targetdir:docs/coveragereport" "-reporttypes:Html" "-filefilters:-*Xcode*;-*minkernel\*;-*gtest*;-*a\_work\*;-*gtest-*;-*gtest.cc;-*gtest.h"
-            reportgenerator "-reports:**/coverage.info" "-sourcedirs:calculator/application/src;calculator/application/header;calculator/library/src;calculator/library/header;calculator/tests/src" "-targetdir:assets/codecoverage" "-reporttypes:Badges" "-filefilters:-*Xcode*;-*minkernel\*;-*gtest*;-*a\_work\*;-*gtest-*;-*gtest.cc;-*gtest.h"
+            reportgenerator "-title:Test Coverage Report" "-reports:**/coverage.info" "-sourcedirs:src\rental_management_app\src;src\rental_management_app\header;src\rental_management_lib\src;src\rental_management_lib\src\header;src\tests\rental_management_test" "-targetdir:docs/coveragereport" "-reporttypes:Html" "-filefilters:-*Xcode*;-*minkernel\*;-*gtest*;-*a\_work\*;-*gtest-*;-*gtest.cc;-*gtest.h"
+            reportgenerator "-reports:**/coverage.info" "-sourcedirs:src\rental_management_app\src;src\rental_management_app\header;src\rental_management_lib\src;src\rental_management_lib\src\header;src\tests\rental_management_test" "-targetdir:assets/codecoverage" "-reporttypes:Badges" "-filefilters:-*Xcode*;-*minkernel\*;-*gtest*;-*a\_work\*;-*gtest-*;-*gtest.cc;-*gtest.h"
   
       # -------------------------------------------------------
 
@@ -518,7 +517,7 @@ jobs:
         run: |
             call robocopy assets "docs\assets" /E
             call copy README.md "docs\index.md"
-            call robocopy calculator\library\header "build\build\Release" /E
+            call robocopy src/rental_management_lib/header "build\build\Release" /E
             exit /B 0
     
       - name: Copy Webpage Files on Ubuntu/MacOS
@@ -526,8 +525,8 @@ jobs:
         run: |
             cp -R assets docs/
             cp README.md docs/index.md
-            cp -R calculator/library/header build/build/Release/
-          
+            cp -R src/rental_management_lib/header build/build/Release/
+
         # -------------------------------------------------------
         
       - name: Generate Webpage
