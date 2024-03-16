@@ -587,22 +587,23 @@ int PropertyQuickSort(PropertyInfo arr[], int low, int high) {
  * @param l Left index of the subarray to be searched (initially 0).
  * @param r Right index of the subarray to be searched (initially n-1, where n is the number of elements).
  * @param x The Priority value to search for.
+ * @param propertyIDToFind property ıd to find
  * @return The index of the element with the given Priority, or -1 if not found.
  */
-int PropertyRecursiveBinarySearch(PropertyInfo arr[], int l, int r, int tenantIDToFind) {
+int PropertyRecursiveBinarySearch(PropertyInfo arr[], int l, int r, int propertyIDToFind) {
   if (r >= l) {
     int mid = l + (r - l) / 2;
 
     // If the element is present at the middle
-    if (arr[mid].PropertyID == tenantIDToFind)
+    if (arr[mid].PropertyID == propertyIDToFind)
       return mid;
 
     // If the element is smaller than mid, then it can only be present in the left subarray
-    if (arr[mid].PropertyID > tenantIDToFind)
-      return PropertyRecursiveBinarySearch(arr, l, mid - 1, tenantIDToFind);
+    if (arr[mid].PropertyID > propertyIDToFind)
+      return PropertyRecursiveBinarySearch(arr, l, mid - 1, propertyIDToFind);
 
     // Else the element can only be present in the right subarray
-    return PropertyRecursiveBinarySearch(arr, mid + 1, r, tenantIDToFind);
+    return PropertyRecursiveBinarySearch(arr, mid + 1, r, propertyIDToFind);
   }
 
   printf("\nThere is no such PropertyID.");
