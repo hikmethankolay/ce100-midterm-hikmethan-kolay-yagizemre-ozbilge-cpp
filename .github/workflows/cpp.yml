@@ -200,6 +200,7 @@ jobs:
           if not exist "docs\doxygen" mkdir docs\doxygen
           if exist "site" rd /S /Q "site"
           if not exist "site" mkdir site
+          xcopy /E /I "%GITHUB_WORKSPACE%\original_test_files" "%GITHUB_WORKSPACE%"
 
       # -------------------------------------------------------
       - name: Clean Generated Folder and Files on Ubuntu/MacOS
@@ -234,6 +235,7 @@ jobs:
               rm -rf site
             fi
             mkdir -p site
+            cp -r "%GITHUB_WORKSPACE%/original_test_files/"* "%GITHUB_WORKSPACE%/"
 
       - name: Install dependencies on Windows
         if: startsWith(matrix.config.os, 'windows') && matrix.config.active == true
@@ -251,7 +253,6 @@ jobs:
             python -m coverxygen --version
             ninja --version
             cmake --version
-
       # sudo apt-get install -y ggcov
       # sudo update-alternatives --install /usr/bin/gcov gcov /usr/bin/gcov-7 90
       - name: Install dependencies on Ubuntu
@@ -339,7 +340,6 @@ jobs:
             ninja --version
             cmake --version
             gcc --version
-      
       # ----------------------------------------------------------------------------------
 
       - name: Configure and Build Release C++11
@@ -527,6 +527,14 @@ jobs:
             cp README.md docs/index.md
             cp -R src/rental_management_lib/header build/build/Release/
 
+      - name: Copy original test files to publish/bin Windwos
+        run: xcopy /E /I "%GITHUB_WORKSPACE%\original_test_files" "%GITHUB_WORKSPACE%\publish_win\bin"
+        shell: cmd
+
+      - name: Copy original test files to publish/bin Ubuntu/MacOs
+        run: cp -r "%GITHUB_WORKSPACE%/original_test_files/"* "%GITHUB_WORKSPACE%/"
+        shell: bash
+        
         # -------------------------------------------------------
         
       - name: Generate Webpage
@@ -597,6 +605,26 @@ jobs:
         with:
              name: ${{ matrix.config.artifact }}_doc.tar.gz
              path: release/${{ matrix.config.artifact }}_doc.tar.gz
+
+      - name: delete test files Ubuntu/MacOs
+        run: rm test1.bin test2.bin test3.bin test4.bin test5.bin usertest.bin user.bin *_records.bin *_test.bin *_output.bin
+        shell: bash
+        working-directory: "%GITHUB_WORKSPACE%/"
+
+      - name: delete test files Windows
+        run: |
+          del "%GITHUB_WORKSPACE%\test1.bin"
+          del "%GITHUB_WORKSPACE%\test2.bin"
+          del "%GITHUB_WORKSPACE%\test3.bin"
+          del "%GITHUB_WORKSPACE%\test4.bin"
+          del "%GITHUB_WORKSPACE%\test5.bin"
+          del "%GITHUB_WORKSPACE%\usertest.bin"
+          del "%GITHUB_WORKSPACE%\user.bin"
+          del "%GITHUB_WORKSPACE%\*_records.bin"
+          del "%GITHUB_WORKSPACE%\*_test.bin"
+          del "%GITHUB_WORKSPACE%\*_output.bin"
+        shell: cmd
+        working-directory: "%GITHUB_WORKSPACE%"
 
   # If Test Ok Then Generate Release
   create_release:
