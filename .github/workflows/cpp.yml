@@ -200,7 +200,7 @@ jobs:
           if not exist "docs\doxygen" mkdir docs\doxygen
           if exist "site" rd /S /Q "site"
           if not exist "site" mkdir site
-          xcopy /E /I "%GITHUB_WORKSPACE%\original_test_files" "%GITHUB_WORKSPACE%"
+          xcopy /E /I ".\original_test_files" ".\"
 
       # -------------------------------------------------------
       - name: Clean Generated Folder and Files on Ubuntu/MacOS
@@ -235,7 +235,7 @@ jobs:
               rm -rf site
             fi
             mkdir -p site
-            cp -r "%GITHUB_WORKSPACE%/original_test_files/"* "%GITHUB_WORKSPACE%/"
+            cp -r "./original_test_files/"* "./"
 
       - name: Install dependencies on Windows
         if: startsWith(matrix.config.os, 'windows') && matrix.config.active == true
@@ -528,11 +528,11 @@ jobs:
             cp -R src/rental_management_lib/header build/build/Release/
 
       - name: Copy original test files to publish/bin Windwos
-        run: xcopy /E /I "%GITHUB_WORKSPACE%\original_test_files" "%GITHUB_WORKSPACE%\publish_win\bin"
+        run: xcopy /E /I ".\original_test_files" ".\publish\bin"
         shell: cmd
 
       - name: Copy original test files to publish/bin Ubuntu/MacOs
-        run: cp -r "%GITHUB_WORKSPACE%/original_test_files/"* "%GITHUB_WORKSPACE%/"
+        run: cp -r "./original_test_files/"* "./publish/bin"
         shell: bash
         
         # -------------------------------------------------------
