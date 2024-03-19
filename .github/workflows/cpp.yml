@@ -527,12 +527,14 @@ jobs:
             cp README.md docs/index.md
             cp -R src/rental_management_lib/header build/build/Release/
 
-      - name: Copy original test files to publish/bin Windwos
-        run: xcopy /E /I ".\original_test_files" ".\publish\bin"
+      - name: Copy original test files to publish/bin Windows
+        if: startsWith(matrix.config.os, 'windows') && matrix.config.active == true
+        run: xcopy /E /I "original_test_files" ".\publish\bin"
         shell: cmd
 
-      - name: Copy original test files to publish/bin Ubuntu/MacOs
-        run: cp -r "./original_test_files/"* "./publish/bin"
+      - name: Copy original test files to publish/bin Ubuntu/MacOS
+        if: (startsWith(matrix.config.os, 'ubuntu') || startsWith(matrix.config.os, 'macos')) && matrix.config.active == true
+        run: cp -r "original_test_files/"* "./publish/bin"
         shell: bash
         
         # -------------------------------------------------------
