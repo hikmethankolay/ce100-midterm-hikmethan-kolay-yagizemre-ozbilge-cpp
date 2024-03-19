@@ -609,11 +609,13 @@ jobs:
              path: release/${{ matrix.config.artifact }}_doc.tar.gz
 
       - name: delete test files Ubuntu/MacOs
+        if: (startsWith(matrix.config.os, 'ubuntu') || startsWith(matrix.config.os, 'macos')) && matrix.config.active == true 
         run: rm test1.bin test2.bin test3.bin test4.bin test5.bin usertest.bin user.bin *_records.bin *_test.bin *_output.bin
         shell: bash
-        working-directory: "%GITHUB_WORKSPACE%/"
+        working-directory: "./"
 
       - name: delete test files Windows
+        if: startsWith(matrix.config.os, 'windows') && matrix.config.active == true
         run: |
           del "%GITHUB_WORKSPACE%\test1.bin"
           del "%GITHUB_WORKSPACE%\test2.bin"
@@ -626,7 +628,7 @@ jobs:
           del "%GITHUB_WORKSPACE%\*_test.bin"
           del "%GITHUB_WORKSPACE%\*_output.bin"
         shell: cmd
-        working-directory: "%GITHUB_WORKSPACE%"
+        working-directory: "./"
 
   # If Test Ok Then Generate Release
   create_release:
