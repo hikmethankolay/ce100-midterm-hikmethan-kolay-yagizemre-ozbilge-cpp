@@ -151,8 +151,8 @@ int file_append(const char *file_name, const char *text) {
  * @return 0 on success.
  */
 int file_edit(const char *file_name, int line_number_to_edit, const char *new_line) {
-  const int MAX_LINE_COUNT = 100;
-  const int MAX_LINE_LENGTH = 500;
+  const int MAX_LINE_COUNT = 50;
+  const int MAX_LINE_LENGTH = 200;
   FILE *myFile;
   char lines[MAX_LINE_COUNT][MAX_LINE_LENGTH]; // Array to store lines
   char line[MAX_LINE_LENGTH];
@@ -639,9 +639,9 @@ int search_property_record() {
   int i = 0;
 
   while (line != NULL && i < count) {
-    sscanf(line, "%d-)PropertyID:%d / PropertyAge:%d / Bedrooms:%d / Livingrooms:%d / Floors:%d / Size:%dm2 / Adress:%s",
-           &properties[i].RecordNumber,&properties[i].PropertyID, &properties[i].PropertyAge, &properties[i].Bedrooms, &properties[i].Livingrooms, &properties[i].Floors, &properties[i].Size,
-           properties[i].Adress);
+    int itemsRead = sscanf(line, "%d-)PropertyID:%d / PropertyAge:%d / Bedrooms:%d / Livingrooms:%d / Floors:%d / Size:%dm2 / Adress:%s",
+                           &properties[i].RecordNumber,&properties[i].PropertyID, &properties[i].PropertyAge, &properties[i].Bedrooms, &properties[i].Livingrooms, &properties[i].Floors, &properties[i].Size,
+                           properties[i].Adress);
     line = strtok(NULL, "\n");
     i++;
   }
@@ -686,9 +686,9 @@ int sort_property_record() {
   int i = 0;
 
   while (line != NULL && i < count) {
-    sscanf(line, "%d-)PropertyID:%d / PropertyAge:%d / Bedrooms:%d / Livingrooms:%d / Floors:%d / Size:%dm2 / Adress:%s",
-           &properties[i].RecordNumber,&properties[i].PropertyID, &properties[i].PropertyAge, &properties[i].Bedrooms, &properties[i].Livingrooms, &properties[i].Floors, &properties[i].Size,
-           properties[i].Adress);
+    int itemsRead = sscanf(line, "%d-)PropertyID:%d / PropertyAge:%d / Bedrooms:%d / Livingrooms:%d / Floors:%d / Size:%dm2 / Adress:%s",
+                           &properties[i].RecordNumber,&properties[i].PropertyID, &properties[i].PropertyAge, &properties[i].Bedrooms, &properties[i].Livingrooms, &properties[i].Floors, &properties[i].Size,
+                           properties[i].Adress);
     line = strtok(NULL, "\n");
     i++;
   }
@@ -913,8 +913,8 @@ int sort_tenant_record() {
   int i = 0;
 
   while (line != NULL && i < count) {
-    sscanf(line, "%d-)TenantID:%d / PropertyID:%d / Rent:%d / BirthDate:%s / Name:%s / Surname:%s",
-           &tenants[i].RecordNumber,&tenants[i].TenantID, &tenants[i].PropertyID, &tenants[i].Rent, tenants[i].BirthDate, tenants[i].Name, tenants[i].Surname);
+    int itemsRead = sscanf(line, "%d-)TenantID:%d / PropertyID:%d / Rent:%d / BirthDate:%s / Name:%s / Surname:%s",
+                           &tenants[i].RecordNumber,&tenants[i].TenantID, &tenants[i].PropertyID, &tenants[i].Rent, tenants[i].BirthDate, tenants[i].Name, tenants[i].Surname);
     line = strtok(NULL, "\n");
     i++;
   }
@@ -963,8 +963,8 @@ int search_tenant_record() {
   int i = 0;
 
   while (line != NULL && i < count) {
-    sscanf(line, "%d-)TenantID:%d / PropertyID:%d / Rent:%d / BirthDate:%s / Name:%s / Surname:%s",
-           &tenants[i].RecordNumber,&tenants[i].TenantID, &tenants[i].PropertyID, &tenants[i].Rent, tenants[i].BirthDate, tenants[i].Name, tenants[i].Surname);
+    int itemsRead = sscanf(line, "%d-)TenantID:%d / PropertyID:%d / Rent:%d / BirthDate:%s / Name:%s / Surname:%s",
+                           &tenants[i].RecordNumber,&tenants[i].TenantID, &tenants[i].PropertyID, &tenants[i].Rent, tenants[i].BirthDate, tenants[i].Name, tenants[i].Surname);
     line = strtok(NULL, "\n");
     i++;
   }
@@ -1178,8 +1178,8 @@ int search_rent_record() {
   int i = 0;
 
   while (line != NULL && i < count) {
-    sscanf(line, "%d-)TenantID:%d / CurrentRentDebt:%d / DueDate:%s",
-           &rents[i].RecordNumber,&rents[i].TenantID, &rents[i].CurrentRentDebt, rents[i].DueDate);
+    int itemsRead = sscanf(line, "%d-)TenantID:%d / CurrentRentDebt:%d / DueDate:%s",
+                           &rents[i].RecordNumber,&rents[i].TenantID, &rents[i].CurrentRentDebt, rents[i].DueDate);
     line = strtok(NULL, "\n");
     i++;
   }
@@ -1223,8 +1223,8 @@ int sort_rent_record() {
   int i = 0;
 
   while (line != NULL && i < count) {
-    sscanf(line, "%d-)TenantID:%d / CurrentRentDebt:%d / DueDate:%s",
-           &rents[i].RecordNumber,&rents[i].TenantID, &rents[i].CurrentRentDebt, rents[i].DueDate);
+    int itemsRead = sscanf(line, "%d-)TenantID:%d / CurrentRentDebt:%d / DueDate:%s",
+                           &rents[i].RecordNumber,&rents[i].TenantID, &rents[i].CurrentRentDebt, rents[i].DueDate);
     line = strtok(NULL, "\n");
     i++;
   }
@@ -1440,8 +1440,8 @@ int search_maintenance_record() {
   int i = 0;
 
   while (line != NULL && i < count) {
-    sscanf(line, "%d-)PropertyID:%d / Cost:%d / Priority:%d / MaintenanceType:%s / ExpectedFinishingDate:%s",
-           &maintenances[i].RecordNumber,&maintenances[i].PropertyID, &maintenances[i].Cost, &maintenances[i].Priority, maintenances[i].MaintenanceType, maintenances[i].ExpectedFinishingDate);
+    int itemsRead = sscanf(line, "%d-)PropertyID:%d / Cost:%d / Priority:%d / MaintenanceType:%s / ExpectedFinishingDate:%s",
+                           &maintenances[i].RecordNumber,&maintenances[i].PropertyID, &maintenances[i].Cost, &maintenances[i].Priority, maintenances[i].MaintenanceType, maintenances[i].ExpectedFinishingDate);
     line = strtok(NULL, "\n");
     i++;
   }
@@ -1486,8 +1486,8 @@ int sort_maintenance_record() {
   int i = 0;
 
   while (line != NULL && i < count) {
-    sscanf(line, "%d-)PropertyID:%d / Cost:%d / Priority:%d / MaintenanceType:%s / ExpectedFinishingDate:%s",
-           &maintenances[i].RecordNumber,&maintenances[i].PropertyID, &maintenances[i].Cost, &maintenances[i].Priority, maintenances[i].MaintenanceType, maintenances[i].ExpectedFinishingDate);
+    int itemsRead = sscanf(line, "%d-)PropertyID:%d / Cost:%d / Priority:%d / MaintenanceType:%s / ExpectedFinishingDate:%s",
+                           &maintenances[i].RecordNumber,&maintenances[i].PropertyID, &maintenances[i].Cost, &maintenances[i].Priority, maintenances[i].MaintenanceType, maintenances[i].ExpectedFinishingDate);
     line = strtok(NULL, "\n");
     i++;
   }
